@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(telegram:configure)",
+      "mcp__plugin_telegram_telegram__reply",
+      "WebSearch",
+      "WebFetch(domain:www.pertler.de)",
+      "WebFetch(domain:pagespeed.web.dev)",
+      "Bash(npm --version)",
+      "Bash(npm create:*)",
+      "Bash(cp _temp/astro.config.mjs .)",
+      "Bash(cp _temp/package.json .)",
+      "Bash(cp _temp/tsconfig.json .)",
+      "Bash(cp -r _temp/src .)",
+      "Bash(cp -r _temp/public .)",
+      "Bash(rm -rf _temp/src _temp/public _temp/*.mjs _temp/*.json _temp/*.md)",
+      "Bash(rmdir _temp)",
+      "Bash(npm install:*)",
+      "Bash(npx astro:*)",
+      "Bash(npm run:*)",
+      "Bash(curl -s http://localhost:4321)"
+    ]
+  }
+}

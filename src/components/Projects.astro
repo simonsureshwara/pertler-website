@@ -1,0 +1,60 @@
+---
+const projects = [
+  {
+    title: "Bürokomplex München-City",
+    description: "Installation einer intelligenten Klimatechnik und vernetzten Gebäudeautomation für 1.200qm Bürofläche.",
+    tags: ["Klima", "Gewerbe"],
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
+    alt: "Moderner Bürokomplex in München",
+  },
+  {
+    title: "Einfamilienhaus am Stadtrand",
+    description: "Nachhaltiges Energiekonzept mit Luft-Wasser-Wärmepumpe und Fußbodenheizung im gesamten Wohnbereich.",
+    tags: ["Wärmepumpe", "Neubau"],
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
+    alt: "Einfamilienhaus mit Wärmepumpe",
+  },
+  {
+    title: "Exklusive Bad-Sanierung",
+    description: "Komplette Umgestaltung eines Bestandsbades in eine moderne Wellness-Oase mit bodengleicher Dusche.",
+    tags: ["Wellness", "Bad"],
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
+    alt: "Luxuriöses Badezimmer nach Sanierung",
+  },
+];
+---
+
+<section class="py-24 md:py-32 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div>
+        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Referenzen</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tighter font-headline">Projekte, die für sich sprechen.</h2>
+      </div>
+      <a href="/projekte/" class="text-primary font-bold border-b-2 border-primary/20 hover:border-primary transition-all pb-1 mb-2">
+        Alle Projekte ansehen →
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg aspect-[4/3] mb-6">
+            <img
+              src={project.image}
+              alt={project.alt}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div class="absolute top-4 left-4 flex gap-2">
+              {project.tags.map((tag) => (
+                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-[10px] font-black uppercase rounded-full">{tag}</span>
+              ))}
+            </div>
+          </div>
+          <h4 class="text-xl font-bold mb-2 group-hover:text-secondary transition-colors font-headline">{project.title}</h4>
+          <p class="text-on-surface-variant text-sm line-clamp-2">{project.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

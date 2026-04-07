@@ -1,0 +1,70 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Heizung, Sanitär, Elektrotechnik, Bäder und Kältetechnik in München — seit 1984. Meisterbetrieb Ernst Pertler GmbH." } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="PERTLER Gebäudetechnik" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ernst Pertler GmbH",
+    "description": "Meisterbetrieb für Heizung, Sanitär, Elektrotechnik, Bäder und Kältetechnik in München.",
+    "url": "https://www.pertler.de",
+    "telephone": "+49-89-35894978",
+    "email": "info@pertler.de",
+    "foundingDate": "1984",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wilhelmine-Reichard-Str. 24",
+      "addressLocality": "München",
+      "postalCode": "80935",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.1951,
+      "longitude": 11.5574
+    },
+    "areaServed": "München und Umgebung",
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "07:30",
+      "closes": "17:00"
+    }
+  })} />
+
+  <style is:global>
+    @import "../styles/global.css";
+  </style>
+</head>
+<body>
+  <slot />
+</body>
+</html>

@@ -1,0 +1,23 @@
+---
+import { Clock, Award, Shield, BadgeCheck } from "lucide-astro";
+
+const items = [
+  { icon: Clock, text: "Seit 1984 · 40+ Jahre Erfahrung" },
+  { icon: Award, text: "Top 100 Innovator 2019" },
+  { icon: Shield, text: "Bayerns Best 50 · 2020" },
+  { icon: BadgeCheck, text: "Erasmus-Grasser-Preis 2018" },
+];
+---
+
+<section class="bg-surface-container-low">
+  <div class="max-w-screen-2xl mx-auto px-8 py-10">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-items-center">
+      {items.map(({ icon: Icon, text }) => (
+        <div class="flex items-center gap-3">
+          <Icon class="w-7 h-7 text-secondary shrink-0" />
+          <span class="text-sm font-semibold tracking-tight text-on-surface-variant uppercase">{text}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
