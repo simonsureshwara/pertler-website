@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
-/* Fonts */
-@import "@fontsource/manrope/700.css";
-@import "@fontsource/manrope/800.css";
+/* Fonts — Inter only */
 @import "@fontsource/inter/300.css";
 @import "@fontsource/inter/400.css";
 @import "@fontsource/inter/500.css";
 @import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/inter/800.css";
+@import "@fontsource/inter/900.css";
 
 /* ============================================
    PERTLER Design System — "Precision Heritage"
@@ -80,7 +81,7 @@
   --color-kaelte: #2e3b8c;
 
   /* --- Typography --- */
-  --font-headline: "Manrope", sans-serif;
+  --font-headline: "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-label: "Inter", sans-serif;
 
@@ -117,15 +118,29 @@ h1, h2, h3, h4 {
 }
 
 @utility editorial-shadow {
-  box-shadow: 0px 24px 48px rgba(26, 28, 27, 0.06);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 12px 24px rgba(0, 0, 0, 0.06);
 }
 
 @utility ghost-border {
   border: 1px solid rgba(219, 192, 192, 0.15);
 }
 
-@utility cta-gradient {
-  background: linear-gradient(135deg, #944a00 0%, #fe8e30 100%);
+
+@utility card-shadow {
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 6px 16px rgba(0, 0, 0, 0.06),
+    0 16px 36px rgba(0, 0, 0, 0.04);
+}
+
+@utility card-shadow-hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.06),
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 20px 44px rgba(0, 0, 0, 0.06);
 }
 
 @utility maroon-gradient {

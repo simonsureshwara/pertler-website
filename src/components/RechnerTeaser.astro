@@ -4,28 +4,28 @@ import { Flame, Bath } from "lucide-astro";
 
 <section class="py-24 bg-surface">
   <div class="max-w-screen-2xl mx-auto px-8">
-    <div class="bg-surface-container-low rounded-2xl p-12 lg:p-20">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="bg-surface-container-low rounded-2xl p-12 lg:p-20 relative overflow-hidden">
+      <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
         <!-- Heizungsrechner -->
-        <div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow border-b-4 border-secondary hover:shadow-xl transition-shadow group">
+        <div class="bg-surface-container-lowest p-10 rounded-xl shadow-sm border-b-4 border-secondary hover:shadow-xl transition-shadow group">
           <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-8">
             <Flame class="w-8 h-8 text-secondary" />
           </div>
-          <h3 class="text-2xl font-bold mb-4 font-headline">Heizungsrechner</h3>
+          <h3 class="text-2xl font-bold mb-4">Heizungsrechner</h3>
           <p class="text-on-surface-variant mb-8 leading-relaxed">Ermitteln Sie in wenigen Schritten Ihr individuelles Angebot für eine neue, effiziente Heizungsanlage.</p>
-          <a href="/rechner/heizungsrechner/" class="inline-flex items-center justify-center w-full px-8 py-4 cta-gradient text-white rounded-md font-bold transition-all hover:opacity-90">
+          <a href="/rechner/heizungsrechner/" class="inline-flex items-center justify-center w-full px-8 py-4 bg-secondary text-white rounded-md font-bold transition-all group-hover:bg-secondary-container">
             Heizung planen
           </a>
         </div>
 
         <!-- Badrechner -->
-        <div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow border-b-4 border-primary hover:shadow-xl transition-shadow group">
+        <div class="bg-surface-container-lowest p-10 rounded-xl shadow-sm border-b-4 border-primary hover:shadow-xl transition-shadow group">
           <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
             <Bath class="w-8 h-8 text-primary" />
           </div>
-          <h3 class="text-2xl font-bold mb-4 font-headline">Badrechner</h3>
+          <h3 class="text-2xl font-bold mb-4">Badrechner</h3>
           <p class="text-on-surface-variant mb-8 leading-relaxed">Konfigurieren Sie Ihr Traumbad online und erhalten Sie eine erste Kosteneinschätzung für Ihre Sanierung.</p>
-          <a href="/rechner/badrechner/" class="inline-flex items-center justify-center w-full px-8 py-4 cta-gradient text-white rounded-md font-bold transition-all hover:opacity-90">
+          <a href="/rechner/badrechner/" class="inline-flex items-center justify-center w-full px-8 py-4 bg-secondary text-white rounded-md font-bold transition-all group-hover:bg-secondary-container">
             Bad konfigurieren
           </a>
         </div>

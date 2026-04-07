@@ -10,17 +10,17 @@ const navLinks = [
 ];
 ---
 
-<nav class="fixed top-0 z-50 w-full glass-nav bg-surface/70 shadow-sm transition-all duration-300" id="main-nav">
+<nav class="sticky top-0 z-50 w-full glass-nav bg-surface/70 shadow-sm transition-all duration-300" id="main-nav">
   <div class="max-w-screen-2xl mx-auto flex justify-between items-center px-8 py-4">
     <div class="flex items-center gap-8">
-      <a href="/" class="text-2xl font-black text-gray-500 border-b-2 border-primary-container tracking-tight font-headline uppercase">
+      <a href="/" class="text-2xl font-black text-gray-500 border-b-2 border-primary tracking-tight uppercase">
         PERTLER
       </a>
       <div class="hidden lg:flex gap-8 items-center">
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-headline tracking-tight uppercase text-sm"
+            class="text-on-surface-variant font-medium hover:text-primary transition-opacity duration-300 tracking-tight uppercase text-sm"
           >
             {link.label}
           </a>
@@ -33,15 +33,14 @@ const navLinks = [
         class="hidden lg:flex items-center gap-2 text-primary font-bold hover:opacity-80 transition-opacity"
       >
         <Phone class="w-4 h-4" />
-        <span>089 / 35 89 49 78</span>
+        <span>Notdienst</span>
       </a>
       <a
         href="/buchung/"
-        class="hidden sm:inline-flex cta-gradient text-white py-3 px-6 rounded-md font-bold transition-all active:scale-95 text-sm uppercase tracking-wider hover:opacity-90"
+        class="hidden sm:inline-flex bg-secondary-container hover:bg-secondary text-on-secondary py-3 px-6 rounded-md font-bold transition-all active:scale-95 text-sm uppercase tracking-wider"
       >
         Angebot anfordern
       </a>
-      <!-- Mobile menu button -->
       <button
         id="mobile-menu-toggle"
         class="lg:hidden p-2 text-on-surface"
@@ -58,7 +57,7 @@ const navLinks = [
     {navLinks.map((link) => (
       <a
         href={link.href}
-        class="block py-3 text-on-surface font-headline font-bold uppercase tracking-tight border-b border-outline-variant/10"
+        class="block py-3 text-on-surface font-bold uppercase tracking-tight border-b border-outline-variant/10"
       >
         {link.label}
       </a>
@@ -68,7 +67,7 @@ const navLinks = [
         <Phone class="w-5 h-5" />
         089 / 35 89 49 78
       </a>
-      <a href="/buchung/" class="cta-gradient text-white py-3 px-6 rounded-md font-bold text-center text-sm uppercase">
+      <a href="/buchung/" class="bg-secondary-container text-on-secondary py-3 px-6 rounded-md font-bold text-center text-sm uppercase">
         Angebot anfordern
       </a>
     </div>
