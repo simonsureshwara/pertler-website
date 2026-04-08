@@ -23,7 +23,19 @@
       "Bash(grep -o \"\\\\.woff[^2]\" dist/_astro/*.css)",
       "Bash(ls -lh dist/_astro/*.css)",
       "Bash(grep -o \"url\\([^\\)]*woff\" dist/_astro/*.css)",
-      "Bash(ls -lh \"/c/Users/Simon/Documents/Projects/Github Projects/Pertler/dist/_astro/\"*.css)"
+      "Bash(ls -lh \"/c/Users/Simon/Documents/Projects/Github Projects/Pertler/dist/_astro/\"*.css)",
+      "Bash(mkdir -p \"/c/Users/Simon/Documents/Projects/Github Projects/Pertler/public/images\")",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80\" -o /tmp/heizung-hero.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=80\" -o /tmp/elektro-hero.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&q=80\" -o /tmp/baeder-hero.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80\" -o /tmp/kundendienst-hero.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-U0jpGKtMtWE?w=1920&q=80\" -o /tmp/heizung-hero2.jpg)",
+      "Bash(curl -sL \"https://unsplash.com/photos/U0jpGKtMtWE/download?w=1920\" -o /tmp/test.jpg -w \"%{http_code}\")",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1713294696129-8f3085d8d3cd?w=1920&q=80\" -o /tmp/heizung-hero.jpg)",
+      "Bash(curl -sL -o /tmp/heizung-hero.jpg \"https://plus.unsplash.com/premium_photo-1682146016156-c433bab5da23?w=1920&q=80\")",
+      "Bash(curl -sI \"https://images.unsplash.com/photo-U0jpGKtMtWE?w=1920\")",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(node -e ':*)"
     ]
   }
 }

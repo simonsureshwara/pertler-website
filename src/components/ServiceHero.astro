@@ -27,6 +27,7 @@ const color = colorMap[accent];
       src={image}
       alt={imageAlt}
       class="w-full h-full object-cover"
+      width="1920" height="1080"
       loading="eager"
     />
     <div class={`absolute inset-0 bg-gradient-to-r ${color.gradientFrom}`}></div>
@@ -43,8 +44,7 @@ const color = colorMap[accent];
       <div class="flex flex-wrap gap-4">
         <a
           href="/buchung/"
-          class="px-8 py-4 text-white rounded-md font-bold transition-all text-base hover:opacity-90"
-          style={`background-color: ${color.hex};`}
+          class="px-8 py-4 bg-white text-on-surface rounded-md font-bold transition-all text-base hover:bg-white/90 editorial-shadow"
         >
           Kostenlose Beratung
         </a>

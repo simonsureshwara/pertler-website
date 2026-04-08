@@ -4,9 +4,10 @@ import CookieBanner from "../components/CookieBanner.astro";
 interface Props {
   title: string;
   description?: string;
+  preloadImage?: string;
 }
 
-const { title, description = "Heizung, Sanitär, Elektrotechnik, Bäder und Kältetechnik in München — seit 1984. Meisterbetrieb Ernst Pertler GmbH." } = Astro.props;
+const { title, description = "Heizung, Sanitär, Elektrotechnik, Bäder und Kältetechnik in München — seit 1984. Meisterbetrieb Ernst Pertler GmbH.", preloadImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -36,7 +37,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="alternate" hreflang="de-DE" href={canonicalURL} />
   <link rel="alternate" hreflang="x-default" href={canonicalURL} />
 
-  <!-- Fonts: self-hosted, see global.css @font-face -->
+  <!-- Preloads -->
+  {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-wght-normal.woff2" crossorigin />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
