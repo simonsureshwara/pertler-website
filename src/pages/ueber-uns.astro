@@ -4,7 +4,22 @@ import EmergencyBanner from "../components/EmergencyBanner.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import ContactCTA from "../components/ContactCTA.astro";
+import TeamDepartment from "../components/TeamDepartment.astro";
+import Timeline from "../components/Timeline.astro";
 import { Users, Building2, Award, GraduationCap, Shield, Heart, Clock, ArrowRight } from "lucide-astro";
+
+function getPhotos(dept: string, count: number): string[] {
+  return Array.from({ length: count }, (_, i) =>
+    `/images/team/${dept}/${dept}-${String(i + 1).padStart(2, '0')}.webp`
+  );
+}
+
+const departments = [
+  { id: "team-heizung", name: "Heizung & Sanitär", description: "Planung, Installation und Modernisierung", borderColor: "border-heizung", photos: getPhotos("heizung", 39) },
+  { id: "team-kundendienst", name: "Kundendienst & Wartung", description: "Reparatur, Wartung und 24h Notdienst", borderColor: "border-sanitaer", photos: getPhotos("kundendienst", 23) },
+  { id: "team-baeder", name: "Bäder & Wellness", description: "Von der Planung bis zur letzten Fliese", borderColor: "border-baeder", photos: getPhotos("baeder", 16) },
+  { id: "team-elektro", name: "Elektrotechnik", description: "Installation, Smart Home und E-Mobilität", borderColor: "border-elektro", photos: getPhotos("elektro", 6) },
+];
 ---
 
 <BaseLayout
@@ -132,71 +147,58 @@ import { Users, Building2, Award, GraduationCap, Shield, Heart, Clock, ArrowRigh
       </div>
     </section>
 
-    <!-- ===== 4. UNSER TEAM ===== -->
+    <!-- ===== 4. UNSER TEAM — Department Mosaic ===== -->
     <section class="py-24 md:py-32 bg-surface">
       <div class="max-w-screen-2xl mx-auto px-8">
         <div class="text-center mb-16">
           <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Unser Team</span>
           <h2 class="text-3xl md:text-5xl font-black tracking-tighter mb-6">Die Menschen hinter PERTLER</h2>
           <p class="text-lg text-on-surface-variant max-w-3xl mx-auto">
-            Über 25 Fachkräfte und 21 Auszubildende arbeiten täglich daran, Ihre Projekte perfekt umzusetzen.
+            Über 80 Fachkräfte und Auszubildende in vier spezialisierten Abteilungen arbeiten täglich daran, Ihre Projekte perfekt umzusetzen.
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          <!-- Team Card 1 -->
-          <div class="text-center">
-            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face" alt="Geschäftsführung" class="w-full h-full object-cover" loading="lazy" />
+        {/* Geschäftsleitung + Verwaltung */}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          {/* Geschäftsleitung */}
+          <div class="bg-surface-container-lowest rounded-xl editorial-shadow border-t-8 border-primary p-8 lg:p-10 flex items-center gap-8">
+            <img
+              src="/images/team/leitung/geschaeftsfuehrung.webp"
+              alt="Stefan Pertler — Geschäftsführer"
+              width="120"
+              height="120"
+              class="w-24 h-24 md:w-30 md:h-30 rounded-full object-cover shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-secondary mb-1 block">Geschäftsführung</span>
+              <h3 class="text-xl font-bold">Stefan Pertler</h3>
+              <p class="text-on-surface-variant text-sm mt-1">Inhaber & Geschäftsführer der Ernst Pertler GmbH. Führt den Familienbetrieb in zweiter Generation.</p>
             </div>
-            <h3 class="font-bold text-lg mb-1">Geschäftsführung</h3>
-            <p class="text-on-surface-variant text-sm">Stefan Pertler — Inhaber & Geschäftsführer</p>
           </div>
 
-          <!-- Team Card 2 -->
-          <div class="text-center">
-            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
-              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=300&h=300&fit=crop&crop=face" alt="Team Heizung" class="w-full h-full object-cover" loading="lazy" />
+          {/* Verwaltung */}
+          <div class="bg-surface-container-lowest rounded-xl editorial-shadow border-t-8 border-outline-variant p-8 lg:p-10">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="text-xl font-bold">Verwaltung</h3>
+                <p class="text-on-surface-variant text-sm">Organisation, Disposition und Kundenbetreuung</p>
+              </div>
+              <span class="text-sm font-bold text-on-surface-variant bg-surface-container px-3 py-1 rounded-full">9 Mitarbeiter</span>
             </div>
-            <h3 class="font-bold text-lg mb-1">Team Heizung</h3>
-            <p class="text-on-surface-variant text-sm">Heizungsbaumeister & Monteure</p>
+            <div class="flex flex-wrap gap-3">
+              {[1,2,3,4,5,6,7,8,9].map(i => (
+                <img src={`/images/team/leitung/verwaltung-${String(i).padStart(2,'0')}.webp`} alt="Verwaltung" width="80" height="80" class="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover hover:scale-110 transition-transform duration-200" loading="lazy" />
+              ))}
+            </div>
           </div>
+        </div>
 
-          <!-- Team Card 3 -->
-          <div class="text-center">
-            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
-              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=300&h=300&fit=crop&crop=face" alt="Team Sanitär" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <h3 class="font-bold text-lg mb-1">Team Sanitär</h3>
-            <p class="text-on-surface-variant text-sm">Sanitärmeister & Installateure</p>
-          </div>
-
-          <!-- Team Card 4 -->
-          <div class="text-center">
-            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
-              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=300&h=300&fit=crop&crop=face" alt="Team Elektro" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <h3 class="font-bold text-lg mb-1">Team Elektro</h3>
-            <p class="text-on-surface-variant text-sm">Elektromeister & Techniker</p>
-          </div>
-
-          <!-- Team Card 5 -->
-          <div class="text-center">
-            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
-              <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=300&h=300&fit=crop&crop=face" alt="Team Bad" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <h3 class="font-bold text-lg mb-1">Team Bad</h3>
-            <p class="text-on-surface-variant text-sm">Badplaner & Fliesenleger</p>
-          </div>
-
-          <!-- Team Card 6 -->
-          <div class="text-center">
-            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Team Kundendienst" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <h3 class="font-bold text-lg mb-1">Team Kundendienst</h3>
-            <p class="text-on-surface-variant text-sm">Servicetechniker & Wartung</p>
-          </div>
+        {/* Abteilungen */}
+        <div class="space-y-8">
+          {departments.map((dept) => (
+            <TeamDepartment {...dept} />
+          ))}
         </div>
 
         <p class="text-center text-on-surface-variant mt-12 text-lg">
@@ -298,9 +300,28 @@ import { Users, Building2, Award, GraduationCap, Shield, Heart, Clock, ArrowRigh
       </div>
     </section>
 
-    <!-- ===== 7. CONTACT CTA ===== -->
+    <!-- ===== 7. TIMELINE ===== -->
+    <Timeline />
+
+    <!-- ===== 8. CONTACT CTA ===== -->
     <ContactCTA />
 
   </main>
   <Footer />
+
+  <script>
+    document.querySelectorAll('.expand-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = (btn as HTMLElement).dataset.target;
+        if (!target) return;
+        const grid = document.getElementById(target);
+        if (!grid) return;
+        grid.classList.toggle('expanded');
+        grid.querySelectorAll('img[data-src]').forEach(img => {
+          (img as HTMLImageElement).src = (img as HTMLImageElement).dataset.src!;
+          img.removeAttribute('data-src');
+        });
+      });
+    });
+  </script>
 </BaseLayout>

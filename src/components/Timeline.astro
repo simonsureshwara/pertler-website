@@ -1,0 +1,38 @@
+---
+const milestones = [
+  { year: "1984", title: "Gründung", text: "Ernst Pertler gründet das Unternehmen als Meisterbetrieb für Heizung und Sanitär in München-Feldmoching." },
+  { year: "2014", title: "Erweiterung", text: "Gründung der Ernst Pertler Service GmbH für Kundendienst, Wartung und Notdienst." },
+  { year: "2018", title: "Erasmus-Grasser-Preis", text: "Auszeichnung der Landeshauptstadt München für hervorragende Ausbildung und soziales Engagement." },
+  { year: "2019", title: "Top 100 Innovator", text: "Auszeichnung für innovative Digitalisierungsprozesse im Handwerk." },
+  { year: "2020", title: "Bayerns Best 50", text: "Anerkennung vom Bayerischen Staatsministerium für besonderes Wachstum und wirtschaftliche Stabilität." },
+  { year: "2026", title: "Neue Ausrichtung", text: "Erweiterung des Portfolios um Kälte- und Klimatechnik. Vier Gesellschaften unter einem Dach." },
+];
+---
+
+<section class="py-24 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Firmenhistorie</span>
+      <h2 class="text-3xl md:text-4xl font-black tracking-tighter">Von 1984 bis heute.</h2>
+    </div>
+
+    <div class="relative max-w-3xl mx-auto">
+      {/* Vertical line */}
+      <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-outline-variant/30 -translate-x-1/2"></div>
+
+      {milestones.map((m, i) => (
+        <div class={`relative flex items-start gap-8 mb-12 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+          {/* Dot */}
+          <div class="absolute left-6 md:left-1/2 w-4 h-4 bg-secondary rounded-full -translate-x-1/2 mt-1.5 z-10 ring-4 ring-surface"></div>
+
+          {/* Content */}
+          <div class={`ml-14 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8'}`}>
+            <span class="text-secondary font-black text-2xl">{m.year}</span>
+            <h4 class="font-bold text-lg mt-1 mb-2">{m.title}</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed">{m.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  description: string;
+  borderColor: string;
+  photos: string[];
+  initialShow?: number;
+}
+
+const { id, name, description, borderColor, photos, initialShow = 8 } = Astro.props;
+
+const visible = photos.slice(0, initialShow);
+const hidden = photos.slice(initialShow);
+const remaining = hidden.length;
+---
+
+<div class={`bg-surface-container-lowest rounded-xl editorial-shadow border-t-8 ${borderColor} p-8 lg:p-10`}>
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h3 class="text-xl font-bold">{name}</h3>
+      <p class="text-on-surface-variant text-sm">{description}</p>
+    </div>
+    <span class="text-sm font-bold text-on-surface-variant bg-surface-container px-3 py-1 rounded-full">
+      {photos.length} Mitarbeiter
+    </span>
+  </div>
+
+  <div class="team-grid flex flex-wrap gap-3" id={id}>
+    {/* Visible avatars */}
+    {visible.map((photo, i) => (
+      <img
+        src={photo}
+        alt={`Teammitglied ${name}`}
+        width="80"
+        height="80"
+        loading="lazy"
+        class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover hover:scale-110 transition-transform duration-200"
+      />
+    ))}
+
+    {/* Expand button */}
+    {remaining > 0 && (
+      <button
+        class="expand-btn w-16 h-16 md:w-20 md:h-20 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant font-bold text-sm hover:bg-surface-container-highest transition-colors cursor-pointer"
+        data-target={id}
+      >
+        +{remaining}
+      </button>
+    )}
+
+    {/* Hidden avatars — data-src, loaded on expand */}
+    {hidden.map((photo) => (
+      <img
+        data-src={photo}
+        alt={`Teammitglied ${name}`}
+        width="80"
+        height="80"
+        class="avatar-hidden w-16 h-16 md:w-20 md:h-20 rounded-full object-cover hover:scale-110 transition-transform duration-200"
+      />
+    ))}
+  </div>
+</div>
+
+<style>
+  .team-grid:not(.expanded) .avatar-hidden {
+    display: none;
+  }
+  .team-grid.expanded .expand-btn {
+    display: none;
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+import { Award, Shield, BadgeCheck } from "lucide-astro";
+
+const awards = [
+  {
+    icon: Shield,
+    title: "Bayerns Best 50",
+    year: "2020",
+    description: "Auszeichnung vom Bayerischen Staatsministerium für Wirtschaft für herausragendes Wachstum und wirtschaftliche Stabilität.",
+  },
+  {
+    icon: Award,
+    title: "Top 100 Innovator",
+    year: "2019",
+    description: "Prämierung für vorbildliche Digitalisierung und innovative Prozesse im Handwerksbetrieb.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Erasmus-Grasser-Preis",
+    year: "2018",
+    description: "Anerkennung der Landeshauptstadt München für hervorragende Ausbildung und soziales Engagement im Handwerk.",
+  },
+];
+---
+
+<section class="py-24 bg-surface-container-low">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Auszeichnungen</span>
+      <h2 class="text-3xl md:text-4xl font-black tracking-tighter">Qualität, die anerkannt wird.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {awards.map(({ icon: Icon, title, year, description }) => (
+        <div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow text-center">
+          <Icon class="w-12 h-12 text-secondary mx-auto mb-6" />
+          <h3 class="text-xl font-bold mb-1">{title}</h3>
+          <span class="text-sm text-secondary font-bold mb-4 block">{year}</span>
+          <p class="text-on-surface-variant text-sm leading-relaxed">{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
