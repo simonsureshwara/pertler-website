@@ -12,7 +12,7 @@ import Footer from "../../components/Footer.astro";
   <EmergencyBanner />
   <Navbar />
 
-  <main class="bg-surface min-h-screen pb-24 lg:pb-12">
+  <main id="main-content" class="bg-surface min-h-screen pb-24 lg:pb-12">
     <!-- Header -->
     <section class="bg-primary-container text-white py-12 px-6">
       <div class="max-w-3xl mx-auto text-center">
@@ -429,7 +429,7 @@ import Footer from "../../components/Footer.astro";
             <label class="flex items-start gap-3 cursor-pointer">
               <input type="checkbox" id="datenschutz-check" class="mt-1 w-4 h-4 accent-secondary rounded" />
               <span class="text-sm text-on-surface-variant leading-relaxed">
-                Ich habe die <a href="/datenschutz/" target="_blank" class="text-primary font-semibold underline underline-offset-2 hover:text-primary-container">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden. *
+                Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener" class="text-primary font-semibold underline underline-offset-2 hover:text-primary-container">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden. *
               </span>
             </label>
             <p class="text-xs text-error mt-2 hidden" id="datenschutz-error">Bitte bestätigen Sie die Datenschutzerklärung.</p>

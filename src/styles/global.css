@@ -156,3 +156,7 @@ h1, h2, h3, h4 {
 @utility maroon-gradient {
   background: linear-gradient(135deg, #6b1c23 0%, #4a1218 100%);
 }
+
+@utility cta-gradient {
+  background: linear-gradient(135deg, #944a00 0%, #fe8e30 100%);
+}
