@@ -1,0 +1,58 @@
+---
+---
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] hidden">
+  <div class="bg-surface-container-lowest border-t border-outline-variant/15 shadow-[0_-8px_24px_rgba(0,0,0,0.1)] px-8 py-6">
+    <div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-6">
+      <div class="flex-1">
+        <h3 class="font-bold text-on-surface mb-1">Cookie-Einstellungen</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">
+          Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Technisch notwendige Cookies sind für die Grundfunktionen erforderlich. Optionale Cookies helfen uns, die Website zu verbessern.
+          <a href="/datenschutz/" class="text-primary font-semibold hover:underline">Mehr erfahren</a>
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 shrink-0">
+        <button
+          id="cookie-reject"
+          class="px-6 py-3 border border-outline-variant/30 text-on-surface-variant rounded-md font-semibold text-sm hover:bg-surface-container transition-colors"
+        >
+          Nur notwendige
+        </button>
+        <button
+          id="cookie-accept"
+          class="px-6 py-3 bg-secondary hover:bg-secondary-container text-white rounded-md font-semibold text-sm transition-colors"
+        >
+          Alle akzeptieren
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const rejectBtn = document.getElementById('cookie-reject');
+  const footerCookieLink = document.getElementById('footer-cookie-settings');
+
+  // Show banner if no consent stored
+  if (!localStorage.getItem('pertler-cookie-consent')) {
+    banner?.classList.remove('hidden');
+  }
+
+  function setConsent(value: string) {
+    localStorage.setItem('pertler-cookie-consent', value);
+    banner?.classList.add('hidden');
+  }
+
+  acceptBtn?.addEventListener('click', () => setConsent('all'));
+  rejectBtn?.addEventListener('click', () => setConsent('essential'));
+
+  // Re-open from footer link
+  footerCookieLink?.addEventListener('click', (e) => {
+    e.preventDefault();
+    localStorage.removeItem('pertler-cookie-consent');
+    banner?.classList.remove('hidden');
+    banner?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>

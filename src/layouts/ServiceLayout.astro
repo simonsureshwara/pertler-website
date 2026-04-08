@@ -8,9 +8,10 @@ interface Props {
   title: string;
   description?: string;
   serviceSchema?: Record<string, any>;
+  activeCompany?: "pertler" | "service" | "elektro" | "bad";
 }
 
-const { title, description, serviceSchema } = Astro.props;
+const { title, description, serviceSchema, activeCompany } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -19,7 +20,7 @@ const { title, description, serviceSchema } = Astro.props;
   <main>
     <slot />
   </main>
-  <Footer />
+  <Footer activeCompany={activeCompany} />
   {serviceSchema && (
     <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   )}

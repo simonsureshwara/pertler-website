@@ -1,16 +1,24 @@
 ---
+interface Props {
+  activeCompany?: "pertler" | "service" | "bad" | "elektro";
+}
+
+const { activeCompany } = Astro.props;
+
 const serviceLinks = [
   { label: "Heizung & Sanitär", href: "/leistungen/heizung-sanitaer/" },
+  { label: "Kundendienst & Wartung", href: "/leistungen/kundendienst/" },
   { label: "Elektrotechnik", href: "/leistungen/elektrotechnik/" },
   { label: "Bäder & Wellness", href: "/leistungen/baeder-wellness/" },
-  { label: "Kälte & Klima", href: "/leistungen/kaelte-klima/" },
-  { label: "Notdienst", href: "/leistungen/notdienst/" },
+  { label: "24h Notdienst", href: "/leistungen/notdienst/" },
 ];
 
 const companyLinks = [
-  { label: "Über uns", href: "/ueber-uns/" },
+  { label: "Über uns & Team", href: "/ueber-uns/" },
+  { label: "Firmenhistorie", href: "/firmenhistorie/" },
+  { label: "Auszeichnungen", href: "/auszeichnungen/" },
   { label: "Karriere", href: "/karriere/" },
-  { label: "Rechner", href: "/rechner/" },
+  { label: "Projekte", href: "/projekte/" },
   { label: "Kontakt", href: "/kontakt/" },
 ];
 
@@ -18,56 +26,93 @@ const legalLinks = [
   { label: "Impressum", href: "/impressum/" },
   { label: "Datenschutz", href: "/datenschutz/" },
   { label: "Widerrufsrecht", href: "/widerrufsrecht/" },
-  { label: "Cookie-Einstellungen", href: "#" },
+  { label: "Cookie-Einstellungen", href: "#", id: "footer-cookie-settings" },
+];
+
+const companies = [
+  { key: "pertler", name: "Ernst Pertler GmbH", desc: "Heizung, Sanitär, Lüftung, Kälte", email: "info@pertler.de" },
+  { key: "service", name: "Ernst Pertler Service GmbH", desc: "Kundendienst & Wartung", email: "service@pertler.de" },
+  { key: "bad", name: "Pertler Bad GmbH", desc: "Badsanierung & Wellness", email: "bad@pertler.de" },
+  { key: "elektro", name: "Pertler Elektrotechnik GmbH", desc: "Elektro & Smart Home", email: "info@pertler.de" },
 ];
 ---
 
-<footer class="bg-primary-container text-on-primary-container py-16 px-12 border-t border-white/5">
-  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-    <div class="space-y-6">
+<footer class="bg-primary-container text-on-primary-container py-16 px-8 md:px-12 border-t border-white/5">
+  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+    <!-- Brand + Address -->
+    <div class="lg:col-span-2 space-y-6">
       <div class="text-2xl font-black text-white tracking-tight uppercase">PERTLER</div>
       <p class="text-white/60 text-sm leading-relaxed">Ihr inhabergeführter Meisterbetrieb in München. Handwerkliche Tradition vereint mit modernster Technik seit 1984.</p>
+      <div class="space-y-1 text-sm text-white/50">
+        <p>Wilhelmine-Reichard-Str. 24</p>
+        <p>80935 München</p>
+        <p class="font-bold text-white pt-2">089 / 35 89 49 78</p>
+        <p>info@pertler.de</p>
+      </div>
     </div>
 
+    <!-- Leistungen -->
     <div>
       <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Leistungen</h4>
-      <ul class="space-y-4">
+      <ul class="space-y-3">
         {serviceLinks.map((link) => (
           <li>
-            <a href={link.href} class="text-white/70 hover:text-white transition-all hover:underline text-sm">{link.label}</a>
+            <a href={link.href} class="text-white/60 hover:text-white transition-colors text-sm">{link.label}</a>
           </li>
         ))}
       </ul>
     </div>
 
+    <!-- Unternehmen -->
     <div>
       <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Unternehmen</h4>
-      <ul class="space-y-4">
+      <ul class="space-y-3">
         {companyLinks.map((link) => (
           <li>
-            <a href={link.href} class="text-white/70 hover:text-white transition-all hover:underline text-sm">{link.label}</a>
+            <a href={link.href} class="text-white/60 hover:text-white transition-colors text-sm">{link.label}</a>
           </li>
         ))}
       </ul>
     </div>
 
+    <!-- Rechtliches -->
     <div>
       <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Rechtliches</h4>
-      <ul class="space-y-4">
+      <ul class="space-y-3">
         {legalLinks.map((link) => (
           <li>
-            <a href={link.href} class="text-white/70 hover:text-white transition-all hover:underline text-sm">{link.label}</a>
+            <a href={link.href} id={link.id} class="text-white/60 hover:text-white transition-colors text-sm">{link.label}</a>
           </li>
         ))}
       </ul>
     </div>
   </div>
 
-  <div class="max-w-screen-2xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs">
-    <p>&copy; 2026 Ernst Pertler GmbH</p>
+  <!-- Gesellschaften -->
+  {activeCompany && (
+    <div class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-white/10">
+      <p class="text-xs uppercase tracking-widest text-white/40 mb-4">Ihr Ansprechpartner für diese Leistung</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {companies.map((company) => (
+          <div class={`p-4 rounded-lg text-sm ${company.key === activeCompany ? "bg-white/10 border border-white/20" : "opacity-40"}`}>
+            <div class={`font-bold ${company.key === activeCompany ? "text-white" : "text-white/60"}`}>{company.name}</div>
+            <div class="text-white/50 text-xs mt-1">{company.desc}</div>
+            {company.key === activeCompany && (
+              <a href={`mailto:${company.email}`} class="text-secondary-container text-xs font-semibold mt-2 block hover:underline">{company.email}</a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- Bottom Bar -->
+  <div class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs">
+    <p>&copy; 2026 Ernst Pertler GmbH &middot; Ernst Pertler Service GmbH &middot; Pertler Bad GmbH &middot; Pertler Elektrotechnik GmbH</p>
     <div class="flex gap-6">
       <a href="https://www.linkedin.com/company/ernst-pertler/" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
       <a href="https://www.instagram.com/pertler_gebaeudetechnik/" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram</a>
+      <a href="https://www.facebook.com/Pertler.GmbH/" target="_blank" rel="noopener" class="hover:text-white transition-colors">Facebook</a>
     </div>
   </div>
 </footer>

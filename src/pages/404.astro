@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { Home, ArrowRight, Phone } from "lucide-astro";
+---
+
+<BaseLayout title="Seite nicht gefunden | PERTLER Gebäudetechnik München">
+  <EmergencyBanner />
+  <Navbar />
+  <main>
+    <section class="min-h-[60vh] flex items-center py-24 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8 text-center">
+        <div class="text-8xl font-black text-outline-variant/30 mb-4">404</div>
+        <h1 class="text-3xl md:text-4xl font-black tracking-tighter mb-4">Seite nicht gefunden.</h1>
+        <p class="text-on-surface-variant text-lg max-w-lg mx-auto mb-12">
+          Die angeforderte Seite existiert leider nicht oder wurde verschoben. Vielleicht finden Sie hier, was Sie suchen:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
+          <a href="/" class="flex items-center justify-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow hover:shadow-lg transition-shadow font-bold text-on-surface">
+            <Home class="w-4 h-4" />
+            Startseite
+          </a>
+          <a href="/leistungen/heizung-sanitaer/" class="flex items-center justify-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow hover:shadow-lg transition-shadow font-bold text-on-surface">
+            Leistungen
+            <ArrowRight class="w-4 h-4" />
+          </a>
+          <a href="/kontakt/" class="flex items-center justify-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow hover:shadow-lg transition-shadow font-bold text-on-surface">
+            Kontakt
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+
+        <div class="text-on-surface-variant">
+          <p class="mb-2">Oder rufen Sie uns direkt an:</p>
+          <a href="tel:08935894978" class="inline-flex items-center gap-2 text-primary font-bold text-lg hover:opacity-80 transition-opacity">
+            <Phone class="w-5 h-5" />
+            089 / 35 89 49 78
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
