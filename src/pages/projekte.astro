@@ -155,30 +155,32 @@ const filterTags = ["Alle", "Heizung", "Sanitär", "Elektro", "Bad", "Klima"];
   </main>
   <Footer />
 
-  <script>
-    const buttons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.project-card');
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      var buttons = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('.project-card');
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = (btn as HTMLElement).dataset.filter!;
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = btn.getAttribute('data-filter');
 
-        // Update button styles
-        buttons.forEach(b => {
-          b.classList.remove('bg-primary', 'text-on-primary');
-          b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
-        });
-        btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
-        btn.classList.add('bg-primary', 'text-on-primary');
+          // Update button styles
+          buttons.forEach(function(b) {
+            b.style.backgroundColor = '';
+            b.style.color = '';
+          });
+          btn.style.backgroundColor = '#4d0510';
+          btn.style.color = '#ffffff';
 
-        // Filter cards
-        cards.forEach(card => {
-          const tags = (card as HTMLElement).dataset.tags || '';
-          if (filter === 'Alle' || tags.includes(filter)) {
-            (card as HTMLElement).style.display = '';
-          } else {
-            (card as HTMLElement).style.display = 'none';
-          }
+          // Filter cards
+          cards.forEach(function(card) {
+            var tags = card.getAttribute('data-tags') || '';
+            if (filter === 'Alle' || tags.indexOf(filter) !== -1) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
         });
       });
     });
