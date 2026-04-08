@@ -301,11 +301,11 @@ import Footer from "../../components/Footer.astro";
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Hauswirtschaftsraum">
               <span class="text-3xl">&#x1F6AA;</span>
-              <span class="font-semibold text-sm">Hauswirtschaftsraum</span>
+              <span class="font-semibold text-xs sm:text-sm">HWR</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Außenaufstellung">
               <span class="text-3xl">&#x1F333;</span>
-              <span class="font-semibold text-sm">Außenaufstellung</span>
+              <span class="font-semibold text-xs sm:text-sm">Außen</span>
             </button>
           </div>
         </div>
@@ -343,15 +343,15 @@ import Footer from "../../components/Footer.astro";
           </div>
         </div>
 
-        <div class="flex justify-between items-center mt-6">
-          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-8 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="6">
+        <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 mt-6">
+          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-6 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="6">
             Zurück
           </button>
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-3">
             <button type="button" class="btn-next text-on-surface-variant hover:text-primary text-sm font-medium underline underline-offset-2 transition-colors" data-next="8">
               Überspringen
             </button>
-            <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="8">
+            <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-6 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="8">
               Weiter
             </button>
           </div>
