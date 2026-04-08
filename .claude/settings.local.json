@@ -45,7 +45,8 @@
       "Bash(curl -s http://localhost:4321/ueber-uns/)",
       "Bash(mkdir -p public/images/team/kaelte)",
       "Bash(find:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(curl -s http://localhost:4321/)"
     ]
   }
 }

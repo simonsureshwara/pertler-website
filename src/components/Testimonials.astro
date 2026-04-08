@@ -96,9 +96,9 @@ const filtered = filter ? reviews.filter(r => r.category === filter) : reviews;
     <!-- Slider Container -->
     <div class="relative">
       <div class="overflow-hidden" id="testimonial-slider">
-        <div class="flex transition-transform duration-500 ease-out" id="testimonial-track" style={`width: ${filtered.length * 100}%;`}>
+        <div class="flex transition-transform duration-500 ease-out" id="testimonial-track">
           {filtered.map((review) => (
-            <div class="px-2 sm:px-4" style={`width: ${100 / filtered.length}%;`}>
+            <div class="testimonial-slide px-2 sm:px-4 shrink-0">
               <div class="bg-surface-container-lowest p-8 sm:p-10 rounded-xl editorial-shadow h-full flex flex-col">
                 <!-- Google icon + stars -->
                 <div class="flex items-center justify-between mb-6">
@@ -148,10 +148,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var dotsContainer = document.getElementById('testimonial-dots');
   if (!track) return;
 
-  var items = track.children;
-  var total = items.length;
+  var slides = track.querySelectorAll('.testimonial-slide');
+  var total = slides.length;
   var current = 0;
-  var perView = window.innerWidth >= 768 ? 3 : 1;
 
   function getPerView() {
     return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
@@ -162,9 +161,16 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function update() {
-    perView = getPerView();
-    var slideWidth = 100 / total;
-    var offset = current * slideWidth;
+    var perView = getPerView();
+    var slidePercent = 100 / perView;
+
+    // Set slide widths
+    for (var s = 0; s < slides.length; s++) {
+      slides[s].style.width = slidePercent + '%';
+    }
+
+    // Move track
+    var offset = current * slidePercent;
     track.style.transform = 'translateX(-' + offset + '%)';
 
     // Update dots
@@ -173,9 +179,15 @@ document.addEventListener('DOMContentLoaded', function() {
       var max = maxSlide();
       for (var i = 0; i <= max; i++) {
         var dot = document.createElement('button');
-        dot.className = 'w-2 h-2 rounded-full transition-all ' + (i === current ? 'bg-primary w-6' : 'bg-outline-variant/40');
+        dot.style.width = i === current ? '24px' : '8px';
+        dot.style.height = '8px';
+        dot.style.borderRadius = '9999px';
+        dot.style.backgroundColor = i === current ? '#4d0510' : 'rgba(219,192,192,0.4)';
+        dot.style.transition = 'all 0.3s';
+        dot.style.border = 'none';
+        dot.style.cursor = 'pointer';
         dot.setAttribute('aria-label', 'Slide ' + (i + 1));
-        dot.dataset.index = i;
+        dot.dataset.index = String(i);
         dot.addEventListener('click', function() {
           current = parseInt(this.dataset.index);
           update();

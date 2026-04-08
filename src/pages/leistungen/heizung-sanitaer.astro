@@ -8,7 +8,7 @@ import ProcessSteps from "../../components/ProcessSteps.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import ContactCTA from "../../components/ContactCTA.astro";
 import RelatedServices from "../../components/RelatedServices.astro";
-import { Star } from "lucide-astro";
+import Testimonials from "../../components/Testimonials.astro";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -149,29 +149,7 @@ const relatedServices = [
 
   <FAQSection faqs={faqs} accent="heizung" />
 
-  <!-- Testimonial Section -->
-  <section class="py-24 bg-surface-container-low">
-    <div class="max-w-screen-2xl mx-auto px-8">
-      <div class="text-center mb-16">
-        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Kundenstimmen</span>
-        <h2 class="text-4xl md:text-5xl font-black tracking-tighter">Was unsere Kunden sagen.</h2>
-      </div>
-      <div class="max-w-2xl mx-auto">
-        <div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow">
-          <div class="flex gap-1 mb-6">
-            {Array.from({ length: 5 }).map(() => (
-              <Star class="w-5 h-5 text-secondary fill-secondary" />
-            ))}
-          </div>
-          <p class="text-on-surface-variant leading-relaxed mb-8 italic">"Hervorragende Arbeit bei unserer Heizungssanierung. Von der Beratung bis zur Umsetzung alles professionell und termingerecht. Klare Empfehlung!"</p>
-          <div class="border-t border-outline-variant/15 pt-6">
-            <div class="font-bold text-on-surface">Familie Schneider</div>
-            <div class="text-sm text-on-surface-variant">München-Bogenhausen · Heizungssanierung</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Testimonials filter="heizung" />
 
   <ContactCTA accent="heizung" />
 

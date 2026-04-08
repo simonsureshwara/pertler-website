@@ -46,7 +46,7 @@ pertler-website/
 │   │   ├── TrustStats.astro         # Statistik-Grid (40+ Jahre, etc.)
 │   │   ├── About.astro              # Über-uns Teaser (Homepage)
 │   │   ├── Projects.astro           # 3 Projekt-Karten (Homepage)
-│   │   ├── Testimonials.astro       # 3 Kundenstimmen
+│   │   ├── Testimonials.astro       # Review-Slider (6 Reviews, Google Badge, Swipe, Filter-Prop)
 │   │   ├── RechnerTeaser.astro      # Heizungsrechner + Badrechner Cards
 │   │   ├── CTASection.astro         # Maroon-Gradient CTA Banner
 │   │   ├── ContactCTA.astro         # Kontakt-CTA (auf Unterseiten)
@@ -233,7 +233,51 @@ Direkt in `src/pages/impressum.astro` bzw. `src/pages/datenschutz.astro`. Reiner
 
 ---
 
-## 6. Team-Fotos System
+## 6. Testimonials / Reviews Slider
+
+### Komponente
+`src/components/Testimonials.astro` — wiederverwendbarer Review-Slider mit Google Badge.
+
+### Features
+- **6 Reviews** mit Kategorien: heizung, kundendienst, baeder, elektro
+- **Google Badge** oben rechts: echtes Google "G" SVG + 5 gelbe Sterne
+- **Google Icon** auf jeder Karte (authentischer Look)
+- **Slider**: 1 Karte Mobile, 2 Tablet, 3 Desktop
+- **Touch Swipe** auf Mobile
+- **Dot Navigation** + Pfeil-Buttons (Desktop)
+- **Filter-Prop**: zeigt nur Reviews einer Kategorie
+
+### Verwendung
+```astro
+<!-- Homepage: alle Reviews -->
+<Testimonials />
+
+<!-- Leistungsseite: nur passende Reviews -->
+<Testimonials filter="heizung" />
+<Testimonials filter="baeder" />
+<Testimonials filter="elektro" />
+<Testimonials filter="kundendienst" />
+```
+
+### Reviews ändern/hinzufügen
+Im `reviews` Array in `Testimonials.astro`:
+- `name`: Kundenname
+- `location`: Stadtteil
+- `text`: Review-Text
+- `rating`: 1-5 (immer 5 für uns)
+- `service`: Leistungs-Label
+- `category`: Filter-Schlüssel (heizung/baeder/elektro/kundendienst)
+- `timeAgo`: "vor X Monaten" (manuell, wird nicht berechnet)
+
+### Technik
+- `<script is:inline>` — nicht von Astro gebundlet (wegen CSS-Hashing-Problem)
+- Slide-Breiten werden per JS gesetzt (`100 / perView + '%'`)
+- Dots als inline-styled `<button>` Elements (kein Tailwind-Klassen-Toggle)
+- Touch: `touchstart`/`touchend` mit 50px Swipe-Threshold
+
+---
+
+## 7. Team-Fotos System
 
 ### Woher kommen die Fotos?
 Alle von pertler.de heruntergeladen und als 400x400 WebP konvertiert.
@@ -262,7 +306,7 @@ Alle von pertler.de heruntergeladen und als 400x400 WebP konvertiert.
 
 ---
 
-## 7. Redirects
+## 8. Redirects
 
 30 301-Redirects in `public/_redirects`. Format: `/alte-url /neue-url 301`
 
@@ -276,7 +320,7 @@ Wichtigste:
 
 ---
 
-## 8. SEO & Schema
+## 9. SEO & Schema
 
 ### JSON-LD auf jeder Seite
 - **LocalBusiness** — in BaseLayout.astro (Name, Adresse, Telefon, Öffnungszeiten)
@@ -298,7 +342,7 @@ Wichtigste:
 
 ---
 
-## 9. Deployment
+## 10. Deployment
 
 ### Vercel (Free Tier)
 ```bash
@@ -323,7 +367,7 @@ npm run preview        # → lokaler Preview des Builds
 
 ---
 
-## 10. Bekannte Limitierungen
+## 11. Bekannte Limitierungen
 
 1. **Kein CMS** — Inhalte sind in .astro-Dateien hardcoded. Änderungen erfordern Code-Änderung + Deploy. Für den Kunden reicht das (wir hosten & pflegen), aber falls er selbst editieren will → Headless CMS (Sanity, Storyblok) nachrüsten.
 
@@ -337,7 +381,7 @@ npm run preview        # → lokaler Preview des Builds
 
 ---
 
-## 11. Kontakt & Eckdaten des Kunden
+## 12. Kontakt & Eckdaten des Kunden
 
 | Info | Wert |
 |------|------|
