@@ -1,0 +1,138 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ServiceHero from "../../components/ServiceHero.astro";
+import TrustStats from "../../components/TrustStats.astro";
+import FeatureGrid from "../../components/FeatureGrid.astro";
+import ProcessSteps from "../../components/ProcessSteps.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import RelatedServices from "../../components/RelatedServices.astro";
+import { Star } from "lucide-astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Elektrotechnik & Smart Home",
+  "description": "Elektroinstallationen und Smart Home vom Meisterbetrieb in München. Homematic IP Partner, E-Ladestationen, Neubau und Sanierung.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Ernst Pertler GmbH",
+    "url": "https://www.pertler.de"
+  },
+  "areaServed": { "@type": "City", "name": "München" }
+};
+
+const stats = [
+  { icon: "✓", text: "Homematic IP Partner" },
+  { icon: "🏎️", text: "Ferrari Showroom Referenz" },
+  { icon: "⚡", text: "Meisterbetrieb" },
+  { icon: "🏠", text: "Komplettservice" },
+];
+
+const features = [
+  { icon: "🏗️", title: "Elektroinstallation Neubau", description: "Komplette Elektroplanung und -installation für Neubauprojekte." },
+  { icon: "🔄", title: "Elektrosanierung Bestand", description: "Modernisierung der Elektrik in Bestandsgebäuden und Altbauten." },
+  { icon: "🏠", title: "Smart Home", description: "Homematic IP Partner — intelligente Steuerung für Licht, Heizung und Sicherheit." },
+  { icon: "💡", title: "Lichtkonzepte", description: "Moderne Beleuchtungsplanung für Wohn- und Gewerberäume." },
+  { icon: "🔔", title: "Sprechanlagen", description: "Türkommunikation und Gegensprechanlagen für Mehrfamilienhäuser." },
+  { icon: "🔌", title: "E-Mobilität", description: "Installation von Wallboxen und Ladestationen für Elektrofahrzeuge." },
+  { icon: "🔥", title: "Heizungsanschlüsse", description: "Elektrische Anschlüsse für Heizungsanlagen und Wärmepumpen." },
+  { icon: "⚡", title: "Schnellreparatur", description: "Elektrische Störungen schnell und zuverlässig beseitigt." },
+];
+
+const steps = [
+  { number: "01", title: "Beratung", description: "Kostenlose Erstberatung und Bestandsaufnahme Ihrer elektrischen Anlage." },
+  { number: "02", title: "Konzept", description: "Individuelle Planung mit Smart-Home-Integration und Energieeffizienz." },
+  { number: "03", title: "Installation", description: "Fachgerechte Ausführung durch unsere Elektromeister. Sauber und termingerecht." },
+  { number: "04", title: "Einweisung", description: "Übergabe mit persönlicher Einweisung in Ihre neue Elektroanlage." },
+];
+
+const faqs = [
+  {
+    question: "Was kostet eine Elektroinstallation im Neubau?",
+    answer: "Die Elektroinstallation macht typischerweise 3-5% der Gesamtbaukosten aus. Für ein Einfamilienhaus rechnen Sie mit 15.000-30.000 Euro je nach Ausstattungsniveau und Smart-Home-Integration.",
+  },
+  {
+    question: "Lohnt sich Smart Home im Altbau?",
+    answer: "Ja, moderne Funkbasierte Systeme wie Homematic IP lassen sich ohne aufwendige Verkabelung nachrüsten. Die Investition amortisiert sich durch Energieeinsparungen und erhöhten Wohnkomfort.",
+  },
+  {
+    question: "Wie installiere ich eine E-Ladestation zuhause?",
+    answer: "Wir prüfen Ihren Hausanschluss, beraten zur passenden Wallbox und übernehmen die komplette Installation inkl. Anmeldung beim Netzbetreiber. In der Regel ist die Installation in einem Tag erledigt.",
+  },
+  {
+    question: "Bieten Sie Elektro-Notdienst an?",
+    answer: "Ja, über unseren 24h-Notdienst unter 089 / 35 89 49 78 sind wir auch bei elektrischen Störungen rund um die Uhr erreichbar.",
+  },
+  {
+    question: "Welches Smart Home System empfehlen Sie?",
+    answer: "Als zertifizierter Homematic IP Partner empfehlen wir dieses System für seine Zuverlässigkeit, Datensicherheit (lokale Verarbeitung) und einfache Erweiterbarkeit.",
+  },
+];
+
+const relatedServices = [
+  { title: "Heizung & Sanitär", description: "Heizungsanlagen und Sanitärinstallationen.", href: "/leistungen/heizung-sanitaer/", borderColor: "border-primary" },
+  { title: "Kundendienst & Wartung", description: "Wartung und Service für alle Ihre Anlagen.", href: "/leistungen/kundendienst/", borderColor: "border-sanitaer" },
+  { title: "Bäder & Wellness", description: "Komplette Badsanierung inkl. Elektroarbeiten.", href: "/leistungen/baeder-wellness/", borderColor: "border-baeder" },
+];
+---
+
+<ServiceLayout
+  title="Elektrotechnik & Smart Home in München — Installation & Service | PERTLER"
+  description="Elektroinstallationen & Smart Home vom Meisterbetrieb in München. ✓ Homematic IP Partner ✓ E-Ladestationen ✓ Neubau & Sanierung"
+  serviceSchema={serviceSchema}
+>
+  <Breadcrumb items={[
+    { label: "Startseite", href: "/" },
+    { label: "Leistungen", href: "/leistungen/" },
+    { label: "Elektrotechnik & Smart Home" },
+  ]} />
+
+  <ServiceHero
+    title="Elektrotechnik & Smart Home in München — Installation & Service"
+    description="Von der Elektroinstallation bis zum Smart Home — Ihr Elektromeisterbetrieb seit 1984. Neubau, Sanierung und intelligente Gebäudetechnik."
+    image="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=80"
+    imageAlt="Elektrotechnik und Smart Home Installation in München"
+  />
+
+  <TrustStats stats={stats} />
+
+  <FeatureGrid
+    title="Unsere Elektro-Leistungen"
+    subtitle="Elektrotechnik & Smart Home"
+    features={features}
+  />
+
+  <ProcessSteps steps={steps} />
+
+  <FAQSection faqs={faqs} />
+
+  <!-- Testimonial Section -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="text-center mb-16">
+        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Kundenstimmen</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tighter">Was unsere Kunden sagen.</h2>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow">
+          <div class="flex gap-1 mb-6">
+            {Array.from({ length: 5 }).map(() => (
+              <Star class="w-5 h-5 text-secondary fill-secondary" />
+            ))}
+          </div>
+          <p class="text-on-surface-variant leading-relaxed mb-8 italic">"Pertler Elektrotechnik hat unser Büro komplett neu verkabelt — inkl. Smart Home und Lichtkonzept. Professionell, sauber und genau im Zeitplan."</p>
+          <div class="border-t border-outline-variant/15 pt-6">
+            <div class="font-bold text-on-surface">Architekturbüro Riedl</div>
+            <div class="text-sm text-on-surface-variant">München-Maxvorstadt · Elektroinstallation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactCTA />
+
+  <RelatedServices services={relatedServices} />
+</ServiceLayout>

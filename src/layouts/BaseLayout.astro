@@ -25,6 +25,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:locale" content="de_DE" />
   <meta property="og:site_name" content="PERTLER Gebäudetechnik" />
 
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- Language -->
+  <link rel="alternate" hreflang="de-DE" href={canonicalURL} />
+  <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 

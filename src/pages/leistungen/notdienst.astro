@@ -1,0 +1,201 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import { Phone } from "lucide-astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "24h Notdienst München",
+  "description": "Rohrbruch, Heizungsausfall oder Stromausfall? Pertler 24h Notdienst München — Sofort unter 089 / 35 89 49 78. Schnelle Hilfe vor Ort.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Ernst Pertler GmbH",
+    "url": "https://www.pertler.de"
+  },
+  "areaServed": { "@type": "City", "name": "München" }
+};
+
+const emergencyTypes = [
+  { icon: "🔧", title: "Rohrbruch", description: "Wasseraustritt, undichte Leitungen, überflutete Räume — sofortige Hilfe bei Wasserschäden." },
+  { icon: "🔥", title: "Heizungsausfall", description: "Keine Wärme, Heizung defekt, Störungsmeldung — wir bringen Ihre Heizung wieder zum Laufen." },
+  { icon: "⚡", title: "Stromausfall", description: "Kurzschluss, Sicherung fällt ständig, Brandgeruch — schnelle Fehlersuche und Reparatur." },
+  { icon: "💨", title: "Gasgeruch", description: "Sofort Fenster öffnen, Haus verlassen und uns anrufen — wir kommen umgehend." },
+];
+
+const processSteps = [
+  { number: "01", title: "Anruf", description: "Sie schildern den Notfall unter unserer 24h-Nummer." },
+  { number: "02", title: "Disposition", description: "Nächster verfügbarer Techniker wird sofort losgeschickt." },
+  { number: "03", title: "Einsatz", description: "Schnelle Analyse und Sofortmaßnahmen vor Ort." },
+  { number: "04", title: "Lösung", description: "Dauerhafte Reparatur — sofort oder am nächsten Werktag." },
+];
+
+const firstAid = [
+  { icon: "💧", title: "Rohrbruch", description: "Hauptwasserhahn sofort zudrehen. Strom in betroffenen Räumen abschalten." },
+  { icon: "🔥", title: "Heizungsausfall", description: "Thermostat prüfen, Sicherung prüfen. Notbetrieb am Gerät aktivieren, falls vorhanden." },
+  { icon: "⚡", title: "Stromausfall", description: "FI-Schalter und Sicherungen im Verteilerkasten prüfen. Keine defekten Geräte erneut einstecken." },
+  { icon: "💨", title: "Gasgeruch", description: "Fenster öffnen, kein Licht und keine Schalter betätigen, Haus sofort verlassen." },
+];
+
+const faqs = [
+  {
+    question: "Was kostet ein Notdienst-Einsatz?",
+    answer: "Die Kosten setzen sich aus Anfahrt, Arbeitslohn und Material zusammen. Wir informieren Sie vorab transparent über die anfallenden Kosten — keine versteckten Zuschläge.",
+  },
+  {
+    question: "Wie schnell sind Sie vor Ort?",
+    answer: "In München sind wir in der Regel innerhalb von 30-60 Minuten bei Ihnen. Im Umland kann es je nach Entfernung etwas länger dauern.",
+  },
+  {
+    question: "Ist der Notdienst auch am Wochenende erreichbar?",
+    answer: "Ja, unser Notdienst ist rund um die Uhr erreichbar — 24 Stunden am Tag, 7 Tage die Woche, 365 Tage im Jahr. Auch an Feiertagen.",
+  },
+  {
+    question: "Muss ich den Notdienst direkt bar bezahlen?",
+    answer: "Nein, Sie erhalten eine ordentliche Rechnung per Post. Eine Barzahlung vor Ort ist nicht erforderlich.",
+  },
+  {
+    question: "Für welche Notfälle sind Sie zuständig?",
+    answer: "Wir decken alle Notfälle in den Bereichen Heizung, Sanitär und Elektro ab — alles aus einer Hand. Von Rohrbruch über Heizungsausfall bis Kurzschluss.",
+  },
+];
+
+const serviceAreas = [
+  "München-Feldmoching", "Schwabing", "Bogenhausen", "Sendling",
+  "Pasing", "Trudering", "Moosach", "Milbertshofen",
+  "Haidhausen", "Neuhausen", "Laim", "Berg am Laim",
+];
+---
+
+<ServiceLayout
+  title="24h Notdienst München — Heizung, Sanitär & Elektro | PERTLER"
+  description="Rohrbruch, Heizungsausfall oder Stromausfall? Pertler 24h Notdienst München — Sofort unter 089 / 35 89 49 78. Schnelle Hilfe vor Ort."
+  serviceSchema={serviceSchema}
+>
+  <Breadcrumb items={[
+    { label: "Startseite", href: "/" },
+    { label: "Leistungen", href: "/leistungen/" },
+    { label: "Notdienst" },
+  ]} />
+
+  <!-- Emergency Hero -->
+  <section class="relative bg-primary-container overflow-hidden py-20 md:py-28">
+    <div class="absolute inset-0 bg-gradient-to-br from-error to-primary-container"></div>
+    <div class="relative z-10 max-w-screen-2xl mx-auto px-8 text-center">
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
+        24h Notdienst München — Heizung, Sanitär & Elektro
+      </h1>
+      <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10">
+        Rohrbruch, Heizungsausfall oder Stromausfall? Wir sind sofort für Sie da.
+      </p>
+      <div class="mb-8">
+        <a href="tel:08935894978" class="inline-flex items-center gap-4 text-white text-4xl md:text-6xl font-black tracking-tight hover:scale-105 transition-transform">
+          <Phone class="w-10 h-10 md:w-14 md:h-14" />
+          089 / 35 89 49 78
+        </a>
+      </div>
+      <a href="tel:08935894978" class="inline-block px-12 py-5 bg-white text-error rounded-md font-bold text-xl transition-all hover:scale-105 editorial-shadow">
+        Jetzt anrufen
+      </a>
+      <p class="mt-8 text-white/60 font-bold tracking-widest uppercase text-sm">
+        Rund um die Uhr — 365 Tage im Jahr
+      </p>
+    </div>
+  </section>
+
+  <!-- Wann Notdienst rufen? -->
+  <section class="py-24 bg-surface">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="text-center mb-16">
+        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Notfälle</span>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tighter">Wann Notdienst rufen?</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {emergencyTypes.map((item) => (
+          <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border-t-4 border-error">
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <h3 class="text-xl font-bold text-on-surface mb-3">{item.title}</h3>
+            <p class="text-on-surface-variant leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- So läuft der Notdienst ab -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="text-center mb-16">
+        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Ablauf</span>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tighter">So läuft der Notdienst ab</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {processSteps.map((step) => (
+          <div class="text-center">
+            <div class="text-5xl font-black text-primary/20 mb-4">{step.number}</div>
+            <h3 class="text-xl font-bold text-on-surface mb-3">{step.title}</h3>
+            <p class="text-on-surface-variant leading-relaxed">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sofort-Maßnahmen -->
+  <section class="py-24 bg-surface">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="text-center mb-16">
+        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Erste Hilfe</span>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tighter">Sofort-Maßnahmen bis wir da sind</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {firstAid.map((item) => (
+          <div class="flex gap-4 bg-surface-container-lowest p-6 rounded-xl editorial-shadow">
+            <div class="text-3xl shrink-0">{item.icon}</div>
+            <div>
+              <h3 class="font-bold text-on-surface mb-2">{item.title}</h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Einsatzgebiet -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="text-center mb-16">
+        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Einsatzgebiet</span>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tighter">München und Umland</h2>
+        <p class="text-on-surface-variant mt-4 max-w-2xl mx-auto">
+          Unser Notdienst ist in ganz München und den umliegenden Gemeinden für Sie im Einsatz.
+        </p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+        {serviceAreas.map((area) => (
+          <span class="px-4 py-2 bg-surface-container-lowest rounded-full text-on-surface-variant text-sm font-medium editorial-shadow">
+            {area}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQSection faqs={faqs} />
+
+  <!-- Second Phone CTA -->
+  <section class="py-16 bg-error">
+    <div class="max-w-screen-2xl mx-auto px-8 text-center">
+      <h2 class="text-2xl md:text-4xl font-black text-white mb-6 tracking-tighter">Notfall? Jetzt anrufen.</h2>
+      <a href="tel:08935894978" class="inline-flex items-center gap-4 text-white text-3xl md:text-5xl font-black tracking-tight hover:scale-105 transition-transform">
+        <Phone class="w-8 h-8 md:w-12 md:h-12" />
+        089 / 35 89 49 78
+      </a>
+    </div>
+  </section>
+
+  <ContactCTA />
+</ServiceLayout>

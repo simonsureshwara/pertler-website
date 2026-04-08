@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Impressum | PERTLER Gebäudetechnik München">
+  <EmergencyBanner />
+  <Navbar />
+  <main class="py-24 bg-surface">
+    <div class="max-w-3xl mx-auto px-8">
+      <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-on-surface mb-12">Impressum</h1>
+
+      <!-- Ernst Pertler GmbH -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-on-surface mb-4">Ernst Pertler GmbH</h2>
+        <div class="text-on-surface-variant leading-relaxed space-y-1">
+          <p>Wilhelmine-Reichard-Str. 24</p>
+          <p>80935 München</p>
+          <p class="mt-4">Geschäftsführer: Stefan Pertler</p>
+          <p>Registergericht: Amtsgericht München, HRB [Platzhalter]</p>
+          <p>USt-IdNr.: DE [Platzhalter]</p>
+          <p class="mt-4">
+            Tel: <a href="tel:08935894978" class="text-primary hover:underline">089 / 35 89 49 78</a>
+          </p>
+          <p>
+            E-Mail: <a href="mailto:info@pertler.de" class="text-primary hover:underline">info@pertler.de</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- Ernst Pertler Service GmbH -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-on-surface mb-4">Ernst Pertler Service GmbH</h2>
+        <div class="text-on-surface-variant leading-relaxed space-y-1">
+          <p>Wilhelmine-Reichard-Str. 24</p>
+          <p>80935 München</p>
+          <p class="mt-4">Geschäftsführer: Stefan Pertler</p>
+          <p>Registergericht: Amtsgericht München, HRB [Platzhalter]</p>
+          <p>USt-IdNr.: DE [Platzhalter]</p>
+        </div>
+      </section>
+
+      <!-- Pertler Bad GmbH -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-on-surface mb-4">Pertler Bad GmbH</h2>
+        <div class="text-on-surface-variant leading-relaxed space-y-1">
+          <p>Wilhelmine-Reichard-Str. 24</p>
+          <p>80935 München</p>
+          <p class="mt-4">Geschäftsführer: Stefan Pertler</p>
+          <p>Registergericht: Amtsgericht München, HRB [Platzhalter]</p>
+          <p>USt-IdNr.: DE [Platzhalter]</p>
+        </div>
+      </section>
+
+      <!-- Pertler Elektrotechnik GmbH -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-on-surface mb-4">Pertler Elektrotechnik GmbH</h2>
+        <div class="text-on-surface-variant leading-relaxed space-y-1">
+          <p>Wilhelmine-Reichard-Str. 24</p>
+          <p>80935 München</p>
+          <p class="mt-4">Geschäftsführer: Stefan Pertler</p>
+          <p>Registergericht: Amtsgericht München, HRB [Platzhalter]</p>
+          <p>USt-IdNr.: DE [Platzhalter]</p>
+        </div>
+      </section>
+
+      <hr class="border-outline-variant/15 my-12" />
+
+      <!-- Verantwortlich -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-on-surface mb-4">Verantwortlich für den Inhalt</h2>
+        <div class="text-on-surface-variant leading-relaxed space-y-1">
+          <p>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</p>
+          <p class="mt-2 font-medium text-on-surface">Stefan Pertler</p>
+          <p>Wilhelmine-Reichard-Str. 24</p>
+          <p>80935 München</p>
+        </div>
+      </section>
+
+      <hr class="border-outline-variant/15 my-12" />
+
+      <!-- Streitschlichtung -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-on-surface mb-4">Streitschlichtung</h2>
+        <div class="text-on-surface-variant leading-relaxed space-y-4">
+          <p>
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+            <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">
+              https://ec.europa.eu/consumers/odr/
+            </a>
+          </p>
+          <p>
+            Unsere E-Mail-Adresse finden Sie oben im Impressum.
+          </p>
+          <p>
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

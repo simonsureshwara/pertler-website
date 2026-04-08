@@ -1,0 +1,138 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ServiceHero from "../../components/ServiceHero.astro";
+import TrustStats from "../../components/TrustStats.astro";
+import FeatureGrid from "../../components/FeatureGrid.astro";
+import ProcessSteps from "../../components/ProcessSteps.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import RelatedServices from "../../components/RelatedServices.astro";
+import { Star } from "lucide-astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Heizung & Sanitär",
+  "description": "Heizungsanlagen & Sanitärinstallationen vom Meisterbetrieb in München. Wärmepumpen, Gasheizungen, Sanitärinstallationen und mehr.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Ernst Pertler GmbH",
+    "url": "https://www.pertler.de"
+  },
+  "areaServed": { "@type": "City", "name": "München" }
+};
+
+const stats = [
+  { icon: "40+", text: "Jahre Erfahrung" },
+  { icon: "70+", text: "Anlagen pro Jahr" },
+  { icon: "✓", text: "Viessmann Partner" },
+  { icon: "24h", text: "Notdienst" },
+];
+
+const features = [
+  { icon: "🔥", title: "Wärmepumpen", description: "Luft-Wasser, Sole-Wasser und Grundwasser-Wärmepumpen für maximale Effizienz." },
+  { icon: "🔧", title: "Gasheizungen", description: "Moderne Brennwerttechnik für zuverlässige und sparsame Wärmeversorgung." },
+  { icon: "🪵", title: "Pellet- & Holzheizungen", description: "Nachwachsende Rohstoffe für CO₂-neutrale Heizkonzepte." },
+  { icon: "☀️", title: "Solarthermie", description: "Sonnenenergie zur Warmwasserbereitung und Heizungsunterstützung." },
+  { icon: "🚿", title: "Sanitärinstallationen", description: "Komplette Sanitäranlagen für Neubau und Sanierung." },
+  { icon: "💧", title: "Trinkwasserhygiene", description: "Legionellenprüfung, Wasseraufbereitung und Hygienemaßnahmen." },
+  { icon: "⚖️", title: "Hydraulischer Abgleich", description: "Optimierung Ihrer Heizungsanlage für gleichmäßige Wärmeverteilung." },
+  { icon: "📋", title: "Förderungsberatung", description: "BEG, KfW und BAFA — wir beraten Sie zu allen Förderprogrammen." },
+];
+
+const steps = [
+  { number: "01", title: "Beratung", description: "Kostenlose Erstberatung vor Ort. Wir analysieren Ihre Situation und besprechen Ihre Wünsche." },
+  { number: "02", title: "Planung", description: "Detaillierte Planung mit Angebot. Jede Baustelle wird bis ins kleinste Detail durchdacht." },
+  { number: "03", title: "Ausführung", description: "Termingerechte Installation durch unsere Meister-Techniker. Sauber und professionell." },
+  { number: "04", title: "Abnahme", description: "Gemeinsame Abnahme, Einweisung und Übergabe. Ihr Projekt in besten Händen." },
+];
+
+const faqs = [
+  {
+    question: "Was kostet eine neue Heizungsanlage in München?",
+    answer: "Die Kosten variieren je nach Gebäudetyp und gewähltem System. Eine Wärmepumpe für ein Einfamilienhaus liegt typischerweise zwischen 15.000 und 35.000 Euro inkl. Installation. Gasheizungen sind ab ca. 8.000 Euro erhältlich. Nutzen Sie unseren Heizungsrechner für eine erste Einschätzung — oder vereinbaren Sie eine kostenlose Beratung.",
+  },
+  {
+    question: "Wärmepumpe oder Gasheizung — was lohnt sich 2026?",
+    answer: "Wärmepumpen sind langfristig die wirtschaftlichere und umweltfreundlichere Lösung, besonders bei Neubauten und gut gedämmten Bestandsgebäuden. Die staatliche Förderung macht den Umstieg attraktiv. Für ältere, schlecht gedämmte Gebäude kann eine Gas-Brennwertheizung als Übergangslösung sinnvoll sein. Wir beraten Sie individuell.",
+  },
+  {
+    question: "Wie lange dauert ein Heizungstausch?",
+    answer: "Ein Standard-Heizungstausch dauert in der Regel 2-5 Arbeitstage. Bei komplexeren Umbauten — etwa von Öl auf Wärmepumpe — planen Sie 1-2 Wochen ein. Wir sorgen dafür, dass Sie möglichst kurz ohne Heizung sind.",
+  },
+  {
+    question: "Welche Förderungen gibt es für Heizungen?",
+    answer: "Über die BEG (Bundesförderung für effiziente Gebäude) erhalten Sie bis zu 70% Zuschuss beim Heizungstausch. Wärmepumpen werden besonders stark gefördert. Wir übernehmen die komplette Förderungsberatung und Antragstellung für Sie.",
+  },
+  {
+    question: "Wie oft sollte eine Heizung gewartet werden?",
+    answer: "Einmal jährlich. Eine regelmäßige Wartung sichert den effizienten Betrieb, verlängert die Lebensdauer und ist bei vielen Herstellern Voraussetzung für die Garantie. Unser Kundendienst bietet Wartungsverträge mit Vorzugskonditionen.",
+  },
+];
+
+const relatedServices = [
+  { title: "Kundendienst & Wartung", description: "Regelmäßige Wartung und schnelle Hilfe bei Störungen.", href: "/leistungen/kundendienst/", borderColor: "border-sanitaer" },
+  { title: "Bäder & Wellness", description: "Komplette Badsanierung aus einer Hand.", href: "/leistungen/baeder-wellness/", borderColor: "border-baeder" },
+  { title: "24h Notdienst", description: "Heizungsausfall? Wir sind rund um die Uhr für Sie da.", href: "/leistungen/notdienst/", borderColor: "border-error" },
+];
+---
+
+<ServiceLayout
+  title="Heizung & Sanitär in München — Planung, Installation & Wartung | PERTLER"
+  description="Heizungsanlagen & Sanitärinstallationen vom Meisterbetrieb in München. ✓ 70+ Anlagen/Jahr ✓ Wärmepumpen-Spezialist ✓ Kostenlose Beratung"
+  serviceSchema={serviceSchema}
+>
+  <Breadcrumb items={[
+    { label: "Startseite", href: "/" },
+    { label: "Leistungen", href: "/leistungen/" },
+    { label: "Heizung & Sanitär" },
+  ]} />
+
+  <ServiceHero
+    title="Heizung & Sanitär in München — Planung, Installation & Wartung"
+    description="Vom Heizungstausch bis zur kompletten Sanitärinstallation — Ihr Meisterbetrieb seit 1984. Wir planen, installieren und warten Ihre Anlagen."
+    image="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1920&q=80"
+    imageAlt="Heizung und Sanitär Installation in München"
+  />
+
+  <TrustStats stats={stats} />
+
+  <FeatureGrid
+    title="Unsere Leistungen im Überblick"
+    subtitle="Heizung & Sanitär"
+    features={features}
+  />
+
+  <ProcessSteps steps={steps} />
+
+  <FAQSection faqs={faqs} />
+
+  <!-- Testimonial Section -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="text-center mb-16">
+        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Kundenstimmen</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tighter">Was unsere Kunden sagen.</h2>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow">
+          <div class="flex gap-1 mb-6">
+            {Array.from({ length: 5 }).map(() => (
+              <Star class="w-5 h-5 text-secondary fill-secondary" />
+            ))}
+          </div>
+          <p class="text-on-surface-variant leading-relaxed mb-8 italic">"Hervorragende Arbeit bei unserer Heizungssanierung. Von der Beratung bis zur Umsetzung alles professionell und termingerecht. Klare Empfehlung!"</p>
+          <div class="border-t border-outline-variant/15 pt-6">
+            <div class="font-bold text-on-surface">Familie Schneider</div>
+            <div class="text-sm text-on-surface-variant">München-Bogenhausen · Heizungssanierung</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactCTA />
+
+  <RelatedServices services={relatedServices} />
+</ServiceLayout>

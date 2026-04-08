@@ -1,0 +1,138 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ServiceHero from "../../components/ServiceHero.astro";
+import TrustStats from "../../components/TrustStats.astro";
+import FeatureGrid from "../../components/FeatureGrid.astro";
+import ProcessSteps from "../../components/ProcessSteps.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import RelatedServices from "../../components/RelatedServices.astro";
+import { Star } from "lucide-astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Kundendienst & Wartung",
+  "description": "Zuverlässiger Kundendienst für Heizung, Sanitär und Kältetechnik in München. Wartung, Reparatur und 24h Notdienst.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Ernst Pertler GmbH",
+    "url": "https://www.pertler.de"
+  },
+  "areaServed": { "@type": "City", "name": "München" }
+};
+
+const stats = [
+  { icon: "24h", text: "Erreichbar" },
+  { icon: "✓", text: "Dokumentierte Prüfprotokolle" },
+  { icon: "⚡", text: "Schnelle Reaktionszeit" },
+  { icon: "🔧", text: "Erfahrene Techniker" },
+];
+
+const features = [
+  { icon: "🔥", title: "Heizungswartung", description: "Gas, Öl, Fernwärme, Wärmepumpe und Pellet — alle Systeme, ein Ansprechpartner." },
+  { icon: "🚿", title: "Sanitär-Kundendienst", description: "Wasserversorgung, Aufbereitung und Trinkwasserhygiene." },
+  { icon: "❄️", title: "Kälte- & Klimatechnik", description: "Wartung und Service für Klimaanlagen und Kältesysteme." },
+  { icon: "🔍", title: "Leckortung", description: "Professionelle Leckortung und schnelle Schadensbehebung." },
+  { icon: "🧹", title: "Rohrreinigung", description: "Abwassertechnik, Rohrreinigung und Entkalkung." },
+  { icon: "💧", title: "Wasseraufbereitung", description: "Entkalkung, Wasserfilter und Aufbereitungsanlagen." },
+  { icon: "📋", title: "Inspektionen", description: "Jährliche Inspektionen mit dokumentierten Messprotokollen." },
+  { icon: "⚡", title: "Störungsbeseitigung", description: "Schnelle Reparaturen und Störungsbeseitigung vor Ort." },
+];
+
+const steps = [
+  { number: "01", title: "Anruf", description: "Schildern Sie uns Ihr Anliegen — telefonisch oder online." },
+  { number: "02", title: "Termin", description: "Wir vereinbaren einen zeitnahen Termin — oft noch am selben Tag." },
+  { number: "03", title: "Einsatz", description: "Unser Techniker kommt pünktlich, analysiert und behebt das Problem." },
+  { number: "04", title: "Protokoll", description: "Sie erhalten ein dokumentiertes Prüf- oder Reparaturprotokoll." },
+];
+
+const faqs = [
+  {
+    question: "Was kostet eine Heizungswartung?",
+    answer: "Eine Standard-Heizungswartung liegt je nach Anlagentyp zwischen 150 und 300 Euro. Bei Wartungsverträgen profitieren Sie von Vorzugskonditionen und garantierten Reaktionszeiten.",
+  },
+  {
+    question: "Wie oft muss die Heizung gewartet werden?",
+    answer: "Einmal jährlich — idealerweise vor der Heizperiode im Herbst. Die regelmäßige Wartung sichert Effizienz, Sicherheit und Herstellergarantie.",
+  },
+  {
+    question: "Was tun bei Heizungsausfall?",
+    answer: "Rufen Sie uns an unter 089 / 35 89 49 78. Unser 24h-Notdienst ist auch außerhalb der Geschäftszeiten erreichbar und sorgt für schnelle Hilfe.",
+  },
+  {
+    question: "Bieten Sie Wartungsverträge an?",
+    answer: "Ja, wir bieten verschiedene Wartungsverträge mit festen Jahrespauschalen, bevorzugten Reaktionszeiten und Rabatt auf Ersatzteile.",
+  },
+  {
+    question: "Wann brauche ich einen Klima-Service?",
+    answer: "Klimaanlagen sollten mindestens einmal jährlich gewartet werden — Filter, Kältemittel und Hygiene. Bei auffälligen Geräuschen oder nachlassender Leistung sofort.",
+  },
+];
+
+const relatedServices = [
+  { title: "Heizung & Sanitär", description: "Installation und Modernisierung Ihrer Heizungsanlage.", href: "/leistungen/heizung-sanitaer/", borderColor: "border-primary" },
+  { title: "Elektrotechnik", description: "Smart Home, Elektroinstallation und E-Mobilität.", href: "/leistungen/elektrotechnik/", borderColor: "border-elektro" },
+  { title: "24h Notdienst", description: "Rund um die Uhr erreichbar bei Notfällen.", href: "/leistungen/notdienst/", borderColor: "border-error" },
+];
+---
+
+<ServiceLayout
+  title="Kundendienst & Wartung in München — Heizung, Sanitär & Kälte | PERTLER"
+  description="Zuverlässiger Kundendienst für Ihre Haustechnik in München. ✓ Heizungswartung ✓ Sanitär-Service ✓ Kälte/Klima ✓ 24h Notdienst"
+  serviceSchema={serviceSchema}
+>
+  <Breadcrumb items={[
+    { label: "Startseite", href: "/" },
+    { label: "Leistungen", href: "/leistungen/" },
+    { label: "Kundendienst & Wartung" },
+  ]} />
+
+  <ServiceHero
+    title="Kundendienst & Wartung in München — Heizung, Sanitär & Kälte"
+    description="Zuverlässiger Service für Ihre gesamte Haustechnik. Wartung, Reparatur und Notdienst — alles aus einer Hand seit 1984."
+    image="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80"
+    imageAlt="Kundendienst und Wartung für Haustechnik in München"
+  />
+
+  <TrustStats stats={stats} />
+
+  <FeatureGrid
+    title="Unser Service-Portfolio"
+    subtitle="Kundendienst & Wartung"
+    features={features}
+  />
+
+  <ProcessSteps steps={steps} />
+
+  <FAQSection faqs={faqs} />
+
+  <!-- Testimonial Section -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <div class="text-center mb-16">
+        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Kundenstimmen</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tighter">Was unsere Kunden sagen.</h2>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow">
+          <div class="flex gap-1 mb-6">
+            {Array.from({ length: 5 }).map(() => (
+              <Star class="w-5 h-5 text-secondary fill-secondary" />
+            ))}
+          </div>
+          <p class="text-on-surface-variant leading-relaxed mb-8 italic">"Seit über 10 Jahren unser verlässlicher Partner für alle Haustechnik-Themen. Der Notdienst war mehrfach innerhalb einer Stunde vor Ort."</p>
+          <div class="border-t border-outline-variant/15 pt-6">
+            <div class="font-bold text-on-surface">Hausverwaltung Brandl</div>
+            <div class="text-sm text-on-surface-variant">München-Schwabing · Kundendienst</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactCTA />
+
+  <RelatedServices services={relatedServices} />
+</ServiceLayout>

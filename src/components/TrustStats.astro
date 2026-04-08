@@ -1,0 +1,27 @@
+---
+interface StatItem {
+  icon: string;
+  text: string;
+}
+
+interface Props {
+  stats: StatItem[];
+}
+
+const { stats } = Astro.props;
+
+const iconMap: Record<string, any> = {};
+---
+
+<section class="bg-surface-container-low border-y border-outline-variant/10">
+  <div class="max-w-screen-2xl mx-auto px-8 py-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 items-center justify-items-center">
+      {stats.map((stat) => (
+        <div class="flex items-center gap-3 text-center lg:text-left">
+          <span class="text-secondary text-2xl font-black">{stat.icon}</span>
+          <span class="text-sm font-semibold tracking-tight text-on-surface-variant">{stat.text}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,164 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Datenschutzerklärung | PERTLER Gebäudetechnik München">
+  <EmergencyBanner />
+  <Navbar />
+  <main class="py-24 bg-surface">
+    <div class="max-w-3xl mx-auto px-8">
+      <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-on-surface mb-6">Datenschutzerklärung</h1>
+
+      <div class="bg-surface-container-lowest border border-secondary/30 rounded-xl p-6 mb-12">
+        <p class="text-on-surface-variant text-sm leading-relaxed">
+          <strong class="text-on-surface">Hinweis:</strong> Diese Datenschutzerklärung ist ein Entwurf und muss von einem Rechtsanwalt geprüft werden.
+        </p>
+      </div>
+
+      <div class="prose-pertler space-y-12">
+
+        <!-- 1. Verantwortlicher -->
+        <section>
+          <h2 class="text-2xl font-bold text-on-surface mb-4">1. Verantwortlicher</h2>
+          <div class="text-on-surface-variant leading-relaxed space-y-1">
+            <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO):</p>
+            <p class="mt-4 font-medium text-on-surface">Ernst Pertler GmbH</p>
+            <p>Wilhelmine-Reichard-Str. 24</p>
+            <p>80935 München</p>
+            <p class="mt-2">
+              Tel: <a href="tel:08935894978" class="text-primary hover:underline">089 / 35 89 49 78</a>
+            </p>
+            <p>
+              E-Mail: <a href="mailto:info@pertler.de" class="text-primary hover:underline">info@pertler.de</a>
+            </p>
+            <p>Geschäftsführer: Stefan Pertler</p>
+          </div>
+        </section>
+
+        <!-- 2. Erhebung und Speicherung -->
+        <section>
+          <h2 class="text-2xl font-bold text-on-surface mb-4">2. Erhebung und Speicherung personenbezogener Daten</h2>
+          <div class="text-on-surface-variant leading-relaxed space-y-4">
+            <p>
+              Beim Besuch unserer Website werden automatisch Informationen an den Server unserer Website gesendet. Diese Informationen werden temporär in einem sogenannten Logfile gespeichert. Folgende Informationen werden dabei ohne Ihr Zutun erfasst und bis zur automatisierten Löschung gespeichert:
+            </p>
+            <ul class="list-disc pl-6 space-y-1">
+              <li>IP-Adresse des anfragenden Rechners</li>
+              <li>Datum und Uhrzeit des Zugriffs</li>
+              <li>Name und URL der abgerufenen Datei</li>
+              <li>Website, von der aus der Zugriff erfolgt (Referrer-URL)</li>
+              <li>Verwendeter Browser und ggf. das Betriebssystem Ihres Rechners</li>
+            </ul>
+            <p>
+              Die genannten Daten werden zu folgenden Zwecken verarbeitet: Gewährleistung eines reibungslosen Verbindungsaufbaus der Website, Gewährleistung einer komfortablen Nutzung unserer Website, Auswertung der Systemsicherheit und -stabilität sowie zu weiteren administrativen Zwecken.
+            </p>
+            <p>
+              Die Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 S. 1 lit. f DSGVO. Unser berechtigtes Interesse folgt aus den oben aufgelisteten Zwecken zur Datenerhebung.
+            </p>
+          </div>
+        </section>
+
+        <!-- 3. Cookies -->
+        <section>
+          <h2 class="text-2xl font-bold text-on-surface mb-4">3. Cookies</h2>
+          <div class="text-on-surface-variant leading-relaxed space-y-4">
+            <p>
+              Wir setzen auf unserer Website Cookies ein. Hierbei handelt es sich um kleine Dateien, die Ihr Browser automatisch erstellt und die auf Ihrem Endgerät gespeichert werden, wenn Sie unsere Website besuchen.
+            </p>
+            <p>
+              Technisch notwendige Cookies werden eingesetzt, um unsere Website nutzerfreundlicher zu gestalten. Einige Elemente unserer Internetseite erfordern es, dass der aufrufende Browser auch nach einem Seitenwechsel identifiziert werden kann.
+            </p>
+            <p>
+              Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten unter Verwendung technisch notwendiger Cookies ist Art. 6 Abs. 1 S. 1 lit. f DSGVO. Für Cookies, die nicht technisch notwendig sind, holen wir Ihre Einwilligung gemäß Art. 6 Abs. 1 S. 1 lit. a DSGVO ein.
+            </p>
+          </div>
+        </section>
+
+        <!-- 4. Kontaktformular -->
+        <section>
+          <h2 class="text-2xl font-bold text-on-surface mb-4">4. Kontaktformular</h2>
+          <div class="text-on-surface-variant leading-relaxed space-y-4">
+            <p>
+              Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
+            </p>
+            <p>
+              Die Verarbeitung der in das Kontaktformular eingegebenen Daten erfolgt auf Grundlage von Art. 6 Abs. 1 S. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 S. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung Ihrer Anfrage).
+            </p>
+            <p>
+              Ihre Daten werden nach abschließender Bearbeitung Ihrer Anfrage gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+            </p>
+          </div>
+        </section>
+
+        <!-- 5. Google Analytics -->
+        <section>
+          <h2 class="text-2xl font-bold text-on-surface mb-4">5. Google Analytics</h2>
+          <div class="text-on-surface-variant leading-relaxed space-y-4">
+            <p>
+              <em>[Platzhalter — bitte anpassen, falls Google Analytics oder ein anderes Analysetool eingesetzt wird.]</em>
+            </p>
+            <p>
+              Diese Website nutzt ggf. Funktionen des Webanalysedienstes Google Analytics, angeboten von der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website ermöglichen.
+            </p>
+            <p>
+              Die durch das Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Wir haben die IP-Anonymisierung aktiviert, sodass Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten der EU oder des EWR zuvor gekürzt wird.
+            </p>
+            <p>
+              Die Nutzung erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 S. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit widerrufen.
+            </p>
+          </div>
+        </section>
+
+        <!-- 6. Ihre Rechte -->
+        <section>
+          <h2 class="text-2xl font-bold text-on-surface mb-4">6. Ihre Rechte</h2>
+          <div class="text-on-surface-variant leading-relaxed space-y-4">
+            <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong class="text-on-surface">Recht auf Auskunft</strong> (Art. 15 DSGVO) — Sie können Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten verlangen.</li>
+              <li><strong class="text-on-surface">Recht auf Berichtigung</strong> (Art. 16 DSGVO) — Sie können die Berichtigung unrichtiger oder die Vervollständigung Ihrer bei uns gespeicherten personenbezogenen Daten verlangen.</li>
+              <li><strong class="text-on-surface">Recht auf Löschung</strong> (Art. 17 DSGVO) — Sie können die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten verlangen, soweit nicht die Verarbeitung zur Ausübung des Rechts auf freie Meinungsäußerung, zur Erfüllung einer rechtlichen Verpflichtung oder aus Gründen des öffentlichen Interesses erforderlich ist.</li>
+              <li><strong class="text-on-surface">Recht auf Einschränkung</strong> (Art. 18 DSGVO) — Sie können die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten verlangen.</li>
+              <li><strong class="text-on-surface">Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO) — Sie können verlangen, dass wir Ihnen Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format übermitteln.</li>
+              <li><strong class="text-on-surface">Recht auf Widerspruch</strong> (Art. 21 DSGVO) — Sie können jederzeit gegen die Verarbeitung Ihrer personenbezogenen Daten Widerspruch einlegen.</li>
+            </ul>
+            <p>
+              Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren. Zuständig ist das Bayerische Landesamt für Datenschutzaufsicht (BayLDA).
+            </p>
+          </div>
+        </section>
+
+        <!-- 7. SSL-Verschlüsselung -->
+        <section>
+          <h2 class="text-2xl font-bold text-on-surface mb-4">7. SSL-Verschlüsselung</h2>
+          <div class="text-on-surface-variant leading-relaxed space-y-4">
+            <p>
+              Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+            </p>
+            <p>
+              Wenn die SSL-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.
+            </p>
+          </div>
+        </section>
+
+        <!-- 8. Änderung der Datenschutzerklärung -->
+        <section>
+          <h2 class="text-2xl font-bold text-on-surface mb-4">8. Änderung der Datenschutzerklärung</h2>
+          <div class="text-on-surface-variant leading-relaxed space-y-4">
+            <p>
+              Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.
+            </p>
+            <p class="text-sm">
+              Stand: April 2026
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

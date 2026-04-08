@@ -1,0 +1,51 @@
+---
+import { Phone } from "lucide-astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  overlayColor?: string;
+}
+
+const { title, description, image, imageAlt, overlayColor = "from-primary-container/90 via-primary-container/40 to-transparent" } = Astro.props;
+---
+
+<section class="relative min-h-[500px] flex items-center py-24 md:py-32 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img
+      src={image}
+      alt={imageAlt}
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class={`absolute inset-0 bg-gradient-to-r ${overlayColor}`}></div>
+  </div>
+
+  <div class="relative z-10 max-w-screen-2xl mx-auto px-8 w-full">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tighter">
+        {title}
+      </h1>
+      <p class="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-10 max-w-2xl">
+        {description}
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="/buchung/"
+          class="px-8 py-4 bg-secondary hover:bg-secondary-container text-white rounded-md font-bold transition-all text-base"
+        >
+          Kostenlose Beratung
+        </a>
+        <a
+          href="tel:08935894978"
+          class="px-8 py-4 border-2 border-white/40 text-white hover:bg-white hover:text-primary rounded-md font-bold transition-all flex items-center gap-3 text-base"
+        >
+          <Phone class="w-4 h-4" />
+          089 / 35 89 49 78
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
