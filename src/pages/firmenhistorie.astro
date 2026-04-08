@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+
+const timeline = [
+  {
+    year: "1984",
+    title: "Gründung",
+    description: "Ernst Pertler gründet die Ernst Pertler GmbH in München — der Grundstein für über 40 Jahre Gebäudetechnik auf höchstem Niveau.",
+  },
+  {
+    year: "1990er",
+    title: "Expansion",
+    description: "Ausbau des Sanitärbereichs und Umsetzung erster Großprojekte. PERTLER etabliert sich als zuverlässiger Partner für Privat- und Gewerbekunden in München.",
+  },
+  {
+    year: "2000",
+    title: "Ernst Pertler Service GmbH",
+    description: "Gründung der Servicegesellschaft für Kundendienst und Wartung — schnelle Hilfe mit festem Ansprechpartner.",
+  },
+  {
+    year: "2005",
+    title: "Pertler Bad GmbH",
+    description: "Die Badsanierung wird zum eigenständigen Geschäftsbereich. Komplettlösungen von der Planung bis zur Fertigstellung.",
+  },
+  {
+    year: "2010",
+    title: "Pertler Elektrotechnik GmbH",
+    description: "Vierte Gesellschaft unter dem PERTLER-Dach: Elektroinstallation, Smart Home und E-Mobilität ergänzen das Portfolio.",
+  },
+  {
+    year: "2018",
+    title: "Erasmus-Grasser-Preis",
+    description: "Die Landeshauptstadt München würdigt PERTLER für herausragende Ausbildungsexzellenz und vorbildliche Nachwuchsförderung im Handwerk.",
+  },
+  {
+    year: "2019",
+    title: "Top 100 Innovator",
+    description: "Auszeichnung als einer der innovativsten Mittelständler Deutschlands — für digitale Transformation und zukunftsweisende Prozesse.",
+  },
+  {
+    year: "2020",
+    title: "Bayerns Best 50",
+    description: "Das Bayerische Wirtschaftsministerium prämiert PERTLER als eines der 50 wachstumsstärksten mittelständischen Unternehmen Bayerns.",
+  },
+  {
+    year: "2024",
+    title: "Partnerschaft mit Carrier-Viessmann",
+    description: "Strategische Partnerschaft mit Carrier-Viessmann für zukunftssichere Heiztechnologien und nachhaltige Gebäudetechnik.",
+  },
+  {
+    year: "Heute",
+    title: "4 Fachbereiche unter einem Dach",
+    description: "Über 25 Mitarbeiter und 21 Auszubildende arbeiten in vier spezialisierten Gesellschaften — für Heizung, Sanitär, Elektro und Badsanierung aus einer Hand.",
+  },
+];
+---
+
+<BaseLayout
+  title="Firmenhistorie | PERTLER Gebäudetechnik seit 1984"
+  description="Die Geschichte der Ernst Pertler GmbH — von der Gründung 1984 bis heute. 40+ Jahre Gebäudetechnik in München."
+>
+  <EmergencyBanner />
+  <Navbar />
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative bg-primary-container overflow-hidden py-24 md:py-36">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-container to-[#4A1218]"></div>
+      <div class="relative z-10 max-w-screen-2xl mx-auto px-8 text-center">
+        <span class="text-secondary-container font-bold tracking-widest uppercase text-sm mb-6 block">Seit 1984</span>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-tight mb-6">
+          Unsere Geschichte
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+          Seit 1984 — von der Gründung zum führenden Gebäudetechnik-Betrieb in München.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section class="py-24 md:py-32 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="relative max-w-4xl mx-auto">
+
+          <!-- Vertical line -->
+          <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-outline-variant/30 -translate-x-1/2"></div>
+
+          {timeline.map((entry, i) => (
+            <div class:list={[
+              "relative flex items-start mb-16 last:mb-0",
+              i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse",
+            ]}>
+              <!-- Dot -->
+              <div class="absolute left-6 md:left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2 mt-2 z-10 ring-4 ring-surface"></div>
+
+              <!-- Content -->
+              <div class:list={[
+                "ml-16 md:ml-0 md:w-[calc(50%-2rem)]",
+                i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left md:ml-auto",
+              ]}>
+                <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-8 ghost-border">
+                  <span class="text-3xl md:text-4xl font-black text-primary/20 block mb-2">{entry.year}</span>
+                  <h3 class="text-xl font-black text-on-surface mb-3">{entry.title}</h3>
+                  <p class="text-on-surface-variant text-sm leading-relaxed">{entry.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT CTA ===== -->
+    <ContactCTA />
+
+  </main>
+  <Footer />
+</BaseLayout>

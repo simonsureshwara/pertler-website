@@ -1,0 +1,788 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EmergencyBanner from "../../components/EmergencyBanner.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<BaseLayout
+  title="Heizungsrechner | PERTLER Gebäudetechnik München"
+  description="Finden Sie die passende Heizung für Ihr Gebäude in München. In 9 Schritten zur individuellen Empfehlung — kostenlos und unverbindlich."
+>
+  <EmergencyBanner />
+  <Navbar />
+
+  <main class="bg-surface min-h-screen pb-24 lg:pb-12">
+    <!-- Header -->
+    <section class="bg-primary-container text-white py-12 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-3xl md:text-4xl font-black mb-3 tracking-tight">Heizungsrechner</h1>
+        <p class="text-white/70 text-lg">In 9 Schritten zur individuellen Heizungsempfehlung — kostenlos und unverbindlich.</p>
+      </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="max-w-3xl mx-auto px-6 mt-8 mb-2" id="progress-section">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-semibold text-on-surface" id="progress-label">Schritt 1 von 9</span>
+        <span class="text-xs text-on-surface-variant" id="progress-percent">11%</span>
+      </div>
+      <div class="flex gap-1.5">
+        <div class="progress-segment h-2 flex-1 rounded-full bg-secondary transition-colors duration-300" data-step="1"></div>
+        <div class="progress-segment h-2 flex-1 rounded-full bg-outline-variant/30 transition-colors duration-300" data-step="2"></div>
+        <div class="progress-segment h-2 flex-1 rounded-full bg-outline-variant/30 transition-colors duration-300" data-step="3"></div>
+        <div class="progress-segment h-2 flex-1 rounded-full bg-outline-variant/30 transition-colors duration-300" data-step="4"></div>
+        <div class="progress-segment h-2 flex-1 rounded-full bg-outline-variant/30 transition-colors duration-300" data-step="5"></div>
+        <div class="progress-segment h-2 flex-1 rounded-full bg-outline-variant/30 transition-colors duration-300" data-step="6"></div>
+        <div class="progress-segment h-2 flex-1 rounded-full bg-outline-variant/30 transition-colors duration-300" data-step="7"></div>
+        <div class="progress-segment h-2 flex-1 rounded-full bg-outline-variant/30 transition-colors duration-300" data-step="8"></div>
+        <div class="progress-segment h-2 flex-1 rounded-full bg-outline-variant/30 transition-colors duration-300" data-step="9"></div>
+      </div>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="max-w-3xl mx-auto px-6 mt-6">
+
+      <!-- ==================== STEP 1: Gebäudetyp ==================== -->
+      <div class="quiz-step" id="step-1">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-10">
+          <h2 class="text-2xl font-bold mb-2">Welcher Gebäudetyp?</h2>
+          <p class="text-on-surface-variant mb-8">Wählen Sie Ihren Gebäudetyp aus.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gebaeudetyp" data-value="Einfamilienhaus">
+              <span class="text-4xl">&#x1F3E0;</span>
+              <span class="font-semibold text-sm">Einfamilienhaus</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gebaeudetyp" data-value="Mehrfamilienhaus">
+              <span class="text-4xl">&#x1F3E2;</span>
+              <span class="font-semibold text-sm">Mehrfamilienhaus</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gebaeudetyp" data-value="Gewerbe/Industrie">
+              <span class="text-4xl">&#x1F3D7;</span>
+              <span class="font-semibold text-sm">Gewerbe/Industrie</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Nav Buttons -->
+        <div class="flex justify-end mt-6">
+          <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="2">
+            Weiter
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 2: Baujahr & Zustand ==================== -->
+      <div class="quiz-step hidden" id="step-2">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-10">
+          <h2 class="text-2xl font-bold mb-2">Baujahr & Zustand</h2>
+          <p class="text-on-surface-variant mb-8">Angaben zu Ihrem Gebäude.</p>
+
+          <div class="space-y-6">
+            <div>
+              <label for="baujahr" class="block text-sm font-semibold mb-2">Baujahr des Gebäudes</label>
+              <select id="baujahr" class="quiz-select w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors" data-field="baujahr">
+                <option value="">Bitte wählen...</option>
+                <option value="vor 1970">vor 1970</option>
+                <option value="1970–1990">1970 - 1990</option>
+                <option value="1990–2010">1990 - 2010</option>
+                <option value="nach 2010">nach 2010</option>
+                <option value="Neubau">Neubau</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="saniert" class="block text-sm font-semibold mb-2">Saniert?</label>
+              <select id="saniert" class="quiz-select w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors" data-field="saniert">
+                <option value="">Bitte wählen...</option>
+                <option value="Ja, komplett">Ja, komplett</option>
+                <option value="Teilweise">Teilweise</option>
+                <option value="Nein">Nein</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="gedaemmt" class="block text-sm font-semibold mb-2">Gedämmt?</label>
+              <select id="gedaemmt" class="quiz-select w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors" data-field="gedaemmt">
+                <option value="">Bitte wählen...</option>
+                <option value="Ja">Ja</option>
+                <option value="Teilweise">Teilweise</option>
+                <option value="Nein">Nein</option>
+                <option value="Weiß nicht">Weiß nicht</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-8 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="1">
+            Zurück
+          </button>
+          <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="3">
+            Weiter
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 3: Wohnfläche ==================== -->
+      <div class="quiz-step hidden" id="step-3">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-10">
+          <h2 class="text-2xl font-bold mb-2">Wohnfläche & Stockwerke</h2>
+          <p class="text-on-surface-variant mb-8">Wie groß ist Ihre Immobilie?</p>
+
+          <div class="space-y-8">
+            <div>
+              <label for="wohnflaeche" class="block text-sm font-semibold mb-2">Wohnfläche in m²</label>
+              <input type="number" id="wohnflaeche" placeholder="z.B. 150" min="1" class="quiz-input w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors" data-field="wohnflaeche" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-4">Anzahl Stockwerke</label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-5 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="stockwerke" data-value="1">
+                  <span class="text-2xl font-bold">1</span>
+                  <span class="text-xs text-on-surface-variant">Stockwerk</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-5 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="stockwerke" data-value="2">
+                  <span class="text-2xl font-bold">2</span>
+                  <span class="text-xs text-on-surface-variant">Stockwerke</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-5 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="stockwerke" data-value="3">
+                  <span class="text-2xl font-bold">3</span>
+                  <span class="text-xs text-on-surface-variant">Stockwerke</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-5 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="stockwerke" data-value="4+">
+                  <span class="text-2xl font-bold">4+</span>
+                  <span class="text-xs text-on-surface-variant">Stockwerke</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-8 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="2">
+            Zurück
+          </button>
+          <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="4">
+            Weiter
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 4: Aktuelle Heizung ==================== -->
+      <div class="quiz-step hidden" id="step-4">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-10">
+          <h2 class="text-2xl font-bold mb-2">Aktuelle Heizung</h2>
+          <p class="text-on-surface-variant mb-8">Welche Heizung haben Sie aktuell?</p>
+
+          <div class="space-y-8">
+            <div>
+              <label class="block text-sm font-semibold mb-4">Heizungstyp</label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Gas">
+                  <span class="text-2xl">&#x1F525;</span>
+                  <span class="text-xs font-semibold">Gas</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Öl">
+                  <span class="text-2xl">&#x1F6E2;</span>
+                  <span class="text-xs font-semibold">Öl</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Fernwärme">
+                  <span class="text-2xl">&#x1F321;</span>
+                  <span class="text-xs font-semibold">Fernwärme</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Wärmepumpe">
+                  <span class="text-2xl">&#x2668;</span>
+                  <span class="text-xs font-semibold">Wärmepumpe</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Elektro">
+                  <span class="text-2xl">&#x26A1;</span>
+                  <span class="text-xs font-semibold">Elektro</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Holz-Pellet">
+                  <span class="text-2xl">&#x1FAB5;</span>
+                  <span class="text-xs font-semibold">Holz-Pellet</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Keine">
+                  <span class="text-2xl">&#x274C;</span>
+                  <span class="text-xs font-semibold">Keine</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Weiß nicht">
+                  <span class="text-2xl">&#x2753;</span>
+                  <span class="text-xs font-semibold">Weiß nicht</span>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label for="baujahr_heizung" class="block text-sm font-semibold mb-2">Baujahr der Heizung</label>
+              <select id="baujahr_heizung" class="quiz-select w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors" data-field="baujahr_heizung">
+                <option value="">Bitte wählen...</option>
+                <option value="vor 2000">vor 2000</option>
+                <option value="2000–2010">2000 - 2010</option>
+                <option value="2010–2020">2010 - 2020</option>
+                <option value="nach 2020">nach 2020</option>
+                <option value="Weiß nicht">Weiß nicht</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-8 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="3">
+            Zurück
+          </button>
+          <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="5">
+            Weiter
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 5: Gewünschte Heizung ==================== -->
+      <div class="quiz-step hidden" id="step-5">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-10">
+          <h2 class="text-2xl font-bold mb-2">Gewünschte Heizung</h2>
+          <p class="text-on-surface-variant mb-8">Welche Heizung interessiert Sie?</p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Gasheizung">
+              <span class="text-4xl">&#x1F525;</span>
+              <span class="font-semibold text-sm">Gasheizung</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Wärmepumpe">
+              <span class="text-4xl">&#x2668;</span>
+              <span class="font-semibold text-sm">Wärmepumpe</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Fernwärme">
+              <span class="text-4xl">&#x1F321;</span>
+              <span class="font-semibold text-sm">Fernwärme</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Pellet/Holz">
+              <span class="text-4xl">&#x1FAB5;</span>
+              <span class="font-semibold text-sm">Pellet/Holz</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Solar-Kombi">
+              <span class="text-4xl">&#x2600;</span>
+              <span class="font-semibold text-sm">Solar-Kombi</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Beratung gewünscht">
+              <span class="text-4xl">&#x2753;</span>
+              <span class="font-semibold text-sm">Beratung gewünscht</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-8 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="4">
+            Zurück
+          </button>
+          <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="6">
+            Weiter
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 6: Standort der Heizung ==================== -->
+      <div class="quiz-step hidden" id="step-6">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-10">
+          <h2 class="text-2xl font-bold mb-2">Standort der Heizung</h2>
+          <p class="text-on-surface-variant mb-8">Wo soll die Heizung aufgestellt werden?</p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Keller">
+              <span class="text-3xl">&#x1F3DA;</span>
+              <span class="font-semibold text-sm">Keller</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Dachboden">
+              <span class="text-3xl">&#x1F3E0;</span>
+              <span class="font-semibold text-sm">Dachboden</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Hauswirtschaftsraum">
+              <span class="text-3xl">&#x1F6AA;</span>
+              <span class="font-semibold text-sm">Hauswirtschaftsraum</span>
+            </button>
+            <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Außenaufstellung">
+              <span class="text-3xl">&#x1F333;</span>
+              <span class="font-semibold text-sm">Außenaufstellung</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-8 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="5">
+            Zurück
+          </button>
+          <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="7">
+            Weiter
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 7: Zusatzinfos (optional) ==================== -->
+      <div class="quiz-step hidden" id="step-7">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-10">
+          <h2 class="text-2xl font-bold mb-2">Zusatzinfos <span class="text-on-surface-variant font-normal text-base">(optional)</span></h2>
+          <p class="text-on-surface-variant mb-8">Haben Sie weitere Details zu Ihrem Projekt?</p>
+
+          <div class="space-y-6">
+            <div>
+              <label for="details" class="block text-sm font-semibold mb-2">Weitere Details zu Ihrem Projekt</label>
+              <textarea id="details" rows="4" placeholder="z.B. besondere Anforderungen, geplanter Zeitraum..." class="quiz-input w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-y" data-field="details"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-2">Fotos hochladen (optional)</label>
+              <div class="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:border-secondary/40 transition-colors cursor-pointer">
+                <div class="text-4xl mb-3">&#x1F4F7;</div>
+                <p class="text-sm text-on-surface-variant font-medium">Fotos hier ablegen oder klicken</p>
+                <p class="text-xs text-on-surface-variant/60 mt-1">JPG, PNG bis 10 MB</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center mt-6">
+          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-8 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="6">
+            Zurück
+          </button>
+          <div class="flex items-center gap-4">
+            <button type="button" class="btn-next text-on-surface-variant hover:text-primary text-sm font-medium underline underline-offset-2 transition-colors" data-next="8">
+              Überspringen
+            </button>
+            <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="8">
+              Weiter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 8: Kontaktdaten ==================== -->
+      <div class="quiz-step hidden" id="step-8">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-10">
+          <h2 class="text-2xl font-bold mb-2">Kontaktdaten</h2>
+          <p class="text-on-surface-variant mb-8">Wie können wir Sie erreichen?</p>
+
+          <div class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-semibold mb-2">Name *</label>
+              <input type="text" id="name" required placeholder="Vor- und Nachname" class="quiz-input w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors" data-field="name" />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-semibold mb-2">E-Mail *</label>
+              <input type="email" id="email" required placeholder="ihre@email.de" class="quiz-input w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors" data-field="email" />
+            </div>
+
+            <div>
+              <label for="telefon" class="block text-sm font-semibold mb-2">Telefon *</label>
+              <input type="tel" id="telefon" required placeholder="089 / ..." class="quiz-input w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors" data-field="telefon" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-4">Bevorzugte Kontaktart</label>
+              <div class="grid grid-cols-3 gap-3">
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="kontaktart" data-value="E-Mail">
+                  <span class="text-2xl">&#x2709;</span>
+                  <span class="text-xs font-semibold">E-Mail</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="kontaktart" data-value="Telefon">
+                  <span class="text-2xl">&#x1F4DE;</span>
+                  <span class="text-xs font-semibold">Telefon</span>
+                </button>
+                <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="kontaktart" data-value="Egal">
+                  <span class="text-2xl">&#x1F44D;</span>
+                  <span class="text-xs font-semibold">Egal</span>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label for="wunschtermin" class="block text-sm font-semibold mb-2">Wunschtermin <span class="font-normal text-on-surface-variant">(optional)</span></label>
+              <input type="date" id="wunschtermin" class="quiz-input w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors" data-field="wunschtermin" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-8 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="7">
+            Zurück
+          </button>
+          <button type="button" class="btn-next bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider" data-next="9">
+            Weiter
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 9: Zusammenfassung ==================== -->
+      <div class="quiz-step hidden" id="step-9">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-10">
+          <h2 class="text-2xl font-bold mb-2">Zusammenfassung</h2>
+          <p class="text-on-surface-variant mb-8">Bitte überprüfen Sie Ihre Angaben.</p>
+
+          <div class="space-y-6" id="summary-content">
+            <!-- Dynamically filled by JS -->
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-outline-variant/20">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="checkbox" id="datenschutz-check" class="mt-1 w-4 h-4 accent-secondary rounded" />
+              <span class="text-sm text-on-surface-variant leading-relaxed">
+                Ich habe die <a href="/datenschutz/" target="_blank" class="text-primary font-semibold underline underline-offset-2 hover:text-primary-container">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden. *
+              </span>
+            </label>
+            <p class="text-xs text-error mt-2 hidden" id="datenschutz-error">Bitte bestätigen Sie die Datenschutzerklärung.</p>
+          </div>
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <button type="button" class="btn-back border border-outline-variant text-on-surface-variant font-bold py-3 px-8 rounded-lg hover:bg-surface-container transition-all text-sm uppercase tracking-wider" data-back="8">
+            Zurück
+          </button>
+          <button type="button" id="submit-btn" class="bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider">
+            Anfrage absenden
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== SUCCESS SCREEN ==================== -->
+      <div class="quiz-step hidden" id="step-success">
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-10 md:p-14 text-center">
+          <div class="w-20 h-20 bg-elektro/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-elektro" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-black mb-3">Vielen Dank für Ihre Anfrage!</h2>
+          <p class="text-on-surface-variant text-lg mb-6">Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+          <p class="text-on-surface-variant mb-8">
+            Bei dringenden Fragen:
+            <a href="tel:08935894978" class="text-primary font-bold hover:underline">089 / 35 89 49 78</a>
+          </p>
+          <a href="/" class="inline-flex bg-secondary hover:bg-secondary-container text-on-secondary font-bold py-3 px-8 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wider">
+            Zurück zur Startseite
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+
+  <script>
+    // ===== Heizungsrechner Quiz Logic =====
+    const STORAGE_KEY = 'pertler-heizungsrechner';
+    let currentStep = 1;
+    const totalSteps = 9;
+
+    // --- Data store ---
+    let quizData: Record<string, string> = {};
+
+    function loadData(): void {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          quizData = JSON.parse(stored);
+        }
+      } catch {
+        quizData = {};
+      }
+    }
+
+    function saveData(): void {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(quizData));
+      } catch {
+        // silent fail
+      }
+    }
+
+    function setField(field: string, value: string): void {
+      quizData[field] = value;
+      saveData();
+    }
+
+    // --- Step navigation ---
+    function showStep(step: number | string): void {
+      document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(`step-${step}`);
+      if (target) {
+        target.classList.remove('hidden');
+      }
+
+      // Progress bar
+      const progressSection = document.getElementById('progress-section');
+      const isSuccess = step === 'success';
+      if (progressSection) {
+        progressSection.style.display = isSuccess ? 'none' : '';
+      }
+
+      if (typeof step === 'number') {
+        currentStep = step;
+        const label = document.getElementById('progress-label');
+        const percent = document.getElementById('progress-percent');
+        if (label) label.textContent = `Schritt ${step} von ${totalSteps}`;
+        if (percent) percent.textContent = `${Math.round((step / totalSteps) * 100)}%`;
+
+        document.querySelectorAll('.progress-segment').forEach(seg => {
+          const segStep = parseInt(seg.getAttribute('data-step') || '0');
+          if (segStep <= step) {
+            seg.classList.remove('bg-outline-variant/30');
+            seg.classList.add('bg-secondary');
+          } else {
+            seg.classList.add('bg-outline-variant/30');
+            seg.classList.remove('bg-secondary');
+          }
+        });
+
+        // Build summary when reaching step 9
+        if (step === 9) {
+          buildSummary();
+        }
+      }
+
+      // Scroll to top of quiz
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // --- Card selection ---
+    function initCards(): void {
+      document.querySelectorAll('.quiz-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const field = card.getAttribute('data-field');
+          const value = card.getAttribute('data-value');
+          if (!field || !value) return;
+
+          // Deselect siblings with same field
+          document.querySelectorAll(`.quiz-card[data-field="${field}"]`).forEach(sibling => {
+            sibling.classList.remove('border-secondary', 'bg-secondary/5');
+            sibling.classList.add('border-transparent');
+          });
+
+          // Select this card
+          card.classList.add('border-secondary', 'bg-secondary/5');
+          card.classList.remove('border-transparent');
+
+          setField(field, value);
+        });
+      });
+    }
+
+    // --- Input/select/textarea handling ---
+    function initInputs(): void {
+      document.querySelectorAll('.quiz-select, .quiz-input').forEach(el => {
+        const field = el.getAttribute('data-field');
+        if (!field) return;
+
+        const eventType = el.tagName === 'SELECT' ? 'change' : 'input';
+        el.addEventListener(eventType, () => {
+          setField(field, (el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement).value);
+        });
+      });
+    }
+
+    // --- Navigation buttons ---
+    function initNavButtons(): void {
+      document.querySelectorAll('.btn-next').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const next = parseInt(btn.getAttribute('data-next') || '0');
+          if (next) showStep(next);
+        });
+      });
+
+      document.querySelectorAll('.btn-back').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const back = parseInt(btn.getAttribute('data-back') || '0');
+          if (back) showStep(back);
+        });
+      });
+    }
+
+    // --- Restore saved values to UI ---
+    function restoreUI(): void {
+      // Restore card selections
+      document.querySelectorAll('.quiz-card').forEach(card => {
+        const field = card.getAttribute('data-field');
+        const value = card.getAttribute('data-value');
+        if (field && value && quizData[field] === value) {
+          card.classList.add('border-secondary', 'bg-secondary/5');
+          card.classList.remove('border-transparent');
+        }
+      });
+
+      // Restore inputs and selects
+      document.querySelectorAll('.quiz-select, .quiz-input').forEach(el => {
+        const field = el.getAttribute('data-field');
+        if (field && quizData[field]) {
+          (el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement).value = quizData[field];
+        }
+      });
+    }
+
+    // --- Summary builder ---
+    function buildSummary(): void {
+      const container = document.getElementById('summary-content');
+      if (!container) return;
+
+      const sections = [
+        {
+          step: 1,
+          title: 'Gebäudetyp',
+          fields: [
+            { key: 'gebaeudetyp', label: 'Typ' },
+          ]
+        },
+        {
+          step: 2,
+          title: 'Baujahr & Zustand',
+          fields: [
+            { key: 'baujahr', label: 'Baujahr' },
+            { key: 'saniert', label: 'Saniert' },
+            { key: 'gedaemmt', label: 'Gedämmt' },
+          ]
+        },
+        {
+          step: 3,
+          title: 'Wohnfläche & Stockwerke',
+          fields: [
+            { key: 'wohnflaeche', label: 'Wohnfläche' },
+            { key: 'stockwerke', label: 'Stockwerke' },
+          ]
+        },
+        {
+          step: 4,
+          title: 'Aktuelle Heizung',
+          fields: [
+            { key: 'aktuelle_heizung', label: 'Heizungstyp' },
+            { key: 'baujahr_heizung', label: 'Baujahr Heizung' },
+          ]
+        },
+        {
+          step: 5,
+          title: 'Gewünschte Heizung',
+          fields: [
+            { key: 'gewuenschte_heizung', label: 'Typ' },
+          ]
+        },
+        {
+          step: 6,
+          title: 'Standort',
+          fields: [
+            { key: 'standort', label: 'Standort' },
+          ]
+        },
+        {
+          step: 7,
+          title: 'Zusatzinfos',
+          fields: [
+            { key: 'details', label: 'Details' },
+          ]
+        },
+        {
+          step: 8,
+          title: 'Kontaktdaten',
+          fields: [
+            { key: 'name', label: 'Name' },
+            { key: 'email', label: 'E-Mail' },
+            { key: 'telefon', label: 'Telefon' },
+            { key: 'kontaktart', label: 'Kontaktart' },
+            { key: 'wunschtermin', label: 'Wunschtermin' },
+          ]
+        },
+      ];
+
+      let html = '';
+
+      for (const section of sections) {
+        const hasValues = section.fields.some(f => quizData[f.key]);
+        html += `<div class="border border-outline-variant/20 rounded-lg p-5">`;
+        html += `<div class="flex items-center justify-between mb-3">`;
+        html += `<h3 class="font-bold text-sm uppercase tracking-wider text-on-surface-variant/70">${section.title}</h3>`;
+        html += `<button type="button" class="summary-edit text-primary text-xs font-semibold hover:underline" data-edit-step="${section.step}">Bearbeiten</button>`;
+        html += `</div>`;
+
+        if (hasValues) {
+          html += `<div class="space-y-2">`;
+          for (const field of section.fields) {
+            const val = quizData[field.key];
+            if (val) {
+              const displayVal = field.key === 'wohnflaeche' ? `${val} m²` : val;
+              html += `<div class="flex justify-between text-sm">`;
+              html += `<span class="text-on-surface-variant">${field.label}</span>`;
+              html += `<span class="font-medium text-on-surface">${displayVal}</span>`;
+              html += `</div>`;
+            }
+          }
+          html += `</div>`;
+        } else {
+          html += `<p class="text-sm text-on-surface-variant/50 italic">Keine Angabe</p>`;
+        }
+
+        html += `</div>`;
+      }
+
+      container.innerHTML = html;
+
+      // Attach edit handlers
+      container.querySelectorAll('.summary-edit').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const step = parseInt(btn.getAttribute('data-edit-step') || '1');
+          showStep(step);
+        });
+      });
+    }
+
+    // --- Submit ---
+    function initSubmit(): void {
+      const submitBtn = document.getElementById('submit-btn');
+      const datenschutzCheck = document.getElementById('datenschutz-check') as HTMLInputElement;
+      const datenschutzError = document.getElementById('datenschutz-error');
+
+      submitBtn?.addEventListener('click', () => {
+        if (!datenschutzCheck?.checked) {
+          datenschutzError?.classList.remove('hidden');
+          return;
+        }
+        datenschutzError?.classList.add('hidden');
+
+        // Frontend-only: log data and show success
+        console.log('Heizungsrechner submission:', quizData);
+
+        // Clear storage after "submit"
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch {
+          // silent
+        }
+
+        showStep('success');
+      });
+
+      datenschutzCheck?.addEventListener('change', () => {
+        if (datenschutzCheck.checked) {
+          datenschutzError?.classList.add('hidden');
+        }
+      });
+    }
+
+    // --- Init ---
+    function init(): void {
+      loadData();
+      initCards();
+      initInputs();
+      initNavButtons();
+      restoreUI();
+      initSubmit();
+      showStep(1);
+    }
+
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</BaseLayout>

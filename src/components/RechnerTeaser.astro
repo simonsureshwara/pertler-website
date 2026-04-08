@@ -1,32 +1,79 @@
 ---
-import { Flame, Bath } from "lucide-astro";
+import { Flame, Bath, ArrowRight, Clock, CheckCircle, Mail } from "lucide-astro";
 ---
 
 <section class="py-24 bg-surface">
   <div class="max-w-screen-2xl mx-auto px-8">
-    <div class="bg-surface-container-low rounded-2xl p-12 lg:p-20 relative overflow-hidden">
-      <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Online-Rechner</span>
+      <h2 class="text-3xl md:text-4xl font-black tracking-tighter mb-4">Kosten einschätzen — kostenlos und unverbindlich.</h2>
+      <p class="text-on-surface-variant text-lg max-w-2xl mx-auto leading-relaxed">
+        Erhalten Sie in wenigen Minuten eine erste Einschätzung für Ihr Heizungs- oder Badprojekt in München. Beantworten Sie ein paar Fragen — wir melden uns mit einem individuellen Angebot.
+      </p>
+    </div>
+
+    <div class="bg-surface-container-low rounded-2xl p-8 lg:p-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Heizungsrechner -->
-        <div class="bg-surface-container-lowest p-10 rounded-xl shadow-sm border-b-4 border-secondary hover:shadow-xl transition-shadow group">
-          <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-8">
-            <Flame class="w-8 h-8 text-secondary" />
+        <div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl editorial-shadow border-b-4 border-secondary hover:shadow-lg transition-shadow group">
+          <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
+            <Flame class="w-7 h-7 text-secondary" />
           </div>
-          <h3 class="text-2xl font-bold mb-4">Heizungsrechner</h3>
-          <p class="text-on-surface-variant mb-8 leading-relaxed">Ermitteln Sie in wenigen Schritten Ihr individuelles Angebot für eine neue, effiziente Heizungsanlage.</p>
-          <a href="/rechner/heizungsrechner/" class="inline-flex items-center justify-center w-full px-8 py-4 bg-secondary text-white rounded-md font-bold transition-all group-hover:bg-secondary-container">
-            Heizung planen
+          <h3 class="text-2xl font-bold mb-3">Heizungsrechner</h3>
+          <p class="text-on-surface-variant leading-relaxed mb-6">
+            Welche Heizung passt zu Ihrem Gebäude? Beantworten Sie 9 kurze Fragen zu Gebäudetyp, Fläche und Wunschheizung — und erhalten Sie eine individuelle Empfehlung mit Kosteneinschätzung.
+          </p>
+
+          <!-- Trust Badges -->
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container rounded-full text-xs font-semibold text-on-surface-variant">
+              <Clock class="w-3.5 h-3.5 text-secondary" />
+              5 Minuten
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container rounded-full text-xs font-semibold text-on-surface-variant">
+              <CheckCircle class="w-3.5 h-3.5 text-secondary" />
+              Kostenlos
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container rounded-full text-xs font-semibold text-on-surface-variant">
+              <Mail class="w-3.5 h-3.5 text-secondary" />
+              Angebot in 24h
+            </span>
+          </div>
+
+          <a href="/rechner/heizungsrechner/" class="inline-flex items-center gap-2 w-full justify-center px-8 py-4 bg-secondary text-white rounded-md font-bold transition-all group-hover:bg-secondary-container group-hover:gap-3">
+            Heizungsrechner starten <ArrowRight class="w-4 h-4" />
           </a>
         </div>
 
         <!-- Badrechner -->
-        <div class="bg-surface-container-lowest p-10 rounded-xl shadow-sm border-b-4 border-primary hover:shadow-xl transition-shadow group">
-          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
-            <Bath class="w-8 h-8 text-primary" />
+        <div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl editorial-shadow border-b-4 border-primary hover:shadow-lg transition-shadow group">
+          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+            <Bath class="w-7 h-7 text-primary" />
           </div>
-          <h3 class="text-2xl font-bold mb-4">Badrechner</h3>
-          <p class="text-on-surface-variant mb-8 leading-relaxed">Konfigurieren Sie Ihr Traumbad online und erhalten Sie eine erste Kosteneinschätzung für Ihre Sanierung.</p>
-          <a href="/rechner/badrechner/" class="inline-flex items-center justify-center w-full px-8 py-4 bg-secondary text-white rounded-md font-bold transition-all group-hover:bg-secondary-container">
-            Bad konfigurieren
+          <h3 class="text-2xl font-bold mb-3">Badrechner</h3>
+          <p class="text-on-surface-variant leading-relaxed mb-6">
+            Was kostet Ihre Badsanierung? Konfigurieren Sie Ihr Traumbad in 10 Schritten — von Ausstattung über Stil bis Budget — und erhalten Sie eine erste Kosteneinschätzung für München.
+          </p>
+
+          <!-- Trust Badges -->
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container rounded-full text-xs font-semibold text-on-surface-variant">
+              <Clock class="w-3.5 h-3.5 text-primary" />
+              5 Minuten
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container rounded-full text-xs font-semibold text-on-surface-variant">
+              <CheckCircle class="w-3.5 h-3.5 text-primary" />
+              Kostenlos
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container rounded-full text-xs font-semibold text-on-surface-variant">
+              <Mail class="w-3.5 h-3.5 text-primary" />
+              Angebot in 48h
+            </span>
+          </div>
+
+          <a href="/rechner/badrechner/" class="inline-flex items-center gap-2 w-full justify-center px-8 py-4 bg-secondary text-white rounded-md font-bold transition-all group-hover:bg-secondary-container group-hover:gap-3">
+            Badrechner starten <ArrowRight class="w-4 h-4" />
           </a>
         </div>
       </div>

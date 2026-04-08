@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const companies = [
+  { id: "pertler-gmbh", name: "Ernst Pertler GmbH", short: "Ernst Pertler GmbH" },
+  { id: "pertler-service", name: "Ernst Pertler Service GmbH", short: "Pertler Service GmbH" },
+  { id: "pertler-bad", name: "Pertler Bad GmbH", short: "Pertler Bad GmbH" },
+  { id: "pertler-elektro", name: "Pertler Elektrotechnik GmbH", short: "Pertler Elektrotechnik GmbH" },
+];
+---
+
+<BaseLayout
+  title="Widerrufsrecht | PERTLER Gebäudetechnik München"
+  description="Widerrufsbelehrungen der Ernst Pertler GmbH, Ernst Pertler Service GmbH, Pertler Bad GmbH und Pertler Elektrotechnik GmbH."
+>
+  <EmergencyBanner />
+  <Navbar />
+  <main class="py-24 bg-surface">
+
+    <!-- ===== HERO ===== -->
+    <section class="relative bg-primary-container overflow-hidden py-20 md:py-28 -mt-24">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-container to-[#4A1218]"></div>
+      <div class="relative z-10 max-w-screen-2xl mx-auto px-8 text-center pt-24">
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-4">Widerrufsrecht</h1>
+        <p class="text-lg text-white/70 max-w-2xl mx-auto">
+          Widerrufsbelehrungen unserer vier Gesellschaften gemäß den gesetzlichen Vorgaben.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== TAB CONTENT ===== -->
+    <div class="max-w-3xl mx-auto px-8 py-16 md:py-24">
+
+      <!-- Tab Navigation -->
+      <div class="flex flex-wrap gap-2 mb-12 border-b border-outline-variant/15 pb-4" id="widerruf-tabs">
+        {companies.map((company, i) => (
+          <button
+            class:list={[
+              "widerruf-tab px-4 py-2 rounded-t-md text-sm font-bold transition-all",
+              i === 0
+                ? "bg-primary text-on-primary"
+                : "bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest",
+            ]}
+            data-tab={company.id}
+          >
+            {company.short}
+          </button>
+        ))}
+      </div>
+
+      <!-- Tab Panels -->
+      {companies.map((company, i) => (
+        <div
+          class:list={["widerruf-panel", i !== 0 && "hidden"]}
+          data-panel={company.id}
+        >
+          <h2 class="text-2xl font-bold text-on-surface mb-8">Widerrufsbelehrung — {company.name}</h2>
+
+          <div class="text-on-surface-variant leading-relaxed space-y-6">
+            <section>
+              <h3 class="text-lg font-bold text-on-surface mb-3">Widerrufsrecht</h3>
+              <p>
+                Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.
+              </p>
+              <p class="mt-4">
+                Um Ihr Widerrufsrecht auszuüben, müssen Sie uns:
+              </p>
+              <div class="bg-surface-container-low rounded-lg p-6 mt-4 border border-outline-variant/15">
+                <p class="font-medium text-on-surface">{company.name}</p>
+                <p>Wilhelmine-Reichard-Str. 24</p>
+                <p>80935 München</p>
+                <p class="mt-2">
+                  Telefon: <a href="tel:08935894978" class="text-primary hover:underline">089 / 35 89 49 78</a>
+                </p>
+                <p>
+                  E-Mail: <a href="mailto:info@pertler.de" class="text-primary hover:underline">info@pertler.de</a>
+                </p>
+              </div>
+              <p class="mt-4">
+                mittels einer eindeutigen Erklärung (z.&thinsp;B. ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.
+              </p>
+            </section>
+
+            <section>
+              <h3 class="text-lg font-bold text-on-surface mb-3">Frist</h3>
+              <p>
+                Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.
+              </p>
+            </section>
+
+            <section>
+              <h3 class="text-lg font-bold text-on-surface mb-3">Folgen des Widerrufs</h3>
+              <p>
+                Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass Sie eine andere Art der Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt haben), unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.
+              </p>
+              <p class="mt-4">
+                Haben Sie verlangt, dass die Dienstleistungen während der Widerrufsfrist beginnen sollen, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem Sie uns von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrags unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht.
+              </p>
+            </section>
+
+            <hr class="border-outline-variant/15 my-8" />
+
+            <section>
+              <h3 class="text-lg font-bold text-on-surface mb-3">Muster-Widerrufsformular</h3>
+              <p class="mb-4 text-sm">
+                (Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)
+              </p>
+              <div class="bg-surface-container-low rounded-lg p-6 border border-outline-variant/15 space-y-3 text-sm">
+                <p>
+                  An:<br />
+                  {company.name}<br />
+                  Wilhelmine-Reichard-Str. 24<br />
+                  80935 München<br />
+                  E-Mail: info@pertler.de
+                </p>
+                <p>
+                  Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung (*):
+                </p>
+                <p>___________________________________________</p>
+                <p>Bestellt am (*) / erhalten am (*):</p>
+                <p>___________________________________________</p>
+                <p>Name des/der Verbraucher(s):</p>
+                <p>___________________________________________</p>
+                <p>Anschrift des/der Verbraucher(s):</p>
+                <p>___________________________________________</p>
+                <p>Datum:</p>
+                <p>___________________________________________</p>
+                <p>Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier):</p>
+                <p class="text-on-surface-variant/60 mt-4">(*) Unzutreffendes streichen.</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll<HTMLButtonElement>(".widerruf-tab");
+    const panels = document.querySelectorAll<HTMLElement>(".widerruf-panel");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetId = tab.getAttribute("data-tab");
+
+        // Reset all tabs
+        tabs.forEach((t) => {
+          t.classList.remove("bg-primary", "text-on-primary");
+          t.classList.add("bg-surface-container-high", "text-on-surface-variant");
+        });
+
+        // Activate clicked tab
+        tab.classList.remove("bg-surface-container-high", "text-on-surface-variant");
+        tab.classList.add("bg-primary", "text-on-primary");
+
+        // Toggle panels
+        panels.forEach((panel) => {
+          if (panel.getAttribute("data-panel") === targetId) {
+            panel.classList.remove("hidden");
+          } else {
+            panel.classList.add("hidden");
+          }
+        });
+      });
+    });
+  });
+</script>

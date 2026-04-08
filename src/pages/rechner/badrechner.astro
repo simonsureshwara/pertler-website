@@ -1,0 +1,736 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EmergencyBanner from "../../components/EmergencyBanner.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Badrechner | PERTLER Gebäudetechnik München";
+const description = "Konfigurieren Sie Ihr Traumbad in 10 Schritten. Kostenlose Ersteinschätzung für Ihre Badsanierung in München.";
+---
+
+<BaseLayout title={title} description={description}>
+  <EmergencyBanner />
+  <Navbar />
+
+  <main class="min-h-screen bg-surface py-12 px-4 sm:px-8">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Header -->
+      <div class="text-center mb-8" id="quiz-header">
+        <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-2 block">Badrechner</span>
+        <h1 class="text-3xl md:text-4xl font-black tracking-tighter mb-2">Konfigurieren Sie Ihr Traumbad.</h1>
+        <p class="text-on-surface-variant text-lg leading-relaxed">In 10 Schritten zur kostenlosen Ersteinschätzung.</p>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="mb-10" id="progress-wrap">
+        <div class="flex justify-between text-xs font-semibold text-on-surface-variant mb-2">
+          <span id="progress-label">Schritt 1 von 10</span>
+          <span id="progress-pct">10%</span>
+        </div>
+        <div class="w-full h-2 rounded-full bg-outline-variant/30 overflow-hidden">
+          <div id="progress-bar" class="h-full rounded-full bg-secondary transition-all duration-500 ease-out" style="width:10%"></div>
+        </div>
+      </div>
+
+      <!-- Quiz Container -->
+      <div id="quiz-container">
+
+        <!-- ============ STEP 1 ============ -->
+        <div class="quiz-step" data-step="1">
+          <h2 class="text-xl font-bold mb-1">Art des Projekts</h2>
+          <p class="text-on-surface-variant mb-6">Welche Art von Badprojekt planen Sie?</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-single="projektart">
+            <button type="button" class="card-option" data-value="Badsanierung">
+              <span class="text-2xl mb-2 block">&#x1F504;</span>
+              <span class="font-semibold">Badsanierung</span>
+            </button>
+            <button type="button" class="card-option" data-value="Neues Bad">
+              <span class="text-2xl mb-2 block">&#x1F195;</span>
+              <span class="font-semibold">Neues Bad</span>
+            </button>
+            <button type="button" class="card-option" data-value="Teilrenovierung">
+              <span class="text-2xl mb-2 block">&#x1F3D7;</span>
+              <span class="font-semibold">Teilrenovierung</span>
+            </button>
+            <button type="button" class="card-option" data-value="Barrierefreier Umbau">
+              <span class="text-2xl mb-2 block">&#x267F;</span>
+              <span class="font-semibold">Barrierefreier Umbau</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ============ STEP 2 ============ -->
+        <div class="quiz-step hidden" data-step="2">
+          <h2 class="text-xl font-bold mb-1">Badgr&ouml;&szlig;e</h2>
+          <p class="text-on-surface-variant mb-6">Wie gro&szlig; ist Ihr Bad?</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6" data-single="badgroesse">
+            <button type="button" class="card-option" data-value="Klein (<5m²)">
+              <span class="font-semibold">Klein</span>
+              <span class="text-xs text-on-surface-variant">&lt;5 m&sup2;</span>
+            </button>
+            <button type="button" class="card-option" data-value="Mittel (5–10m²)">
+              <span class="font-semibold">Mittel</span>
+              <span class="text-xs text-on-surface-variant">5&ndash;10 m&sup2;</span>
+            </button>
+            <button type="button" class="card-option" data-value="Groß (10–15m²)">
+              <span class="font-semibold">Gro&szlig;</span>
+              <span class="text-xs text-on-surface-variant">10&ndash;15 m&sup2;</span>
+            </button>
+            <button type="button" class="card-option" data-value="Sehr groß (>15m²)">
+              <span class="font-semibold">Sehr gro&szlig;</span>
+              <span class="text-xs text-on-surface-variant">&gt;15 m&sup2;</span>
+            </button>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-sm font-medium text-on-surface-variant whitespace-nowrap" for="exact-area">Genaue Fl&auml;che in m&sup2;:</label>
+            <input id="exact-area" type="number" min="1" max="200" step="0.1" placeholder="z.B. 7,5"
+              class="w-32 px-3 py-2 rounded-md border border-outline-variant/40 bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/50 text-sm" />
+          </div>
+        </div>
+
+        <!-- ============ STEP 3 ============ -->
+        <div class="quiz-step hidden" data-step="3">
+          <h2 class="text-xl font-bold mb-1">Aktuelle Ausstattung</h2>
+          <p class="text-on-surface-variant mb-6">Was ist aktuell vorhanden? <span class="text-xs">(Mehrfachauswahl)</span></p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" data-multi="aktuell">
+            <button type="button" class="card-option-multi" data-value="Badewanne">
+              <span class="text-2xl mb-1 block">&#x1F6C1;</span>
+              <span class="font-semibold text-sm">Badewanne</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Dusche">
+              <span class="text-2xl mb-1 block">&#x1F6BF;</span>
+              <span class="font-semibold text-sm">Dusche</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="WC">
+              <span class="text-2xl mb-1 block">&#x1F6BD;</span>
+              <span class="font-semibold text-sm">WC</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Waschtisch">
+              <span class="text-2xl mb-1 block">&#x1FA9E;</span>
+              <span class="font-semibold text-sm">Waschtisch</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Fußbodenheizung">
+              <span class="text-2xl mb-1 block">&#x1F525;</span>
+              <span class="font-semibold text-sm">Fu&szlig;bodenheizung</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Fenster">
+              <span class="text-2xl mb-1 block">&#x1FA9F;</span>
+              <span class="font-semibold text-sm">Fenster</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Barrierefreie Elemente">
+              <span class="text-2xl mb-1 block">&#x267F;</span>
+              <span class="font-semibold text-sm">Barrierefreie Elemente</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ============ STEP 4 ============ -->
+        <div class="quiz-step hidden" data-step="4">
+          <h2 class="text-xl font-bold mb-1">Gew&uuml;nschte Ausstattung</h2>
+          <p class="text-on-surface-variant mb-6">Was m&ouml;chten Sie? <span class="text-xs">(Mehrfachauswahl)</span></p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" data-multi="gewuenscht">
+            <button type="button" class="card-option-multi" data-value="Badewanne">
+              <span class="text-2xl mb-1 block">&#x1F6C1;</span>
+              <span class="font-semibold text-sm">Badewanne</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Ebenerdige Dusche">
+              <span class="text-2xl mb-1 block">&#x1F6BF;</span>
+              <span class="font-semibold text-sm">Ebenerdige Dusche</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="WC">
+              <span class="text-2xl mb-1 block">&#x1F6BD;</span>
+              <span class="font-semibold text-sm">WC</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Dusch-WC">
+              <span class="text-2xl mb-1 block">&#x1F6BD;</span>
+              <span class="font-semibold text-sm">Dusch-WC</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Einzelwaschtisch">
+              <span class="text-2xl mb-1 block">&#x1FA9E;</span>
+              <span class="font-semibold text-sm">Einzelwaschtisch</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Doppelwaschtisch">
+              <span class="text-2xl mb-1 block">&#x1FA9E;</span>
+              <span class="font-semibold text-sm">Doppelwaschtisch</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Fußbodenheizung">
+              <span class="text-2xl mb-1 block">&#x1F525;</span>
+              <span class="font-semibold text-sm">Fu&szlig;bodenheizung</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Beleuchtungskonzept">
+              <span class="text-2xl mb-1 block">&#x1F4A1;</span>
+              <span class="font-semibold text-sm">Beleuchtungskonzept</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Naturstein/Fliesen">
+              <span class="text-2xl mb-1 block">&#x1FAA8;</span>
+              <span class="font-semibold text-sm">Naturstein/Fliesen</span>
+            </button>
+            <button type="button" class="card-option-multi" data-value="Barrierefreie Elemente">
+              <span class="text-2xl mb-1 block">&#x267F;</span>
+              <span class="font-semibold text-sm">Barrierefreie Elemente</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ============ STEP 5 ============ -->
+        <div class="quiz-step hidden" data-step="5">
+          <h2 class="text-xl font-bold mb-1">Stil &amp; Geschmack</h2>
+          <p class="text-on-surface-variant mb-6">Welcher Stil gef&auml;llt Ihnen?</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-single="stil">
+            <button type="button" class="card-option" data-value="Modern/Minimalistisch">
+              <span class="font-semibold">Modern / Minimalistisch</span>
+              <span class="text-xs text-on-surface-variant">Klare Linien, reduzierte Formen</span>
+            </button>
+            <button type="button" class="card-option" data-value="Klassisch/Zeitlos">
+              <span class="font-semibold">Klassisch / Zeitlos</span>
+              <span class="text-xs text-on-surface-variant">Elegante Materialien, warme T&ouml;ne</span>
+            </button>
+            <button type="button" class="card-option" data-value="Luxuriös/Wellness">
+              <span class="font-semibold">Luxuri&ouml;s / Wellness</span>
+              <span class="text-xs text-on-surface-variant">Spa-Atmosph&auml;re, Premium-Ausstattung</span>
+            </button>
+            <button type="button" class="card-option" data-value="Weiß nicht">
+              <span class="font-semibold">Wei&szlig; nicht</span>
+              <span class="text-xs text-on-surface-variant">Beraten Sie mich</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ============ STEP 6 ============ -->
+        <div class="quiz-step hidden" data-step="6">
+          <h2 class="text-xl font-bold mb-1">Budget-Rahmen</h2>
+          <p class="text-on-surface-variant mb-6">Welches Budget haben Sie eingeplant?</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-single="budget">
+            <button type="button" class="card-option" data-value="Bis 10.000 €">
+              <span class="font-semibold">Bis 10.000 &euro;</span>
+            </button>
+            <button type="button" class="card-option" data-value="10.000–20.000 €">
+              <span class="font-semibold">10.000&ndash;20.000 &euro;</span>
+            </button>
+            <button type="button" class="card-option" data-value="20.000–40.000 €">
+              <span class="font-semibold">20.000&ndash;40.000 &euro;</span>
+            </button>
+            <button type="button" class="card-option" data-value="Über 40.000 €">
+              <span class="font-semibold">&Uuml;ber 40.000 &euro;</span>
+            </button>
+            <button type="button" class="card-option sm:col-span-2" data-value="Noch keine Vorstellung">
+              <span class="font-semibold">Noch keine Vorstellung</span>
+            </button>
+          </div>
+          <button type="button" class="skip-link mt-4 text-sm text-on-surface-variant hover:text-secondary underline underline-offset-2">&Uuml;berspringen &rarr;</button>
+        </div>
+
+        <!-- ============ STEP 7 ============ -->
+        <div class="quiz-step hidden" data-step="7">
+          <h2 class="text-xl font-bold mb-1">Zeitrahmen</h2>
+          <p class="text-on-surface-variant mb-6">Wann soll das Projekt starten?</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-single="zeitrahmen">
+            <button type="button" class="card-option" data-value="So bald wie möglich">
+              <span class="font-semibold">So bald wie m&ouml;glich</span>
+            </button>
+            <button type="button" class="card-option" data-value="In 1–3 Monaten">
+              <span class="font-semibold">In 1&ndash;3 Monaten</span>
+            </button>
+            <button type="button" class="card-option" data-value="In 3–6 Monaten">
+              <span class="font-semibold">In 3&ndash;6 Monaten</span>
+            </button>
+            <button type="button" class="card-option" data-value="Später / Nur Planung">
+              <span class="font-semibold">Sp&auml;ter / Nur Planung</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ============ STEP 8 ============ -->
+        <div class="quiz-step hidden" data-step="8">
+          <h2 class="text-xl font-bold mb-1">Fotos &amp; Details</h2>
+          <p class="text-on-surface-variant mb-6">Haben Sie Fotos oder weitere Informationen? <span class="text-xs">(optional)</span></p>
+
+          <!-- Upload zone placeholder -->
+          <div class="border-2 border-dashed border-outline-variant/40 rounded-xl p-8 text-center mb-6 bg-surface-container-lowest">
+            <div class="text-4xl mb-2">&#x1F4F7;</div>
+            <p class="font-semibold text-sm mb-1">Fotos vom aktuellen Bad</p>
+            <p class="text-xs text-on-surface-variant">Drag &amp; Drop oder klicken (Platzhalter &mdash; Upload nicht aktiv)</p>
+          </div>
+
+          <!-- Grundriss -->
+          <div class="mb-6">
+            <p class="font-semibold text-sm mb-3">Grundriss vorhanden?</p>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="grundriss" value="Ja" class="accent-secondary w-4 h-4" />
+                <span class="text-sm">Ja</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="grundriss" value="Nein" class="accent-secondary w-4 h-4" />
+                <span class="text-sm">Nein</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Besondere Wünsche -->
+          <div>
+            <label for="wuensche" class="font-semibold text-sm mb-2 block">Besondere W&uuml;nsche</label>
+            <textarea id="wuensche" rows="4" placeholder="z.B. Regendusche, bestimmte Marke, Zeitdruck..."
+              class="w-full px-4 py-3 rounded-md border border-outline-variant/40 bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/50 text-sm resize-y"></textarea>
+          </div>
+
+          <button type="button" class="skip-link mt-4 text-sm text-on-surface-variant hover:text-secondary underline underline-offset-2">&Uuml;berspringen &rarr;</button>
+        </div>
+
+        <!-- ============ STEP 9 ============ -->
+        <div class="quiz-step hidden" data-step="9">
+          <h2 class="text-xl font-bold mb-1">Kontaktdaten</h2>
+          <p class="text-on-surface-variant mb-6">Wie k&ouml;nnen wir Sie erreichen?</p>
+
+          <div class="space-y-4 mb-6">
+            <div>
+              <label for="contact-name" class="text-sm font-semibold mb-1 block">Name *</label>
+              <input id="contact-name" type="text" required placeholder="Max Mustermann"
+                class="w-full px-4 py-3 rounded-md border border-outline-variant/40 bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/50 text-sm" />
+            </div>
+            <div>
+              <label for="contact-email" class="text-sm font-semibold mb-1 block">E-Mail *</label>
+              <input id="contact-email" type="email" required placeholder="max@beispiel.de"
+                class="w-full px-4 py-3 rounded-md border border-outline-variant/40 bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/50 text-sm" />
+            </div>
+            <div>
+              <label for="contact-phone" class="text-sm font-semibold mb-1 block">Telefon *</label>
+              <input id="contact-phone" type="tel" required placeholder="089 123 456 78"
+                class="w-full px-4 py-3 rounded-md border border-outline-variant/40 bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/50 text-sm" />
+            </div>
+            <div>
+              <label for="contact-address" class="text-sm font-semibold mb-1 block">Adresse / PLZ <span class="text-on-surface-variant font-normal">(optional)</span></label>
+              <input id="contact-address" type="text" placeholder="80935 M&uuml;nchen"
+                class="w-full px-4 py-3 rounded-md border border-outline-variant/40 bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/50 text-sm" />
+            </div>
+          </div>
+
+          <p class="font-semibold text-sm mb-3">Bevorzugte Kontaktart</p>
+          <div class="grid grid-cols-3 gap-4" data-single="kontaktart">
+            <button type="button" class="card-option" data-value="E-Mail">
+              <span class="font-semibold text-sm">E-Mail</span>
+            </button>
+            <button type="button" class="card-option" data-value="Telefon">
+              <span class="font-semibold text-sm">Telefon</span>
+            </button>
+            <button type="button" class="card-option" data-value="Egal">
+              <span class="font-semibold text-sm">Egal</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ============ STEP 10: Zusammenfassung ============ -->
+        <div class="quiz-step hidden" data-step="10">
+          <h2 class="text-xl font-bold mb-1">Zusammenfassung</h2>
+          <p class="text-on-surface-variant mb-6">Bitte pr&uuml;fen Sie Ihre Angaben.</p>
+
+          <div id="summary-content" class="space-y-4 mb-8"></div>
+
+          <label class="flex items-start gap-3 mb-6 cursor-pointer">
+            <input type="checkbox" id="datenschutz-check" class="accent-secondary w-4 h-4 mt-0.5 shrink-0" />
+            <span class="text-sm text-on-surface-variant leading-relaxed">
+              Ich habe die <a href="/datenschutz/" class="underline text-secondary hover:text-primary">Datenschutzerkl&auml;rung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden. *
+            </span>
+          </label>
+        </div>
+
+        <!-- ============ SUCCESS SCREEN ============ -->
+        <div class="quiz-step hidden" data-step="success">
+          <div class="text-center py-12">
+            <div class="text-6xl mb-6">&#x2705;</div>
+            <h2 class="text-2xl font-black mb-3">Vielen Dank!</h2>
+            <p class="text-on-surface-variant text-lg leading-relaxed mb-6 max-w-md mx-auto">
+              Unser Bad-Team meldet sich innerhalb von <strong>48 Stunden</strong> bei Ihnen.
+            </p>
+            <p class="text-sm text-on-surface-variant mb-8">
+              Bei dringenden Fragen erreichen Sie uns unter<br/>
+              <a href="tel:08935894978" class="font-bold text-secondary hover:underline">089 / 35 89 49 78</a>
+            </p>
+            <a href="/" class="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-white rounded-md font-bold hover:bg-secondary-container transition-colors">
+              Zur&uuml;ck zur Startseite &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /quiz-container -->
+
+      <!-- Navigation Buttons -->
+      <div id="nav-buttons" class="flex justify-between items-center mt-8">
+        <button type="button" id="btn-back" class="px-6 py-3 rounded-md border border-outline-variant/40 text-on-surface-variant font-semibold text-sm hover:bg-surface-container transition-colors hidden">
+          &larr; Zur&uuml;ck
+        </button>
+        <div class="ml-auto">
+          <button type="button" id="btn-next" class="px-8 py-3 rounded-md bg-secondary text-white font-bold text-sm hover:bg-secondary-container transition-colors">
+            Weiter &rarr;
+          </button>
+          <button type="button" id="btn-submit" class="px-8 py-3 rounded-md bg-secondary text-white font-bold text-sm hover:bg-secondary-container transition-colors hidden">
+            Anfrage absenden
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .card-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    background: var(--color-surface-container-lowest);
+    border-radius: 0.75rem;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 4px 8px rgba(0,0,0,0.04),
+      0 12px 24px rgba(0,0,0,0.06);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .card-option:hover {
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.06),
+      0 8px 20px rgba(0,0,0,0.08),
+      0 20px 44px rgba(0,0,0,0.06);
+  }
+  .card-option.selected {
+    border-color: var(--color-secondary);
+    background: color-mix(in srgb, var(--color-secondary) 5%, transparent);
+  }
+
+  .card-option-multi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    background: var(--color-surface-container-lowest);
+    border-radius: 0.75rem;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 4px 8px rgba(0,0,0,0.04),
+      0 12px 24px rgba(0,0,0,0.06);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .card-option-multi:hover {
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.06),
+      0 8px 20px rgba(0,0,0,0.08),
+      0 20px 44px rgba(0,0,0,0.06);
+  }
+  .card-option-multi.selected {
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const STORAGE_KEY = "pertler-badrechner";
+    const TOTAL_STEPS = 10;
+
+    let currentStep = 1;
+    let answers: Record<string, any> = {};
+
+    // Restore from localStorage
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        answers = parsed.answers || {};
+        currentStep = parsed.currentStep || 1;
+      }
+    } catch {}
+
+    const allSteps = document.querySelectorAll<HTMLElement>(".quiz-step");
+    const progressBar = document.getElementById("progress-bar") as HTMLElement;
+    const progressLabel = document.getElementById("progress-label") as HTMLElement;
+    const progressPct = document.getElementById("progress-pct") as HTMLElement;
+    const progressWrap = document.getElementById("progress-wrap") as HTMLElement;
+    const navButtons = document.getElementById("nav-buttons") as HTMLElement;
+    const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
+    const btnNext = document.getElementById("btn-next") as HTMLButtonElement;
+    const btnSubmit = document.getElementById("btn-submit") as HTMLButtonElement;
+
+    // Labels for summary
+    const stepLabels: Record<string, string> = {
+      projektart: "Art des Projekts",
+      badgroesse: "Badgr\u00f6\u00dfe",
+      exactArea: "Genaue Fl\u00e4che",
+      aktuell: "Aktuelle Ausstattung",
+      gewuenscht: "Gew\u00fcnschte Ausstattung",
+      stil: "Stil & Geschmack",
+      budget: "Budget-Rahmen",
+      zeitrahmen: "Zeitrahmen",
+      grundriss: "Grundriss vorhanden",
+      wuensche: "Besondere W\u00fcnsche",
+      name: "Name",
+      email: "E-Mail",
+      phone: "Telefon",
+      address: "Adresse/PLZ",
+      kontaktart: "Bevorzugte Kontaktart",
+    };
+
+    const stepForKey: Record<string, number> = {
+      projektart: 1,
+      badgroesse: 2, exactArea: 2,
+      aktuell: 3,
+      gewuenscht: 4,
+      stil: 5,
+      budget: 6,
+      zeitrahmen: 7,
+      grundriss: 8, wuensche: 8,
+      name: 9, email: 9, phone: 9, address: 9, kontaktart: 9,
+    };
+
+    function save() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers, currentStep }));
+      } catch {}
+    }
+
+    function showStep(step: number | string) {
+      allSteps.forEach(el => el.classList.add("hidden"));
+      const target = document.querySelector<HTMLElement>(`.quiz-step[data-step="${step}"]`);
+      if (target) target.classList.remove("hidden");
+
+      if (step === "success") {
+        navButtons.classList.add("hidden");
+        progressWrap.classList.add("hidden");
+        return;
+      }
+
+      navButtons.classList.remove("hidden");
+      progressWrap.classList.remove("hidden");
+
+      const s = step as number;
+      const pct = Math.round((s / TOTAL_STEPS) * 100);
+      progressBar.style.width = pct + "%";
+      progressLabel.textContent = `Schritt ${s} von ${TOTAL_STEPS}`;
+      progressPct.textContent = pct + "%";
+
+      btnBack.classList.toggle("hidden", s === 1);
+
+      if (s === TOTAL_STEPS) {
+        btnNext.classList.add("hidden");
+        btnSubmit.classList.remove("hidden");
+        renderSummary();
+      } else {
+        btnNext.classList.remove("hidden");
+        btnSubmit.classList.add("hidden");
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // ---- Single-select cards ----
+    document.querySelectorAll<HTMLElement>("[data-single]").forEach(grid => {
+      const key = grid.dataset.single!;
+      grid.querySelectorAll<HTMLButtonElement>(".card-option").forEach(btn => {
+        // Restore
+        if (answers[key] === btn.dataset.value) btn.classList.add("selected");
+
+        btn.addEventListener("click", () => {
+          grid.querySelectorAll(".card-option").forEach(b => b.classList.remove("selected"));
+          btn.classList.add("selected");
+          answers[key] = btn.dataset.value;
+          save();
+        });
+      });
+    });
+
+    // ---- Multi-select cards ----
+    document.querySelectorAll<HTMLElement>("[data-multi]").forEach(grid => {
+      const key = grid.dataset.multi!;
+      if (!answers[key]) answers[key] = [];
+
+      grid.querySelectorAll<HTMLButtonElement>(".card-option-multi").forEach(btn => {
+        // Restore
+        if (Array.isArray(answers[key]) && answers[key].includes(btn.dataset.value)) {
+          btn.classList.add("selected");
+        }
+
+        btn.addEventListener("click", () => {
+          const val = btn.dataset.value!;
+          const arr: string[] = answers[key] || [];
+          const idx = arr.indexOf(val);
+          if (idx > -1) {
+            arr.splice(idx, 1);
+            btn.classList.remove("selected");
+          } else {
+            arr.push(val);
+            btn.classList.add("selected");
+          }
+          answers[key] = arr;
+          save();
+        });
+      });
+    });
+
+    // ---- Skip links ----
+    document.querySelectorAll<HTMLButtonElement>(".skip-link").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (currentStep < TOTAL_STEPS) {
+          currentStep++;
+          save();
+          showStep(currentStep);
+        }
+      });
+    });
+
+    // ---- Collect non-card inputs ----
+    function collectInputs() {
+      // Step 2: exact area
+      const exactArea = (document.getElementById("exact-area") as HTMLInputElement).value;
+      if (exactArea) answers.exactArea = exactArea + " m\u00b2";
+      else delete answers.exactArea;
+
+      // Step 8
+      const grundrissRadio = document.querySelector<HTMLInputElement>('input[name="grundriss"]:checked');
+      if (grundrissRadio) answers.grundriss = grundrissRadio.value;
+      const wuensche = (document.getElementById("wuensche") as HTMLTextAreaElement).value.trim();
+      if (wuensche) answers.wuensche = wuensche;
+      else delete answers.wuensche;
+
+      // Step 9
+      const name = (document.getElementById("contact-name") as HTMLInputElement).value.trim();
+      const email = (document.getElementById("contact-email") as HTMLInputElement).value.trim();
+      const phone = (document.getElementById("contact-phone") as HTMLInputElement).value.trim();
+      const address = (document.getElementById("contact-address") as HTMLInputElement).value.trim();
+      if (name) answers.name = name;
+      if (email) answers.email = email;
+      if (phone) answers.phone = phone;
+      if (address) answers.address = address;
+    }
+
+    // ---- Restore non-card inputs ----
+    function restoreInputs() {
+      if (answers.exactArea) {
+        (document.getElementById("exact-area") as HTMLInputElement).value = answers.exactArea.replace(" m\u00b2", "");
+      }
+      if (answers.grundriss) {
+        const radio = document.querySelector<HTMLInputElement>(`input[name="grundriss"][value="${answers.grundriss}"]`);
+        if (radio) radio.checked = true;
+      }
+      if (answers.wuensche) {
+        (document.getElementById("wuensche") as HTMLTextAreaElement).value = answers.wuensche;
+      }
+      if (answers.name) (document.getElementById("contact-name") as HTMLInputElement).value = answers.name;
+      if (answers.email) (document.getElementById("contact-email") as HTMLInputElement).value = answers.email;
+      if (answers.phone) (document.getElementById("contact-phone") as HTMLInputElement).value = answers.phone;
+      if (answers.address) (document.getElementById("contact-address") as HTMLInputElement).value = answers.address;
+    }
+
+    // ---- Validation ----
+    function validateStep(step: number): boolean {
+      collectInputs();
+      switch (step) {
+        case 1: return !!answers.projektart;
+        case 2: return !!answers.badgroesse || !!answers.exactArea;
+        case 3: return true; // multi, can be empty
+        case 4: return true;
+        case 5: return !!answers.stil;
+        case 6: return true; // skippable
+        case 7: return !!answers.zeitrahmen;
+        case 8: return true; // skippable
+        case 9:
+          return !!(answers.name && answers.email && answers.phone);
+        case 10:
+          return !!(document.getElementById("datenschutz-check") as HTMLInputElement).checked;
+        default: return true;
+      }
+    }
+
+    // ---- Render summary ----
+    function renderSummary() {
+      collectInputs();
+      const container = document.getElementById("summary-content")!;
+      const displayOrder = [
+        "projektart", "badgroesse", "exactArea", "aktuell", "gewuenscht",
+        "stil", "budget", "zeitrahmen", "grundriss", "wuensche",
+        "name", "email", "phone", "address", "kontaktart"
+      ];
+
+      let html = "";
+      for (const key of displayOrder) {
+        let val = answers[key];
+        if (val === undefined || val === "" || (Array.isArray(val) && val.length === 0)) continue;
+        if (Array.isArray(val)) val = val.join(", ");
+
+        const label = stepLabels[key] || key;
+        const editStep = stepForKey[key] || 1;
+
+        html += `<div class="flex items-start justify-between gap-4 py-3 border-b border-outline-variant/20">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 mb-0.5">${label}</p>
+            <p class="text-sm text-on-surface">${val}</p>
+          </div>
+          <button type="button" class="edit-btn shrink-0 text-xs text-secondary font-semibold hover:underline" data-goto="${editStep}">Bearbeiten</button>
+        </div>`;
+      }
+      container.innerHTML = html;
+
+      // Bind edit buttons
+      container.querySelectorAll<HTMLButtonElement>(".edit-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentStep = parseInt(btn.dataset.goto!);
+          save();
+          showStep(currentStep);
+        });
+      });
+    }
+
+    // ---- Navigation ----
+    btnNext.addEventListener("click", () => {
+      if (!validateStep(currentStep)) {
+        // Quick shake feedback
+        btnNext.classList.add("animate-pulse");
+        setTimeout(() => btnNext.classList.remove("animate-pulse"), 600);
+        return;
+      }
+      collectInputs();
+      if (currentStep < TOTAL_STEPS) {
+        currentStep++;
+        save();
+        showStep(currentStep);
+      }
+    });
+
+    btnBack.addEventListener("click", () => {
+      collectInputs();
+      if (currentStep > 1) {
+        currentStep--;
+        save();
+        showStep(currentStep);
+      }
+    });
+
+    btnSubmit.addEventListener("click", () => {
+      if (!validateStep(TOTAL_STEPS)) {
+        btnSubmit.classList.add("animate-pulse");
+        setTimeout(() => btnSubmit.classList.remove("animate-pulse"), 600);
+        return;
+      }
+      collectInputs();
+      // No actual submission — show success
+      localStorage.removeItem(STORAGE_KEY);
+      showStep("success");
+    });
+
+    // ---- Init ----
+    restoreInputs();
+    showStep(currentStep);
+
+  });
+</script>

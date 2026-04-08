@@ -1,0 +1,150 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import { ArrowRight } from "lucide-astro";
+
+const projects = [
+  {
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+    tags: ["Klima", "Gewerbe"],
+    title: "Bürokomplex München-City",
+    description: "Komplette Klimatisierung eines 4-stöckigen Bürogebäudes mit energieeffizienter VRF-Technologie und zentraler Gebäudeleittechnik.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+    tags: ["Wärmepumpe", "Neubau"],
+    title: "Einfamilienhaus Bogenhausen",
+    description: "Luft-Wasser-Wärmepumpe mit Fußbodenheizung und kontrollierter Wohnraumlüftung für ein KfW-55-Effizienzhaus.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop",
+    tags: ["Wellness", "Bad"],
+    title: "Exklusive Bad-Sanierung Schwabing",
+    description: "Komplettsanierung eines 18 m² Badezimmers mit bodengleicher Dusche, Rainshower und freistehender Badewanne.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=600&fit=crop",
+    tags: ["Elektro", "Smart Home"],
+    title: "Smart Home Villa Grünwald",
+    description: "KNX-basierte Gebäudeautomation mit Lichtsteuerung, Beschattung, Heizungsregelung und Wallbox-Integration.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+    tags: ["Heizung", "Sanierung"],
+    title: "Mehrfamilienhaus Feldmoching",
+    description: "Austausch einer veralteten Ölheizung gegen eine Gasbrennwert-Kaskade mit Solarthermie für 12 Wohneinheiten.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=600&fit=crop",
+    tags: ["Sanitär", "Gewerbe"],
+    title: "Praxisräume Maxvorstadt",
+    description: "Sanitärinstallation und Trinkwasserhygiene nach VDI 6023 für eine Arztpraxis mit drei Behandlungsräumen.",
+  },
+];
+
+const filterTags = ["Alle", "Heizung", "Sanitär", "Elektro", "Bad", "Klima"];
+---
+
+<BaseLayout
+  title="Projekte & Referenzen | PERTLER Gebäudetechnik München"
+  description="Referenzprojekte von PERTLER in München. Heizungsanlagen, Badsanierungen, Elektroinstallationen und mehr."
+>
+  <EmergencyBanner />
+  <Navbar />
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative bg-primary-container overflow-hidden py-24 md:py-36">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-container to-[#4A1218]"></div>
+      <div class="relative z-10 max-w-screen-2xl mx-auto px-8 text-center">
+        <span class="text-secondary-container font-bold tracking-widest uppercase text-sm mb-6 block">Referenzen</span>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-tight mb-6">
+          Projekte, die für sich sprechen.
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+          Von der Wärmepumpe im Neubau bis zur Komplettsanierung im Altbau — ein Auszug unserer Arbeiten in München und Umgebung.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== FILTER TAGS ===== -->
+    <section class="bg-surface border-b border-outline-variant/15">
+      <div class="max-w-screen-2xl mx-auto px-8 py-6">
+        <div class="flex flex-wrap gap-3 justify-center">
+          {filterTags.map((tag, i) => (
+            <button
+              class:list={[
+                "px-5 py-2 rounded-full text-sm font-bold transition-all",
+                i === 0
+                  ? "bg-primary text-on-primary"
+                  : "bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest",
+              ]}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECT GRID ===== -->
+    <section class="py-24 md:py-32 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <div class="bg-surface-container-lowest rounded-lg editorial-shadow overflow-hidden group ghost-border">
+              <div class="aspect-[4/3] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-8">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag) => (
+                    <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 class="text-xl font-black text-on-surface mb-3">{project.title}</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                  {project.description}
+                </p>
+                <a href="#" class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                  Details ansehen <ArrowRight class="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="py-24 md:py-32 bg-surface-container-low">
+      <div class="max-w-screen-2xl mx-auto px-8 text-center">
+        <h2 class="text-3xl md:text-5xl font-black tracking-tighter mb-6">Ihr Projekt könnte das nächste sein.</h2>
+        <p class="text-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+          Ob Neubau, Sanierung oder Modernisierung — wir beraten Sie gerne und erstellen Ihnen ein unverbindliches Angebot.
+        </p>
+        <a
+          href="/buchung/"
+          class="inline-block px-10 py-5 bg-secondary hover:bg-secondary-container text-white rounded-md font-bold transition-all text-lg editorial-shadow"
+        >
+          Angebot anfordern
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT CTA ===== -->
+    <ContactCTA />
+
+  </main>
+  <Footer />
+</BaseLayout>

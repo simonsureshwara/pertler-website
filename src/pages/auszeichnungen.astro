@@ -1,0 +1,153 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import { Award, Star, Calendar, Mail } from "lucide-astro";
+
+const featuredAwards = [
+  {
+    year: "2018",
+    name: "Erasmus-Grasser-Preis",
+    givenBy: "Landeshauptstadt München",
+    category: "Ausbildungsexzellenz",
+    description: "Der Erasmus-Grasser-Preis würdigt Münchner Unternehmen, die sich in besonderem Maße um die Ausbildung junger Menschen verdient machen. PERTLER wurde für die vorbildliche Betreuung von 21 Auszubildenden in vier Fachbereichen ausgezeichnet — ein Beleg für unser Engagement in der Nachwuchsförderung.",
+  },
+  {
+    year: "2019",
+    name: "Top 100 Innovator",
+    givenBy: "compamedia / Ranga Yogeshwar",
+    category: "Innovation im Mittelstand",
+    description: "Die Top 100 Auszeichnung prämiert die innovativsten Unternehmen des deutschen Mittelstands. PERTLER überzeugte durch die konsequente Digitalisierung interner Prozesse, den Einsatz moderner Gebäudetechnik und eine Innovationskultur, die alle Mitarbeiter einbezieht.",
+  },
+  {
+    year: "2020",
+    name: "Bayerns Best 50",
+    givenBy: "Bayerisches Wirtschaftsministerium",
+    category: "Wachstum & Wirtschaftskraft",
+    description: "Der Wachstumspreis des Freistaats Bayern zeichnet die 50 wachstumsstärksten mittelständischen Unternehmen aus. PERTLER gehörte 2020 zu den Preisträgern — für nachhaltiges Wachstum, wirtschaftliche Stabilität und gesellschaftliches Engagement.",
+  },
+];
+
+const furtherMentions = [
+  {
+    title: "Carrier-Viessmann Partnerschaft",
+    year: "2024",
+    description: "Strategische Partnerschaft für zukunftssichere Heiztechnologien und nachhaltige Gebäudetechnik.",
+  },
+  {
+    title: "ISH 2023 Frankfurt",
+    year: "2023",
+    description: "Teilnahme und Fachvorträge auf der weltweit führenden Messe für Wasser, Wärme und Klima.",
+  },
+  {
+    title: "Tag des Handwerks",
+    year: "2017",
+    description: "Aktive Beteiligung am bundesweiten Tag des Handwerks mit offener Werkstatt und Ausbildungsberatung.",
+  },
+];
+---
+
+<BaseLayout
+  title="Auszeichnungen & Presse | PERTLER Gebäudetechnik München"
+  description="Auszeichnungen der Ernst Pertler GmbH: Erasmus-Grasser-Preis 2018, Top 100 Innovator 2019, Bayerns Best 50 2020 und mehr."
+>
+  <EmergencyBanner />
+  <Navbar />
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative bg-primary-container overflow-hidden py-24 md:py-36">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-container to-[#4A1218]"></div>
+      <div class="relative z-10 max-w-screen-2xl mx-auto px-8 text-center">
+        <span class="text-secondary-container font-bold tracking-widest uppercase text-sm mb-6 block">Anerkennung</span>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-tight mb-6">
+          Auszeichnungen &<br class="hidden md:block" /> Anerkennungen
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+          Qualität wird belohnt — unsere wichtigsten Auszeichnungen.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED AWARDS ===== -->
+    <section class="py-24 md:py-32 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Highlights</span>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tighter">Unsere wichtigsten Auszeichnungen</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          {featuredAwards.map((award) => (
+            <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-10 ghost-border flex flex-col">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Award class="w-8 h-8 text-secondary" />
+                </div>
+                <div>
+                  <div class="text-4xl font-black text-primary/20 leading-none">{award.year}</div>
+                </div>
+              </div>
+              <h3 class="text-xl font-black text-on-surface mb-2">{award.name}</h3>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">{award.category}</span>
+              </div>
+              <p class="text-on-surface-variant text-sm leading-relaxed mb-4 flex-1">{award.description}</p>
+              <p class="text-xs text-on-surface-variant/70 font-medium">
+                Verliehen von: {award.givenBy}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FURTHER MENTIONS ===== -->
+    <section class="py-24 md:py-32 bg-surface-container-low">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Weitere Meilensteine</span>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tighter">Engagements & Partnerschaften</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {furtherMentions.map((mention) => (
+            <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-8 ghost-border text-center">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star class="w-6 h-6 text-primary" />
+              </div>
+              <div class="text-2xl font-black text-primary/20 mb-2">{mention.year}</div>
+              <h3 class="text-lg font-black text-on-surface mb-3">{mention.title}</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">{mention.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRESSE ===== -->
+    <section class="py-16 md:py-20 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="max-w-2xl mx-auto bg-surface-container-lowest rounded-lg editorial-shadow p-10 ghost-border text-center">
+          <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Mail class="w-7 h-7 text-primary" />
+          </div>
+          <h2 class="text-2xl font-black tracking-tighter mb-4">Presseanfragen</h2>
+          <p class="text-on-surface-variant leading-relaxed mb-6">
+            Für Presseanfragen, Interviews oder Bildmaterial kontaktieren Sie uns gerne direkt.
+          </p>
+          <a href="mailto:info@pertler.de" class="inline-block px-8 py-4 bg-primary hover:bg-primary-container text-on-primary rounded-md font-bold transition-all editorial-shadow">
+            info@pertler.de
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT CTA ===== -->
+    <ContactCTA />
+
+  </main>
+  <Footer />
+</BaseLayout>
