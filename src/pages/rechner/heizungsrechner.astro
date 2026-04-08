@@ -510,6 +510,7 @@ import Footer from "../../components/Footer.astro";
       const target = document.getElementById(`step-${step}`);
       if (target) {
         target.classList.remove('hidden');
+        target.scrollIntoView({ behavior: 'instant', block: 'start' });
       }
 
       // Progress bar

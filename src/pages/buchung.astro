@@ -347,7 +347,10 @@ import { Wrench, RefreshCw, ClipboardList, AlertTriangle, Flame, Droplets, Zap, 
     function showStep(step: number | "success") {
       Object.values(steps).forEach((el) => el.classList.add("hidden"));
       const target = steps[step as keyof typeof steps];
-      if (target) target.classList.remove("hidden");
+      if (target) {
+        target.classList.remove("hidden");
+        target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      }
 
       if (step === "success") {
         progressLabel.parentElement!.classList.add("hidden");

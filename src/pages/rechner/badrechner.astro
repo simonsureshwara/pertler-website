@@ -503,7 +503,10 @@ const description = "Konfigurieren Sie Ihr Traumbad in 10 Schritten. Kostenlose 
     function showStep(step: number | string) {
       allSteps.forEach(el => el.classList.add("hidden"));
       const target = document.querySelector<HTMLElement>(`.quiz-step[data-step="${step}"]`);
-      if (target) target.classList.remove("hidden");
+      if (target) {
+        target.classList.remove("hidden");
+        target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      }
 
       if (step === "success") {
         navButtons.classList.add("hidden");
