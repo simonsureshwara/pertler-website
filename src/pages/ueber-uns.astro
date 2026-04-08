@@ -1,0 +1,306 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+import { Users, Building2, Award, GraduationCap, Shield, Heart, Clock, ArrowRight } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Über uns | PERTLER Gebäudetechnik München"
+  description="Ernst Pertler GmbH — Ihr Meisterbetrieb für Gebäudetechnik in München seit 1984. 25+ Mitarbeiter, 21 Azubis, 4 Fachbereiche unter einem Dach."
+>
+  <EmergencyBanner />
+  <Navbar />
+  <main>
+
+    <!-- ===== 1. HERO ===== -->
+    <section class="relative bg-primary-container overflow-hidden py-24 md:py-36">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-container to-[#4A1218]"></div>
+      <div class="relative z-10 max-w-screen-2xl mx-auto px-8 text-center">
+        <span class="text-secondary-container font-bold tracking-widest uppercase text-sm mb-6 block">Seit 1984 in München</span>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-tight mb-6">
+          Familienbetrieb mit<br class="hidden md:block" /> Meister-Anspruch.
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+          Seit 1984 steht PERTLER für Qualität, Zuverlässigkeit und persönliche Beratung in München.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 2. WER WIR SIND ===== -->
+    <section class="py-24 md:py-32 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="flex flex-col lg:flex-row gap-16 items-start">
+          <!-- Text -->
+          <div class="flex-1 space-y-8">
+            <div>
+              <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Wer wir sind</span>
+              <h2 class="text-3xl md:text-5xl font-black tracking-tighter leading-tight">Vier Unternehmen, ein Versprechen.</h2>
+            </div>
+            <p class="text-lg text-on-surface-variant leading-relaxed">
+              Die Ernst Pertler GmbH ist ein inhabergeführter Meisterbetrieb in München-Feldmoching. Unter der Leitung von Geschäftsführer Stefan Pertler vereinen wir vier spezialisierte Unternehmen unter einem Dach. Von Heizung über Sanitär und Elektro bis hin zur kompletten Badsanierung — bei uns bekommen Sie alles aus einer Hand, koordiniert von einem Team, das sich seit Jahrzehnten kennt.
+            </p>
+            <p class="text-lg text-on-surface-variant leading-relaxed">
+              Unsere über 25 Fachkräfte und 21 Auszubildende arbeiten täglich mit dem Anspruch, Ihnen die beste Lösung für Ihr Zuhause oder Ihr Gewerbeobjekt zu liefern. Dabei setzen wir auf modernste Technologien, nachhaltige Materialien und eine transparente Kommunikation von Anfang an.
+            </p>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="flex-1 w-full lg:max-w-md">
+            <div class="grid grid-cols-2 gap-6">
+              <div class="bg-surface-container-lowest p-8 rounded-lg editorial-shadow text-center">
+                <Clock class="w-8 h-8 text-secondary mx-auto mb-4" />
+                <div class="text-4xl font-black text-primary mb-2">40+</div>
+                <div class="text-sm font-bold uppercase tracking-widest text-on-surface-variant">Jahre Erfahrung</div>
+              </div>
+              <div class="bg-surface-container-lowest p-8 rounded-lg editorial-shadow text-center">
+                <Users class="w-8 h-8 text-secondary mx-auto mb-4" />
+                <div class="text-4xl font-black text-primary mb-2">25+</div>
+                <div class="text-sm font-bold uppercase tracking-widest text-on-surface-variant">Mitarbeiter</div>
+              </div>
+              <div class="bg-surface-container-lowest p-8 rounded-lg editorial-shadow text-center">
+                <GraduationCap class="w-8 h-8 text-secondary mx-auto mb-4" />
+                <div class="text-4xl font-black text-primary mb-2">21</div>
+                <div class="text-sm font-bold uppercase tracking-widest text-on-surface-variant">Auszubildende</div>
+              </div>
+              <div class="bg-surface-container-lowest p-8 rounded-lg editorial-shadow text-center">
+                <Building2 class="w-8 h-8 text-secondary mx-auto mb-4" />
+                <div class="text-4xl font-black text-primary mb-2">4</div>
+                <div class="text-sm font-bold uppercase tracking-widest text-on-surface-variant">Fachbereiche</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. UNSERE VIER UNTERNEHMEN ===== -->
+    <section class="py-24 md:py-32 bg-surface-container-low">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Unsere Struktur</span>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tighter">Unsere vier Unternehmen</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Ernst Pertler GmbH -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow border-t-4 border-heizung p-8 flex flex-col">
+            <h3 class="text-lg font-black mb-3">Ernst Pertler GmbH</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-1">
+              Heizung, Sanitär, Lüftung und Kältetechnik — Planung, Installation und Modernisierung für Privat und Gewerbe.
+            </p>
+            <a href="/leistungen/heizung-sanitaer/" class="mt-6 flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+              Mehr erfahren <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+
+          <!-- Ernst Pertler Service GmbH -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow border-t-4 border-sanitaer p-8 flex flex-col">
+            <h3 class="text-lg font-black mb-3">Ernst Pertler Service GmbH</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-1">
+              Kundendienst und Wartung — schnell, zuverlässig und mit festem Ansprechpartner für Ihre Anlage.
+            </p>
+            <a href="/leistungen/kundendienst/" class="mt-6 flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+              Mehr erfahren <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+
+          <!-- Pertler Bad GmbH -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow border-t-4 border-baeder p-8 flex flex-col">
+            <h3 class="text-lg font-black mb-3">Pertler Bad GmbH</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-1">
+              Badsanierung, Fliesen und Wellness — Ihr Traumbad als Komplettpaket, von der Planung bis zur Fertigstellung.
+            </p>
+            <a href="/leistungen/baeder-wellness/" class="mt-6 flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+              Mehr erfahren <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+
+          <!-- Pertler Elektrotechnik GmbH -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow border-t-4 border-elektro p-8 flex flex-col">
+            <h3 class="text-lg font-black mb-3">Pertler Elektrotechnik GmbH</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-1">
+              Elektroinstallation, Smart Home und E-Mobilität — zukunftssichere Technik für Ihr Zuhause.
+            </p>
+            <a href="/leistungen/elektrotechnik/" class="mt-6 flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+              Mehr erfahren <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. UNSER TEAM ===== -->
+    <section class="py-24 md:py-32 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Unser Team</span>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tighter mb-6">Die Menschen hinter PERTLER</h2>
+          <p class="text-lg text-on-surface-variant max-w-3xl mx-auto">
+            Über 25 Fachkräfte und 21 Auszubildende arbeiten täglich daran, Ihre Projekte perfekt umzusetzen.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- Team Card 1 -->
+          <div class="text-center">
+            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face" alt="Geschäftsführung" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <h3 class="font-bold text-lg mb-1">Geschäftsführung</h3>
+            <p class="text-on-surface-variant text-sm">Stefan Pertler — Inhaber & Geschäftsführer</p>
+          </div>
+
+          <!-- Team Card 2 -->
+          <div class="text-center">
+            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
+              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=300&h=300&fit=crop&crop=face" alt="Team Heizung" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <h3 class="font-bold text-lg mb-1">Team Heizung</h3>
+            <p class="text-on-surface-variant text-sm">Heizungsbaumeister & Monteure</p>
+          </div>
+
+          <!-- Team Card 3 -->
+          <div class="text-center">
+            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
+              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=300&h=300&fit=crop&crop=face" alt="Team Sanitär" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <h3 class="font-bold text-lg mb-1">Team Sanitär</h3>
+            <p class="text-on-surface-variant text-sm">Sanitärmeister & Installateure</p>
+          </div>
+
+          <!-- Team Card 4 -->
+          <div class="text-center">
+            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
+              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=300&h=300&fit=crop&crop=face" alt="Team Elektro" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <h3 class="font-bold text-lg mb-1">Team Elektro</h3>
+            <p class="text-on-surface-variant text-sm">Elektromeister & Techniker</p>
+          </div>
+
+          <!-- Team Card 5 -->
+          <div class="text-center">
+            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
+              <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=300&h=300&fit=crop&crop=face" alt="Team Bad" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <h3 class="font-bold text-lg mb-1">Team Bad</h3>
+            <p class="text-on-surface-variant text-sm">Badplaner & Fliesenleger</p>
+          </div>
+
+          <!-- Team Card 6 -->
+          <div class="text-center">
+            <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden editorial-shadow">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Team Kundendienst" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <h3 class="font-bold text-lg mb-1">Team Kundendienst</h3>
+            <p class="text-on-surface-variant text-sm">Servicetechniker & Wartung</p>
+          </div>
+        </div>
+
+        <p class="text-center text-on-surface-variant mt-12 text-lg">
+          Lernen Sie uns persönlich kennen — <a href="/buchung/" class="text-primary font-bold hover:underline">vereinbaren Sie einen Termin</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 5. UNSERE WERTE ===== -->
+    <section class="py-24 md:py-32 bg-surface-container-low">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Was uns antreibt</span>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tighter">Unsere Werte</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Qualität -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-10 text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Shield class="w-8 h-8 text-primary" />
+            </div>
+            <h3 class="text-xl font-black mb-4">Qualität</h3>
+            <p class="text-on-surface-variant leading-relaxed">
+              Meisterliche Arbeit in jedem Detail. Wir planen jede Baustelle bis ins Kleinste — für Ergebnisse, die Jahrzehnte halten.
+            </p>
+          </div>
+
+          <!-- Zuverlässigkeit -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-10 text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Clock class="w-8 h-8 text-primary" />
+            </div>
+            <h3 class="text-xl font-black mb-4">Zuverlässigkeit</h3>
+            <p class="text-on-surface-variant leading-relaxed">
+              Termingerecht, sauber und transparent. Auf PERTLER können Sie sich verlassen — bei jedem Projekt, zu jeder Zeit.
+            </p>
+          </div>
+
+          <!-- Nachhaltigkeit -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-10 text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Heart class="w-8 h-8 text-primary" />
+            </div>
+            <h3 class="text-xl font-black mb-4">Nachhaltigkeit</h3>
+            <p class="text-on-surface-variant leading-relaxed">
+              Zukunftssichere Technologien für Effizienz und Umwelt. Wir denken heute schon an morgen — für Sie und kommende Generationen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6. AUSZEICHNUNGEN ===== -->
+    <section class="py-24 md:py-32 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Anerkennung</span>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tighter">Auszeichnungen</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Erasmus-Grasser-Preis -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-10 text-center ghost-border">
+            <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Award class="w-8 h-8 text-secondary" />
+            </div>
+            <div class="text-5xl font-black text-primary/20 mb-2">2018</div>
+            <h3 class="text-lg font-black mb-2">Erasmus-Grasser-Preis</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              Ausgezeichnet für herausragende Ausbildungsexzellenz und vorbildliche Nachwuchsförderung im Handwerk.
+            </p>
+          </div>
+
+          <!-- Top 100 Innovator -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-10 text-center ghost-border">
+            <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Award class="w-8 h-8 text-secondary" />
+            </div>
+            <div class="text-5xl font-black text-primary/20 mb-2">2019</div>
+            <h3 class="text-lg font-black mb-2">Top 100 Innovator</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              Prämiert für digitale Transformation und innovative Prozesse im mittelständischen Handwerk.
+            </p>
+          </div>
+
+          <!-- Bayerns Best 50 -->
+          <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-10 text-center ghost-border">
+            <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Award class="w-8 h-8 text-secondary" />
+            </div>
+            <div class="text-5xl font-black text-primary/20 mb-2">2020</div>
+            <h3 class="text-lg font-black mb-2">Bayerns Best 50</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">
+              Ausgezeichnet als eines der 50 wachstumsstärksten mittelständischen Unternehmen Bayerns.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. CONTACT CTA ===== -->
+    <ContactCTA />
+
+  </main>
+  <Footer />
+</BaseLayout>

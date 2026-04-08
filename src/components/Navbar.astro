@@ -1,32 +1,172 @@
 ---
-import { Phone, Menu, X } from "lucide-astro";
-
-const navLinks = [
-  { label: "Leistungen", href: "/leistungen/" },
-  { label: "Rechner", href: "/rechner/" },
-  { label: "Über uns", href: "/ueber-uns/" },
-  { label: "Karriere", href: "/karriere/" },
-  { label: "Kontakt", href: "/kontakt/" },
-];
+import { Phone, Menu, X, ChevronDown, ArrowRight, Flame, Zap, Bath, Wrench, AlertTriangle, Calendar, MessageCircle } from "lucide-astro";
 ---
 
 <nav class="sticky top-0 z-50 w-full glass-nav bg-surface/70 shadow-sm transition-all duration-300" id="main-nav">
   <div class="max-w-screen-2xl mx-auto flex justify-between items-center px-8 py-4">
-    <div class="flex items-center gap-8">
+    <!-- Logo -->
+    <div class="flex items-center gap-10">
       <a href="/" class="text-2xl font-black text-gray-500 border-b-2 border-primary tracking-tight uppercase">
         PERTLER
       </a>
-      <div class="hidden lg:flex gap-8 items-center">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="text-on-surface-variant font-medium hover:text-primary transition-opacity duration-300 tracking-tight uppercase text-sm"
-          >
-            {link.label}
-          </a>
-        ))}
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-1">
+        <!-- Leistungen (Mega Menu) -->
+        <div class="group/leistungen relative">
+          <button class="flex items-center gap-1.5 px-4 py-2 text-on-surface-variant font-medium hover:text-primary transition-colors text-sm tracking-tight uppercase rounded-md hover:bg-surface-container">
+            Leistungen
+            <ChevronDown class="w-3.5 h-3.5 transition-transform group-hover/leistungen:rotate-180" />
+          </button>
+
+          <!-- Mega Panel -->
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover/leistungen:opacity-100 group-hover/leistungen:visible transition-all duration-200 translate-y-2 group-hover/leistungen:translate-y-0">
+            <div class="bg-surface-container-lowest rounded-xl editorial-shadow border border-outline-variant/10 p-8 w-[680px]">
+              <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 mb-6">Unsere Leistungen</p>
+
+              <!-- Top Row: 3 Services -->
+              <div class="grid grid-cols-3 gap-4 mb-4">
+                <a href="/leistungen/heizung-sanitaer/" class="group/card flex gap-3 p-4 rounded-lg hover:bg-surface-container transition-colors border-l-4 border-heizung">
+                  <div class="shrink-0 mt-0.5">
+                    <Flame class="w-5 h-5 text-heizung" />
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm mb-1">Heizung & Sanitär</div>
+                    <div class="text-xs text-on-surface-variant leading-relaxed">Planung, Installation & Modernisierung</div>
+                  </div>
+                </a>
+
+                <a href="/leistungen/elektrotechnik/" class="group/card flex gap-3 p-4 rounded-lg hover:bg-surface-container transition-colors border-l-4 border-elektro">
+                  <div class="shrink-0 mt-0.5">
+                    <Zap class="w-5 h-5 text-elektro" />
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm mb-1">Elektrotechnik</div>
+                    <div class="text-xs text-on-surface-variant leading-relaxed">Smart Home, Installation & E-Mobilität</div>
+                  </div>
+                </a>
+
+                <a href="/leistungen/baeder-wellness/" class="group/card flex gap-3 p-4 rounded-lg hover:bg-surface-container transition-colors border-l-4 border-baeder">
+                  <div class="shrink-0 mt-0.5">
+                    <Bath class="w-5 h-5 text-baeder" />
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm mb-1">Bäder & Wellness</div>
+                    <div class="text-xs text-on-surface-variant leading-relaxed">Komplettsanierung aus einer Hand</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Bottom Row: Kundendienst + Notdienst -->
+              <div class="grid grid-cols-[1fr_1.5fr] gap-4">
+                <a href="/leistungen/kundendienst/" class="group/card flex gap-3 p-4 rounded-lg hover:bg-surface-container transition-colors border-l-4 border-sanitaer">
+                  <div class="shrink-0 mt-0.5">
+                    <Wrench class="w-5 h-5 text-sanitaer" />
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm mb-1">Kundendienst & Wartung</div>
+                    <div class="text-xs text-on-surface-variant leading-relaxed">Heizungswartung, Sanitär & Kälte/Klima</div>
+                  </div>
+                </a>
+
+                <a href="/leistungen/notdienst/" class="flex items-center gap-4 p-4 rounded-lg bg-primary-container hover:bg-primary transition-colors">
+                  <div class="w-10 h-10 bg-error rounded-full flex items-center justify-center shrink-0 animate-pulse">
+                    <AlertTriangle class="w-5 h-5 text-white" />
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-bold text-sm text-white mb-0.5">24h Notdienst</div>
+                    <div class="text-xs text-white/60">Heizung · Sanitär · Elektro</div>
+                  </div>
+                  <div class="text-right shrink-0">
+                    <div class="font-black text-white text-sm">089 / 35 89 49 78</div>
+                    <div class="text-xs text-secondary-container font-bold flex items-center gap-1 justify-end">
+                      Jetzt anrufen <ArrowRight class="w-3 h-3" />
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rechner Dropdown -->
+        <div class="group/rechner relative">
+          <button class="flex items-center gap-1.5 px-4 py-2 text-on-surface-variant font-medium hover:text-primary transition-colors text-sm tracking-tight uppercase rounded-md hover:bg-surface-container">
+            Rechner
+            <ChevronDown class="w-3.5 h-3.5 transition-transform group-hover/rechner:rotate-180" />
+          </button>
+
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover/rechner:opacity-100 group-hover/rechner:visible transition-all duration-200 translate-y-2 group-hover/rechner:translate-y-0">
+            <div class="bg-surface-container-lowest rounded-xl editorial-shadow border border-outline-variant/10 p-6 w-[280px]">
+              <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 mb-4">Online-Rechner</p>
+
+              <a href="/rechner/heizungsrechner/" class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container transition-colors mb-2">
+                <Flame class="w-5 h-5 text-secondary shrink-0" />
+                <div>
+                  <div class="font-bold text-sm">Heizungsrechner</div>
+                  <div class="text-xs text-on-surface-variant">Angebot in 5 Minuten</div>
+                </div>
+              </a>
+
+              <a href="/rechner/badrechner/" class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container transition-colors">
+                <Bath class="w-5 h-5 text-secondary shrink-0" />
+                <div>
+                  <div class="font-bold text-sm">Badrechner</div>
+                  <div class="text-xs text-on-surface-variant">Bad konfigurieren</div>
+                </div>
+              </a>
+
+              <div class="border-t border-outline-variant/15 mt-4 pt-4">
+                <a href="/buchung/" class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                  <Calendar class="w-4 h-4" />
+                  Termin buchen
+                  <ArrowRight class="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Über uns Dropdown -->
+        <div class="group/ueber relative">
+          <button class="flex items-center gap-1.5 px-4 py-2 text-on-surface-variant font-medium hover:text-primary transition-colors text-sm tracking-tight uppercase rounded-md hover:bg-surface-container">
+            Über uns
+            <ChevronDown class="w-3.5 h-3.5 transition-transform group-hover/ueber:rotate-180" />
+          </button>
+
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover/ueber:opacity-100 group-hover/ueber:visible transition-all duration-200 translate-y-2 group-hover/ueber:translate-y-0">
+            <div class="bg-surface-container-lowest rounded-xl editorial-shadow border border-outline-variant/10 p-6 w-[250px]">
+              <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 mb-4">Unternehmen</p>
+
+              <a href="/ueber-uns/" class="block p-3 rounded-lg hover:bg-surface-container transition-colors mb-1">
+                <div class="font-bold text-sm">Über uns & Team</div>
+                <div class="text-xs text-on-surface-variant">40+ Jahre Meisterbetrieb</div>
+              </a>
+
+              <a href="/firmenhistorie/" class="block p-3 rounded-lg hover:bg-surface-container transition-colors mb-1">
+                <div class="font-bold text-sm">Firmenhistorie</div>
+                <div class="text-xs text-on-surface-variant">Seit 1984 in München</div>
+              </a>
+
+              <a href="/auszeichnungen/" class="block p-3 rounded-lg hover:bg-surface-container transition-colors">
+                <div class="font-bold text-sm">Auszeichnungen</div>
+                <div class="text-xs text-on-surface-variant">Top 100, Bayerns Best 50</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flat Links -->
+        <a href="/karriere/" class="px-4 py-2 text-on-surface-variant font-medium hover:text-primary transition-colors text-sm tracking-tight uppercase rounded-md hover:bg-surface-container">
+          Karriere
+        </a>
+        <a href="/kontakt/" class="px-4 py-2 text-on-surface-variant font-medium hover:text-primary transition-colors text-sm tracking-tight uppercase rounded-md hover:bg-surface-container">
+          Kontakt
+        </a>
       </div>
     </div>
+
+    <!-- Right Side -->
     <div class="flex items-center gap-4">
       <a
         href="tel:08935894978"
@@ -41,6 +181,8 @@ const navLinks = [
       >
         Angebot anfordern
       </a>
+
+      <!-- Mobile Menu Toggle -->
       <button
         id="mobile-menu-toggle"
         class="lg:hidden p-2 text-on-surface"
@@ -52,36 +194,135 @@ const navLinks = [
     </div>
   </div>
 
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-surface-container-lowest border-t border-outline-variant/15 px-8 pb-6">
-    {navLinks.map((link) => (
-      <a
-        href={link.href}
-        class="block py-3 text-on-surface font-bold uppercase tracking-tight border-b border-outline-variant/10"
-      >
-        {link.label}
+  <!-- Mobile Menu (Fullscreen) -->
+  <div id="mobile-menu" class="hidden lg:hidden fixed left-0 right-0 top-[72px] bottom-[57px] bg-surface-container-lowest z-40 overflow-y-auto" style="height: calc(100dvh - 72px - 57px);">
+    <div class="px-8 py-6">
+      <!-- Leistungen Accordion -->
+      <div class="border-b border-outline-variant/10">
+        <button class="mobile-accordion-toggle w-full flex items-center justify-between py-4 text-on-surface font-bold uppercase tracking-tight text-lg" data-target="mobile-leistungen">
+          Leistungen
+          <ChevronDown class="w-5 h-5 transition-transform" />
+        </button>
+        <div id="mobile-leistungen" class="hidden pb-4 pl-4 space-y-1">
+          <a href="/leistungen/heizung-sanitaer/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+            <Flame class="w-4 h-4 text-heizung" />
+            Heizung & Sanitär
+          </a>
+          <a href="/leistungen/elektrotechnik/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+            <Zap class="w-4 h-4 text-elektro" />
+            Elektrotechnik
+          </a>
+          <a href="/leistungen/baeder-wellness/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+            <Bath class="w-4 h-4 text-baeder" />
+            Bäder & Wellness
+          </a>
+          <a href="/leistungen/kundendienst/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+            <Wrench class="w-4 h-4 text-sanitaer" />
+            Kundendienst & Wartung
+          </a>
+          <a href="/leistungen/notdienst/" class="flex items-center gap-3 py-3 text-error font-bold">
+            <AlertTriangle class="w-4 h-4" />
+            24h Notdienst
+          </a>
+        </div>
+      </div>
+
+      <!-- Rechner Accordion -->
+      <div class="border-b border-outline-variant/10">
+        <button class="mobile-accordion-toggle w-full flex items-center justify-between py-4 text-on-surface font-bold uppercase tracking-tight text-lg" data-target="mobile-rechner">
+          Rechner
+          <ChevronDown class="w-5 h-5 transition-transform" />
+        </button>
+        <div id="mobile-rechner" class="hidden pb-4 pl-4 space-y-1">
+          <a href="/rechner/heizungsrechner/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+            <Flame class="w-4 h-4 text-secondary" />
+            Heizungsrechner
+          </a>
+          <a href="/rechner/badrechner/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+            <Bath class="w-4 h-4 text-secondary" />
+            Badrechner
+          </a>
+        </div>
+      </div>
+
+      <!-- Über uns Accordion -->
+      <div class="border-b border-outline-variant/10">
+        <button class="mobile-accordion-toggle w-full flex items-center justify-between py-4 text-on-surface font-bold uppercase tracking-tight text-lg" data-target="mobile-ueber">
+          Über uns
+          <ChevronDown class="w-5 h-5 transition-transform" />
+        </button>
+        <div id="mobile-ueber" class="hidden pb-4 pl-4 space-y-1">
+          <a href="/ueber-uns/" class="block py-3 text-on-surface-variant hover:text-primary transition-colors">Über uns & Team</a>
+          <a href="/firmenhistorie/" class="block py-3 text-on-surface-variant hover:text-primary transition-colors">Firmenhistorie</a>
+          <a href="/auszeichnungen/" class="block py-3 text-on-surface-variant hover:text-primary transition-colors">Auszeichnungen</a>
+        </div>
+      </div>
+
+      <!-- Flat Links -->
+      <a href="/karriere/" class="block py-4 text-on-surface font-bold uppercase tracking-tight text-lg border-b border-outline-variant/10">
+        Karriere
       </a>
-    ))}
-    <div class="mt-4 flex flex-col gap-3">
-      <a href="tel:08935894978" class="flex items-center gap-2 text-primary font-bold py-3">
-        <Phone class="w-5 h-5" />
-        089 / 35 89 49 78
+      <a href="/kontakt/" class="block py-4 text-on-surface font-bold uppercase tracking-tight text-lg border-b border-outline-variant/10">
+        Kontakt
       </a>
-      <a href="/buchung/" class="bg-secondary-container text-on-secondary py-3 px-6 rounded-md font-bold text-center text-sm uppercase">
-        Angebot anfordern
-      </a>
+
+      <!-- CTA Section -->
+      <div class="mt-8 space-y-4">
+        <a href="tel:08935894978" class="flex items-center justify-center gap-3 text-primary font-bold py-4 text-lg">
+          <Phone class="w-5 h-5" />
+          089 / 35 89 49 78
+        </a>
+        <a href="/buchung/" class="block bg-secondary-container text-on-secondary py-4 px-6 rounded-md font-bold text-center uppercase tracking-wider">
+          Angebot anfordern
+        </a>
+      </div>
     </div>
   </div>
 </nav>
 
+<!-- Sticky Mobile Bottom Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-surface-container-lowest border-t border-outline-variant/15 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+  <div class="grid grid-cols-3">
+    <a href="tel:08935894978" class="flex flex-col items-center justify-center py-3 text-primary hover:bg-surface-container transition-colors">
+      <Phone class="w-5 h-5 mb-1" />
+      <span class="text-xs font-semibold">Anrufen</span>
+    </a>
+    <a href="/buchung/" class="flex flex-col items-center justify-center py-3 text-on-surface-variant hover:bg-surface-container transition-colors border-x border-outline-variant/10">
+      <Calendar class="w-5 h-5 mb-1" />
+      <span class="text-xs font-semibold">Termin</span>
+    </a>
+    <a href="https://wa.me/498935894978" target="_blank" rel="noopener" class="flex flex-col items-center justify-center py-3 text-on-surface-variant hover:bg-surface-container transition-colors">
+      <MessageCircle class="w-5 h-5 mb-1" />
+      <span class="text-xs font-semibold">WhatsApp</span>
+    </a>
+  </div>
+</div>
+
 <script>
+  // Mobile menu toggle
   const toggle = document.getElementById('mobile-menu-toggle');
   const menu = document.getElementById('mobile-menu');
   const openIcon = document.getElementById('menu-open-icon');
   const closeIcon = document.getElementById('menu-close-icon');
+
   toggle?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
     openIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
+    document.body.classList.toggle('overflow-hidden');
+  });
+
+  // Mobile accordion
+  document.querySelectorAll('.mobile-accordion-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const target = document.getElementById(targetId!);
+      const chevron = btn.querySelector('svg:last-child');
+
+      if (target) {
+        target.classList.toggle('hidden');
+        chevron?.classList.toggle('rotate-180');
+      }
+    });
   });
 </script>

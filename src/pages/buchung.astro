@@ -1,0 +1,482 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { Wrench, RefreshCw, ClipboardList, AlertTriangle, Flame, Droplets, Zap, Bath, Snowflake, Upload, Calendar, ArrowRight, ArrowLeft, Phone, Check } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Angebot anfordern | PERTLER Gebäudetechnik München"
+  description="Fordern Sie Ihr kostenloses Angebot bei PERTLER an. Heizung, Sanitär, Elektro oder Bad — wir beraten Sie persönlich innerhalb von 24h."
+>
+  <EmergencyBanner />
+  <Navbar />
+
+  <main class="min-h-screen bg-surface pb-24">
+    <!-- Hero -->
+    <section class="pt-32 pb-12 text-center">
+      <div class="max-w-3xl mx-auto px-4">
+        <h1 class="text-4xl md:text-5xl font-800 text-primary tracking-tight mb-4">
+          Angebot anfordern
+        </h1>
+        <p class="text-lg text-on-surface-variant">
+          In wenigen Schritten zu Ihrem individuellen Angebot.
+        </p>
+      </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="max-w-2xl mx-auto px-4 mb-10">
+      <p id="progress-label" class="text-sm font-600 text-on-surface-variant mb-3 text-center">
+        Schritt 1 von 4
+      </p>
+      <div class="flex gap-2">
+        <div class="progress-segment h-1.5 flex-1 rounded-full bg-secondary transition-colors duration-300" data-step="1"></div>
+        <div class="progress-segment h-1.5 flex-1 rounded-full bg-outline-variant transition-colors duration-300" data-step="2"></div>
+        <div class="progress-segment h-1.5 flex-1 rounded-full bg-outline-variant transition-colors duration-300" data-step="3"></div>
+        <div class="progress-segment h-1.5 flex-1 rounded-full bg-outline-variant transition-colors duration-300" data-step="4"></div>
+      </div>
+    </div>
+
+    <!-- Form Container -->
+    <div class="max-w-2xl mx-auto px-4">
+
+      <!-- ==================== STEP 1 ==================== -->
+      <div id="step-1" class="form-step">
+        <h2 class="text-2xl font-700 text-on-surface mb-6 text-center">Was brauchen Sie?</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <button type="button" class="category-card group flex items-center gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-all cursor-pointer text-left" data-value="reparatur">
+            <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary group-hover:bg-secondary/10 group-hover:text-secondary transition-colors">
+              <Wrench class="w-6 h-6" />
+            </span>
+            <span class="font-600 text-on-surface">Reparatur / Störung</span>
+          </button>
+          <button type="button" class="category-card group flex items-center gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-all cursor-pointer text-left" data-value="wartung">
+            <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary group-hover:bg-secondary/10 group-hover:text-secondary transition-colors">
+              <RefreshCw class="w-6 h-6" />
+            </span>
+            <span class="font-600 text-on-surface">Wartung / Inspektion</span>
+          </button>
+          <button type="button" class="category-card group flex items-center gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-all cursor-pointer text-left" data-value="beratung">
+            <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary group-hover:bg-secondary/10 group-hover:text-secondary transition-colors">
+              <ClipboardList class="w-6 h-6" />
+            </span>
+            <span class="font-600 text-on-surface">Beratung / Planung</span>
+          </button>
+          <button type="button" class="category-card group flex items-center gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-all cursor-pointer text-left" data-value="notfall">
+            <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-error/10 text-error group-hover:bg-error/15 transition-colors">
+              <AlertTriangle class="w-6 h-6" />
+            </span>
+            <span class="font-600 text-on-surface">Notfall</span>
+          </button>
+        </div>
+
+        <!-- Emergency notice (hidden by default) -->
+        <div id="notfall-hinweis" class="hidden mb-8 p-5 rounded-xl border border-error/30 bg-error/5">
+          <div class="flex items-start gap-3">
+            <Phone class="w-5 h-5 text-error mt-0.5 shrink-0" />
+            <div>
+              <p class="font-700 text-error mb-1">Notfall? Rufen Sie uns direkt an!</p>
+              <a href="tel:+498935894978" class="text-xl font-800 text-error hover:underline">
+                089 / 35 89 49 78
+              </a>
+              <p class="text-sm text-on-surface-variant mt-2">
+                Unser Notdienst ist rund um die Uhr für Sie erreichbar. Sie können trotzdem das Formular ausfüllen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-end">
+          <button type="button" id="step1-next" class="btn-next inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary font-600 hover:bg-secondary-container transition-colors disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+            Weiter <ArrowRight class="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 2 ==================== -->
+      <div id="step-2" class="form-step hidden">
+        <h2 class="text-2xl font-700 text-on-surface mb-6 text-center">Welcher Bereich?</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <button type="button" class="area-card group flex items-center gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-all cursor-pointer text-left" data-value="heizung">
+            <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-heizung/10 text-heizung">
+              <Flame class="w-6 h-6" />
+            </span>
+            <span class="font-600 text-on-surface">Heizung</span>
+          </button>
+          <button type="button" class="area-card group flex items-center gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-all cursor-pointer text-left" data-value="sanitaer">
+            <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-sanitaer/10 text-sanitaer">
+              <Droplets class="w-6 h-6" />
+            </span>
+            <span class="font-600 text-on-surface">Sanitär</span>
+          </button>
+          <button type="button" class="area-card group flex items-center gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-all cursor-pointer text-left" data-value="elektro">
+            <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-elektro/10 text-elektro">
+              <Zap class="w-6 h-6" />
+            </span>
+            <span class="font-600 text-on-surface">Elektro</span>
+          </button>
+          <button type="button" class="area-card group flex items-center gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-all cursor-pointer text-left" data-value="bad">
+            <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-baeder/10 text-baeder">
+              <Bath class="w-6 h-6" />
+            </span>
+            <span class="font-600 text-on-surface">Bad</span>
+          </button>
+          <button type="button" class="area-card group flex items-center gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-all cursor-pointer text-left" data-value="kaelte">
+            <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-kaelte/10 text-kaelte">
+              <Snowflake class="w-6 h-6" />
+            </span>
+            <span class="font-600 text-on-surface">Kälte / Klima</span>
+          </button>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button type="button" class="btn-back inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-outline-variant text-on-surface-variant font-500 hover:bg-surface-container transition-colors">
+            <ArrowLeft class="w-4 h-4" /> Zurück
+          </button>
+          <button type="button" id="step2-next" class="btn-next inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary font-600 hover:bg-secondary-container transition-colors disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+            Weiter <ArrowRight class="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 3 ==================== -->
+      <div id="step-3" class="form-step hidden">
+        <h2 class="text-2xl font-700 text-on-surface mb-6 text-center">Beschreiben Sie Ihr Anliegen</h2>
+
+        <div class="space-y-6 mb-8">
+          <!-- Textarea -->
+          <div>
+            <label for="beschreibung" class="block text-sm font-600 text-on-surface mb-2">
+              Was ist das Problem / Was brauchen Sie?
+            </label>
+            <textarea
+              id="beschreibung"
+              rows="4"
+              class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-colors resize-y"
+              placeholder="Beschreiben Sie kurz Ihr Anliegen..."
+            ></textarea>
+          </div>
+
+          <!-- File Upload Zone (visual placeholder) -->
+          <div>
+            <label class="block text-sm font-600 text-on-surface mb-2">
+              Fotos / Videos hochladen <span class="font-400 text-on-surface-variant">(optional)</span>
+            </label>
+            <div class="flex flex-col items-center justify-center gap-3 p-8 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-low hover:border-secondary/50 hover:bg-secondary/5 transition-colors cursor-pointer">
+              <Upload class="w-8 h-8 text-outline" />
+              <p class="text-sm text-on-surface-variant text-center">
+                Dateien hierher ziehen oder <span class="text-secondary font-600">durchsuchen</span>
+              </p>
+              <p class="text-xs text-outline">JPG, PNG, MP4 — max. 10 MB</p>
+            </div>
+          </div>
+
+          <!-- Preferred Date -->
+          <div>
+            <label for="wunschdatum" class="block text-sm font-600 text-on-surface mb-2">
+              <span class="inline-flex items-center gap-1.5">
+                <Calendar class="w-4 h-4" /> Wunschtermin
+              </span>
+              <span class="font-400 text-on-surface-variant ml-1">(optional)</span>
+            </label>
+            <input
+              type="date"
+              id="wunschdatum"
+              class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-colors"
+            />
+          </div>
+
+          <!-- Preferred Time -->
+          <div>
+            <label class="block text-sm font-600 text-on-surface mb-2">
+              Bevorzugte Uhrzeit <span class="font-400 text-on-surface-variant">(optional)</span>
+            </label>
+            <div class="grid grid-cols-3 gap-3">
+              <button type="button" class="time-card px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface font-500 text-sm hover:border-secondary hover:bg-secondary/5 transition-all text-center" data-value="vormittag">
+                Vormittag
+              </button>
+              <button type="button" class="time-card px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface font-500 text-sm hover:border-secondary hover:bg-secondary/5 transition-all text-center" data-value="nachmittag">
+                Nachmittag
+              </button>
+              <button type="button" class="time-card px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface font-500 text-sm hover:border-secondary hover:bg-secondary/5 transition-all text-center" data-value="flexibel">
+                Flexibel
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button type="button" class="btn-back inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-outline-variant text-on-surface-variant font-500 hover:bg-surface-container transition-colors">
+            <ArrowLeft class="w-4 h-4" /> Zurück
+          </button>
+          <div class="flex items-center gap-4">
+            <button type="button" class="btn-skip text-sm text-on-surface-variant hover:text-secondary underline underline-offset-2">
+              Überspringen
+            </button>
+            <button type="button" id="step3-next" class="btn-next inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary font-600 hover:bg-secondary-container transition-colors">
+              Weiter <ArrowRight class="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== STEP 4 ==================== -->
+      <div id="step-4" class="form-step hidden">
+        <h2 class="text-2xl font-700 text-on-surface mb-6 text-center">Ihre Kontaktdaten</h2>
+
+        <div class="space-y-5 mb-8">
+          <div>
+            <label for="name" class="block text-sm font-600 text-on-surface mb-2">Name *</label>
+            <input
+              type="text"
+              id="name"
+              required
+              class="form-input w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-colors"
+              placeholder="Max Mustermann"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-600 text-on-surface mb-2">E-Mail *</label>
+            <input
+              type="email"
+              id="email"
+              required
+              class="form-input w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-colors"
+              placeholder="max@beispiel.de"
+            />
+          </div>
+          <div>
+            <label for="telefon" class="block text-sm font-600 text-on-surface mb-2">Telefon *</label>
+            <input
+              type="tel"
+              id="telefon"
+              required
+              class="form-input w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-colors"
+              placeholder="089 / 123 456 78"
+            />
+          </div>
+          <div>
+            <label for="adresse" class="block text-sm font-600 text-on-surface mb-2">
+              Adresse <span class="font-400 text-on-surface-variant">(optional)</span>
+            </label>
+            <input
+              type="text"
+              id="adresse"
+              class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-colors"
+              placeholder="Musterstraße 1, 80935 München"
+            />
+          </div>
+
+          <!-- Datenschutz Checkbox -->
+          <div class="flex items-start gap-3 pt-2">
+            <input
+              type="checkbox"
+              id="datenschutz"
+              class="mt-1 w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary/40 accent-secondary cursor-pointer"
+            />
+            <label for="datenschutz" class="text-sm text-on-surface-variant leading-relaxed cursor-pointer">
+              Ich stimme der Verarbeitung meiner Daten gemäß der
+              <a href="/datenschutz" class="text-secondary font-600 hover:underline">Datenschutzerklärung</a>
+              zu. *
+            </label>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button type="button" class="btn-back inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-outline-variant text-on-surface-variant font-500 hover:bg-surface-container transition-colors">
+            <ArrowLeft class="w-4 h-4" /> Zurück
+          </button>
+          <button type="button" id="submit-btn" class="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-secondary text-on-secondary font-700 hover:bg-secondary-container transition-colors disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+            <Check class="w-5 h-5" /> Anfrage absenden
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== SUCCESS ==================== -->
+      <div id="step-success" class="form-step hidden text-center py-12">
+        <div class="flex items-center justify-center w-20 h-20 rounded-full bg-elektro/10 text-elektro mx-auto mb-6">
+          <Check class="w-10 h-10" />
+        </div>
+        <h2 class="text-3xl font-800 text-on-surface mb-4">Vielen Dank!</h2>
+        <p class="text-lg text-on-surface-variant mb-3 max-w-md mx-auto">
+          Wir haben Ihre Anfrage erhalten und melden uns innerhalb von 24 Stunden.
+        </p>
+        <p class="text-on-surface-variant mb-8">
+          Bei dringenden Notfällen rufen Sie uns direkt an:
+          <a href="tel:+498935894978" class="font-700 text-primary hover:underline whitespace-nowrap">
+            089 / 35 89 49 78
+          </a>
+        </p>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-primary text-on-primary font-600 hover:bg-primary-container transition-colors"
+        >
+          <ArrowLeft class="w-4 h-4" /> Zurück zur Startseite
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // State
+    let currentStep = 1;
+    let selectedCategory = "";
+    let selectedArea = "";
+    let selectedTime = "";
+
+    // DOM refs
+    const steps = {
+      1: document.getElementById("step-1")!,
+      2: document.getElementById("step-2")!,
+      3: document.getElementById("step-3")!,
+      4: document.getElementById("step-4")!,
+      success: document.getElementById("step-success")!,
+    };
+    const progressLabel = document.getElementById("progress-label")!;
+    const progressSegments = document.querySelectorAll(".progress-segment");
+    const notfallHinweis = document.getElementById("notfall-hinweis")!;
+
+    // Navigation helpers
+    function showStep(step: number | "success") {
+      Object.values(steps).forEach((el) => el.classList.add("hidden"));
+      const target = steps[step as keyof typeof steps];
+      if (target) target.classList.remove("hidden");
+
+      if (step === "success") {
+        progressLabel.parentElement!.classList.add("hidden");
+      } else {
+        progressLabel.parentElement!.classList.remove("hidden");
+        currentStep = step as number;
+        progressLabel.textContent = `Schritt ${currentStep} von 4`;
+        progressSegments.forEach((seg, i) => {
+          if (i < currentStep) {
+            seg.classList.remove("bg-outline-variant");
+            seg.classList.add("bg-secondary");
+          } else {
+            seg.classList.remove("bg-secondary");
+            seg.classList.add("bg-outline-variant");
+          }
+        });
+      }
+
+      // Scroll to top of form area
+      window.scrollTo({ top: 200, behavior: "smooth" });
+    }
+
+    // ---- Step 1: Category selection ----
+    const categoryCards = document.querySelectorAll<HTMLButtonElement>(".category-card");
+    const step1Next = document.getElementById("step1-next") as HTMLButtonElement;
+
+    categoryCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        categoryCards.forEach((c) => {
+          c.classList.remove("border-secondary", "bg-secondary/5", "ring-2", "ring-secondary/30");
+          c.classList.add("border-outline-variant");
+        });
+        card.classList.remove("border-outline-variant");
+        card.classList.add("border-secondary", "bg-secondary/5", "ring-2", "ring-secondary/30");
+        selectedCategory = card.dataset.value || "";
+        step1Next.disabled = false;
+
+        // Show/hide emergency notice
+        if (selectedCategory === "notfall") {
+          notfallHinweis.classList.remove("hidden");
+        } else {
+          notfallHinweis.classList.add("hidden");
+        }
+      });
+    });
+
+    step1Next.addEventListener("click", () => {
+      if (selectedCategory) showStep(2);
+    });
+
+    // ---- Step 2: Area selection ----
+    const areaCards = document.querySelectorAll<HTMLButtonElement>(".area-card");
+    const step2Next = document.getElementById("step2-next") as HTMLButtonElement;
+
+    areaCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        areaCards.forEach((c) => {
+          c.classList.remove("border-secondary", "bg-secondary/5", "ring-2", "ring-secondary/30");
+          c.classList.add("border-outline-variant");
+        });
+        card.classList.remove("border-outline-variant");
+        card.classList.add("border-secondary", "bg-secondary/5", "ring-2", "ring-secondary/30");
+        selectedArea = card.dataset.value || "";
+        step2Next.disabled = false;
+      });
+    });
+
+    step2Next.addEventListener("click", () => {
+      if (selectedArea) showStep(3);
+    });
+
+    // ---- Step 3: Time selection ----
+    const timeCards = document.querySelectorAll<HTMLButtonElement>(".time-card");
+
+    timeCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        timeCards.forEach((c) => {
+          c.classList.remove("border-secondary", "bg-secondary/5", "ring-2", "ring-secondary/30");
+          c.classList.add("border-outline-variant");
+        });
+        card.classList.remove("border-outline-variant");
+        card.classList.add("border-secondary", "bg-secondary/5", "ring-2", "ring-secondary/30");
+        selectedTime = card.dataset.value || "";
+      });
+    });
+
+    const step3Next = document.getElementById("step3-next") as HTMLButtonElement;
+    step3Next.addEventListener("click", () => showStep(4));
+
+    // ---- Step 3: Skip button ----
+    const skipButtons = document.querySelectorAll(".btn-skip");
+    skipButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (currentStep === 3) showStep(4);
+      });
+    });
+
+    // ---- Step 4: Submit validation ----
+    const nameInput = document.getElementById("name") as HTMLInputElement;
+    const emailInput = document.getElementById("email") as HTMLInputElement;
+    const telefonInput = document.getElementById("telefon") as HTMLInputElement;
+    const datenschutzCheckbox = document.getElementById("datenschutz") as HTMLInputElement;
+    const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+
+    function validateStep4() {
+      const valid =
+        nameInput.value.trim() !== "" &&
+        emailInput.value.trim() !== "" &&
+        telefonInput.value.trim() !== "" &&
+        datenschutzCheckbox.checked;
+      submitBtn.disabled = !valid;
+    }
+
+    [nameInput, emailInput, telefonInput].forEach((input) => {
+      input.addEventListener("input", validateStep4);
+    });
+    datenschutzCheckbox.addEventListener("change", validateStep4);
+
+    submitBtn.addEventListener("click", () => {
+      if (!submitBtn.disabled) {
+        showStep("success");
+      }
+    });
+
+    // ---- Back buttons ----
+    document.querySelectorAll(".btn-back").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (currentStep > 1) showStep(currentStep - 1);
+      });
+    });
+  });
+</script>

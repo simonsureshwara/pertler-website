@@ -1,0 +1,250 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { Phone, Mail, MapPin, Clock } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Kontakt | PERTLER Gebäudetechnik München"
+  description="Kontaktieren Sie PERTLER Gebäudetechnik in München. ✓ Kostenlose Beratung ✓ 24h Notdienst ✓ Wilhelmine-Reichard-Str. 24, 80935 München"
+>
+  <EmergencyBanner />
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary-container py-20 md:py-28">
+      <div class="max-w-screen-2xl mx-auto px-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-white mb-4">Kontakt</h1>
+        <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+          Wir sind für Sie da — persönlich, telefonisch oder per E-Mail.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="bg-surface py-20 md:py-28">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="lg:flex lg:gap-16">
+
+          <!-- Left Column: Contact Form -->
+          <div class="lg:w-3/5 mb-16 lg:mb-0">
+            <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-8 md:p-12">
+              <h2 class="text-2xl md:text-3xl font-bold text-on-surface mb-2 tracking-tight">Schreiben Sie uns</h2>
+              <p class="text-on-surface-variant mb-8">Füllen Sie das Formular aus und wir melden uns schnellstmöglich.</p>
+
+              <form action="#" method="POST" class="space-y-6">
+                <!-- Name -->
+                <div>
+                  <label for="name" class="block text-sm font-semibold text-on-surface mb-2">Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Ihr vollständiger Name"
+                    class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  />
+                </div>
+
+                <!-- E-Mail -->
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-on-surface mb-2">E-Mail *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="ihre@email.de"
+                    class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  />
+                </div>
+
+                <!-- Telefon -->
+                <div>
+                  <label for="telefon" class="block text-sm font-semibold text-on-surface mb-2">Telefon <span class="text-on-surface-variant font-normal">(optional)</span></label>
+                  <input
+                    type="tel"
+                    id="telefon"
+                    name="telefon"
+                    placeholder="089 / ..."
+                    class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  />
+                </div>
+
+                <!-- Betreff -->
+                <div>
+                  <label for="betreff" class="block text-sm font-semibold text-on-surface mb-2">Betreff *</label>
+                  <select
+                    id="betreff"
+                    name="betreff"
+                    required
+                    class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  >
+                    <option value="" disabled selected>Bitte wählen...</option>
+                    <option value="heizung-sanitaer">Heizung & Sanitär</option>
+                    <option value="elektrotechnik">Elektrotechnik</option>
+                    <option value="baeder-wellness">Bäder & Wellness</option>
+                    <option value="kundendienst">Kundendienst</option>
+                    <option value="notfall">Notfall</option>
+                    <option value="sonstiges">Sonstiges</option>
+                  </select>
+                </div>
+
+                <!-- Nachricht -->
+                <div>
+                  <label for="nachricht" class="block text-sm font-semibold text-on-surface mb-2">Nachricht *</label>
+                  <textarea
+                    id="nachricht"
+                    name="nachricht"
+                    required
+                    rows="5"
+                    placeholder="Beschreiben Sie Ihr Anliegen..."
+                    class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-y"
+                  ></textarea>
+                </div>
+
+                <!-- Datenschutz -->
+                <div class="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="datenschutz"
+                    name="datenschutz"
+                    required
+                    class="mt-1 w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20"
+                  />
+                  <label for="datenschutz" class="text-sm text-on-surface-variant leading-relaxed">
+                    Ich habe die <a href="/datenschutz/" class="text-primary hover:underline font-medium">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *
+                  </label>
+                </div>
+
+                <!-- Submit -->
+                <button
+                  type="submit"
+                  class="w-full px-8 py-4 bg-secondary hover:bg-secondary-container text-white rounded-md font-bold transition-all text-lg tracking-wide"
+                >
+                  Nachricht senden
+                </button>
+
+                <p class="text-sm text-on-surface-variant text-center">
+                  Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+                </p>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Column: Contact Info Cards -->
+          <div class="lg:w-2/5 space-y-6">
+
+            <!-- Card 1: Adresse -->
+            <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-primary-container/20 rounded-lg flex items-center justify-center">
+                  <MapPin class="w-5 h-5 text-primary" />
+                </div>
+                <h3 class="text-lg font-bold text-on-surface">Adresse</h3>
+              </div>
+              <p class="text-on-surface-variant leading-relaxed mb-4">
+                Wilhelmine-Reichard-Str. 24<br />
+                80935 München
+              </p>
+              <div class="rounded-lg overflow-hidden border border-outline-variant/30">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.5!2d11.5574!3d48.1951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWilhelmine-Reichard-Str.+24%2C+80935+M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1"
+                  width="100%"
+                  height="200"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Standort PERTLER Gebäudetechnik auf Google Maps"
+                ></iframe>
+              </div>
+            </div>
+
+            <!-- Card 2: Telefon & E-Mail -->
+            <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-primary-container/20 rounded-lg flex items-center justify-center">
+                  <Phone class="w-5 h-5 text-primary" />
+                </div>
+                <h3 class="text-lg font-bold text-on-surface">Telefon & E-Mail</h3>
+              </div>
+              <div class="space-y-3">
+                <a href="tel:08935894978" class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors group">
+                  <Phone class="w-4 h-4 text-on-surface-variant group-hover:text-primary transition-colors" />
+                  <span class="font-medium">089 / 35 89 49 78</span>
+                </a>
+                <a href="mailto:info@pertler.de" class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors group">
+                  <Mail class="w-4 h-4 text-on-surface-variant group-hover:text-primary transition-colors" />
+                  <span class="font-medium">info@pertler.de</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 3: Öffnungszeiten -->
+            <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-primary-container/20 rounded-lg flex items-center justify-center">
+                  <Clock class="w-5 h-5 text-primary" />
+                </div>
+                <h3 class="text-lg font-bold text-on-surface">Öffnungszeiten</h3>
+              </div>
+              <div class="space-y-2 text-on-surface-variant">
+                <div class="flex justify-between">
+                  <span>Mo–Fr</span>
+                  <span class="font-medium text-on-surface">07:30–17:00 Uhr</span>
+                </div>
+                <hr class="border-outline-variant/15" />
+                <div class="flex justify-between items-center">
+                  <span>Notdienst</span>
+                  <span class="px-3 py-1 bg-error/10 text-error text-sm font-bold rounded-full">24/7 erreichbar</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Unsere Gesellschaften -->
+            <div class="bg-surface-container-lowest rounded-xl editorial-shadow p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-primary-container/20 rounded-lg flex items-center justify-center">
+                  <MapPin class="w-5 h-5 text-primary" />
+                </div>
+                <h3 class="text-lg font-bold text-on-surface">Unsere Gesellschaften</h3>
+              </div>
+              <ul class="space-y-3 text-on-surface-variant">
+                <li class="font-medium text-on-surface">Ernst Pertler GmbH</li>
+                <li class="font-medium text-on-surface">Ernst Pertler Service GmbH</li>
+                <li>
+                  <span class="font-medium text-on-surface">Pertler Bad GmbH</span>
+                  <br />
+                  <a href="mailto:bad@pertler.de" class="text-sm text-primary hover:underline">bad@pertler.de</a>
+                </li>
+                <li class="font-medium text-on-surface">Pertler Elektrotechnik GmbH</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency CTA -->
+    <section class="bg-primary-container py-16 md:py-20">
+      <div class="max-w-screen-2xl mx-auto px-8 text-center">
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">
+          Notfall? Rufen Sie uns sofort an!
+        </h2>
+        <a
+          href="tel:08935894978"
+          class="inline-flex items-center gap-4 px-12 py-5 bg-white text-primary rounded-md font-bold text-2xl md:text-3xl transition-all hover:scale-105 editorial-shadow"
+        >
+          <Phone class="w-8 h-8" />
+          089 / 35 89 49 78
+        </a>
+        <p class="text-white/60 mt-6 text-lg">24 Stunden — 7 Tage die Woche</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
