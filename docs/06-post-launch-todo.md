@@ -1,5 +1,12 @@
 # Post-Launch TODO — Nach Kundenübernahme
 
+## 0. SOFORT BEI GO-LIVE
+- [ ] **noindex ENTFERNEN!** `src/layouts/BaseLayout.astro` — Zeile mit `<meta name="robots" content="noindex, nofollow" />` löschen + neu deployen
+- [ ] Google Business Profile Link im Footer oder Kontaktseite einbauen
+- [ ] Mehr Testimonials pro Service-Seite (2-3 statt 1, echte Kundenbewertungen)
+- [ ] Emojis auf Leistungsseiten → Lucide SVG Icons (FeatureGrid Refactor)
+- [ ] CTA-Texte differenzieren (intention-based statt überall "Angebot anfordern")
+
 ## 1. Tracking & Analytics einrichten
 - [ ] Mit Kunde klären welche Tools: GA4, Google Tag Manager, Meta Pixel, LinkedIn Insight Tag?
 - [ ] Google Analytics 4 Property erstellen + Measurement ID eintragen
