@@ -9,19 +9,19 @@ interface Props {
   accent?: "heizung" | "elektro" | "baeder" | "sanitaer" | "error";
 }
 
-const colorMap: Record<string, { hex: string; gradientFrom: string }> = {
-  heizung:  { hex: "#8b1a1a", gradientFrom: "from-[#8b1a1a]/90 via-[#8b1a1a]/40 to-transparent" },
-  elektro:  { hex: "#00834b", gradientFrom: "from-[#00834b]/90 via-[#00834b]/40 to-transparent" },
-  baeder:   { hex: "#e87d1e", gradientFrom: "from-[#e87d1e]/90 via-[#e87d1e]/40 to-transparent" },
-  sanitaer: { hex: "#2e3b8c", gradientFrom: "from-[#2e3b8c]/90 via-[#2e3b8c]/40 to-transparent" },
-  error:    { hex: "#ba1a1a", gradientFrom: "from-[#ba1a1a]/90 via-[#ba1a1a]/40 to-transparent" },
+const colorMap: Record<string, { hex: string; overlay: string; gradient: string }> = {
+  heizung:  { hex: "#8b1a1a", overlay: "bg-[#8b1a1a]/75", gradient: "from-[#8b1a1a]/90 via-[#8b1a1a]/50 to-transparent" },
+  elektro:  { hex: "#00834b", overlay: "bg-[#00834b]/75", gradient: "from-[#00834b]/90 via-[#00834b]/50 to-transparent" },
+  baeder:   { hex: "#e87d1e", overlay: "bg-[#e87d1e]/75", gradient: "from-[#e87d1e]/90 via-[#e87d1e]/50 to-transparent" },
+  sanitaer: { hex: "#2e3b8c", overlay: "bg-[#2e3b8c]/75", gradient: "from-[#2e3b8c]/90 via-[#2e3b8c]/50 to-transparent" },
+  error:    { hex: "#ba1a1a", overlay: "bg-[#ba1a1a]/75", gradient: "from-[#ba1a1a]/90 via-[#ba1a1a]/50 to-transparent" },
 };
 
 const { title, description, image, imageAlt, accent = "heizung" } = Astro.props;
 const color = colorMap[accent];
 ---
 
-<section class="relative min-h-[500px] flex items-center py-24 md:py-32 overflow-hidden">
+<section class="relative pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-24 md:pb-32 overflow-hidden">
   <div class="absolute inset-0 z-0">
     <img
       src={image}
@@ -32,27 +32,29 @@ const color = colorMap[accent];
       decoding="async"
       fetchpriority="high"
     />
-    <div class={`absolute inset-0 bg-gradient-to-r ${color.gradientFrom}`}></div>
+    <!-- Full overlay on mobile for readability, gradient on desktop -->
+    <div class={`absolute inset-0 ${color.overlay} md:hidden`}></div>
+    <div class={`absolute inset-0 hidden md:block bg-gradient-to-r ${color.gradient}`}></div>
   </div>
 
-  <div class="relative z-10 max-w-screen-2xl mx-auto px-8 w-full">
+  <div class="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-8 w-full">
     <div class="max-w-3xl">
-      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tighter">
+      <h1 class="font-black text-white leading-[1.1] mb-4 sm:mb-6 tracking-tighter" style="font-size: clamp(1.75rem, 5.5vw, 3.75rem);">
         {title}
       </h1>
-      <p class="text-lg md:text-xl text-white/90 font-light leading-relaxed mb-10 max-w-2xl">
+      <p class="text-base sm:text-lg md:text-xl text-white font-light leading-relaxed mb-8 sm:mb-10 max-w-2xl">
         {description}
       </p>
-      <div class="flex flex-wrap gap-4">
+      <div class="flex flex-col sm:flex-row gap-4">
         <a
           href="/buchung/"
-          class="px-8 py-4 bg-white text-on-surface rounded-md font-bold transition-all text-base hover:bg-white/90 editorial-shadow"
+          class="w-full sm:w-auto px-8 py-4 bg-white text-on-surface rounded-md font-bold transition-all text-base hover:bg-white/90 editorial-shadow text-center"
         >
           Kostenlose Beratung
         </a>
         <a
           href="tel:08935894978"
-          class="px-8 py-4 border-2 border-white/40 text-white hover:bg-white hover:text-primary rounded-md font-bold transition-all flex items-center gap-3 text-base"
+          class="w-full sm:w-auto px-8 py-4 border-2 border-white/40 text-white hover:bg-white hover:text-primary rounded-md font-bold transition-all flex items-center justify-center gap-3 text-base"
         >
           <Phone class="w-4 h-4" />
           089 / 35 89 49 78
