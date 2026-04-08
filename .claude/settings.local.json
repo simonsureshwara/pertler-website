@@ -35,7 +35,9 @@
       "Bash(curl -sL -o /tmp/heizung-hero.jpg \"https://plus.unsplash.com/premium_photo-1682146016156-c433bab5da23?w=1920&q=80\")",
       "Bash(curl -sI \"https://images.unsplash.com/photo-U0jpGKtMtWE?w=1920\")",
       "WebFetch(domain:unsplash.com)",
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(ls -lhS \"/c/Users/Simon/Documents/Projects/Github Projects/Pertler/dist/_astro/\"*.js)",
+      "Bash(ls -lhS \"/c/Users/Simon/Documents/Projects/Github Projects/Pertler/dist/_astro/\"*.css)"
     ]
   }
 }

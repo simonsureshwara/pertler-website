@@ -1,0 +1,228 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EmergencyBanner from "../../components/EmergencyBanner.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import { ArrowRight, Flame, Zap, Bath, Wrench, Phone, AlertTriangle, Users, Shield, Clock } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Leistungen | PERTLER Gebäudetechnik München"
+  description="Alle Leistungen der Ernst Pertler GmbH in München: Heizung, Sanitär, Elektrotechnik, Badsanierung, Kundendienst und 24h Notdienst. Meisterbetrieb seit 1984."
+>
+  <EmergencyBanner />
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="bg-primary-container py-20 md:py-28">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6">Unsere Leistungen — Gebäudetechnik komplett aus einer Hand.</h1>
+        <p class="text-lg md:text-xl text-white/70 max-w-3xl leading-relaxed">
+          Von der Heizungsmodernisierung über die Elektroinstallation bis zur Komplettsanierung Ihres Badezimmers — als inhabergeführter Meisterbetrieb in München koordinieren wir alle Gewerke unter einem Dach. Vier spezialisierte Unternehmen, ein Ansprechpartner.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4 Service Cards -->
+    <section class="py-24 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Heizung & Sanitär -->
+          <a href="/leistungen/heizung-sanitaer/" class="group bg-surface-container-lowest p-10 rounded-xl editorial-shadow border-l-8 border-heizung hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-12 h-12 bg-heizung/10 rounded-lg flex items-center justify-center shrink-0">
+                <Flame class="w-6 h-6 text-heizung" />
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold mb-1">Heizung & Sanitär</h2>
+                <span class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Ernst Pertler GmbH</span>
+              </div>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6">
+              Ob Wärmepumpe, Gasheizung oder Pelletanlage — wir planen, installieren und modernisieren Ihre Heizungsanlage in München. Dazu komplette Sanitärinstallationen für Neubau und Sanierung, Trinkwasserhygiene und hydraulischer Abgleich. Jährlich realisieren wir über 70 Heizungsanlagen — als Viessmann- und Carrier-Partner mit 30+ Jahren Erfahrung.
+            </p>
+            <span class="text-primary font-bold flex items-center gap-2 group-hover:gap-3 transition-all" style="color: #8b1a1a;">
+              Mehr erfahren <ArrowRight class="w-4 h-4" />
+            </span>
+          </a>
+
+          <!-- Elektrotechnik -->
+          <a href="/leistungen/elektrotechnik/" class="group bg-surface-container-lowest p-10 rounded-xl editorial-shadow border-l-8 border-elektro hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-12 h-12 bg-elektro/10 rounded-lg flex items-center justify-center shrink-0">
+                <Zap class="w-6 h-6 text-elektro" />
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold mb-1">Elektrotechnik & Smart Home</h2>
+                <span class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Pertler Elektrotechnik GmbH</span>
+              </div>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6">
+              Komplette Elektroinstallationen für Neubauten und Sanierungen in München, intelligente Smart-Home-Lösungen mit Homematic IP, moderne Lichtkonzepte und E-Mobilität-Ladestationen. Von der Wohnungsverkabelung bis zum Gewerbeprojekt — wie dem Ferrari Showroom am Odeonsplatz.
+            </p>
+            <span class="font-bold flex items-center gap-2 group-hover:gap-3 transition-all" style="color: #00834b;">
+              Mehr erfahren <ArrowRight class="w-4 h-4" />
+            </span>
+          </a>
+
+          <!-- Bäder & Wellness -->
+          <a href="/leistungen/baeder-wellness/" class="group bg-surface-container-lowest p-10 rounded-xl editorial-shadow border-l-8 border-baeder hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-12 h-12 bg-baeder/10 rounded-lg flex items-center justify-center shrink-0">
+                <Bath class="w-6 h-6 text-baeder" />
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold mb-1">Bäder & Wellness</h2>
+                <span class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Pertler Bad GmbH</span>
+              </div>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6">
+              Komplettsanierung Ihres Badezimmers in München — von der Planung über Fliesen, Trockenbau und Elektro bis zur fertigen Wellness-Oase. Mit eigenen Fliesenlegern, koordinierten Gewerken und garantierten Festpreisen. Ob barrierefreier Umbau, kleine Bäder oder luxuriöse Spa-Ausstattung.
+            </p>
+            <span class="font-bold flex items-center gap-2 group-hover:gap-3 transition-all" style="color: #e87d1e;">
+              Mehr erfahren <ArrowRight class="w-4 h-4" />
+            </span>
+          </a>
+
+          <!-- Kundendienst -->
+          <a href="/leistungen/kundendienst/" class="group bg-surface-container-lowest p-10 rounded-xl editorial-shadow border-l-8 border-sanitaer hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-12 h-12 bg-sanitaer/10 rounded-lg flex items-center justify-center shrink-0">
+                <Wrench class="w-6 h-6 text-sanitaer" />
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold mb-1">Kundendienst & Wartung</h2>
+                <span class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Ernst Pertler Service GmbH</span>
+              </div>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6">
+              Zuverlässige Wartung und schneller Service für Ihre gesamte Haustechnik in München. Heizungswartung aller Systeme, Sanitär-Kundendienst, Kälte- und Klimatechnik, Leckortung und Rohrreinigung. Mit dokumentierten Prüfprotokollen und Wartungsverträgen zu Vorzugskonditionen.
+            </p>
+            <span class="font-bold flex items-center gap-2 group-hover:gap-3 transition-all" style="color: #2e3b8c;">
+              Mehr erfahren <ArrowRight class="w-4 h-4" />
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notdienst Banner -->
+    <section class="bg-primary-container text-white py-12">
+      <div class="max-w-screen-2xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="flex items-center gap-6">
+          <div class="w-16 h-16 bg-error rounded-full flex items-center justify-center animate-pulse shadow-[0_0_20px_rgba(186,26,26,0.6)]">
+            <AlertTriangle class="w-8 h-8 text-white" />
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-1">24/7 Notdienst in München</h3>
+            <p class="text-white/60">Rohrbruch, Heizungsausfall oder Stromstörung — wir sind sofort für Sie da.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="text-2xl font-black">089 / 35 89 49 78</div>
+          <a href="/leistungen/notdienst/" class="px-6 py-3 bg-white text-primary rounded-md font-bold hover:bg-white/90 transition-all text-sm">
+            Notdienst-Infos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warum alles aus einer Hand -->
+    <section class="py-24 bg-surface-container-low">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-black tracking-tighter">Warum alles aus einer Hand?</h2>
+          <p class="text-on-surface-variant text-lg mt-4 max-w-2xl mx-auto">Vier spezialisierte Unternehmen, ein Standort in München-Feldmoching — so profitieren Sie:</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow text-center">
+            <Users class="w-10 h-10 text-secondary mx-auto mb-4" />
+            <h3 class="text-xl font-bold mb-3">Ein Ansprechpartner</h3>
+            <p class="text-on-surface-variant leading-relaxed">Ihr persönlicher Projektleiter koordiniert alle Gewerke — Sie müssen sich um nichts kümmern. Keine Abstimmung zwischen verschiedenen Firmen.</p>
+          </div>
+          <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow text-center">
+            <Shield class="w-10 h-10 text-secondary mx-auto mb-4" />
+            <h3 class="text-xl font-bold mb-3">Meister-Qualität</h3>
+            <p class="text-on-surface-variant leading-relaxed">Jede unserer vier Gesellschaften wird von ausgebildeten Meistern geführt. Über 25 Fachkräfte und 21 Auszubildende garantieren höchste Qualität.</p>
+          </div>
+          <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow text-center">
+            <Clock class="w-10 h-10 text-secondary mx-auto mb-4" />
+            <h3 class="text-xl font-bold mb-3">40+ Jahre Erfahrung</h3>
+            <p class="text-on-surface-variant leading-relaxed">Seit 1984 sind wir der Gebäudetechnik-Spezialist in München. Tausende zufriedene Kunden und mehrfach ausgezeichnet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Long-Tail Keywords: Was wir für Sie tun -->
+    <section class="py-24 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <h2 class="text-3xl md:text-4xl font-black tracking-tighter mb-4">Was wir für Sie tun</h2>
+        <p class="text-on-surface-variant text-lg mb-12 max-w-2xl">Unsere Meisterbetriebe decken das gesamte Spektrum der Gebäudetechnik in München ab:</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-2">
+          <!-- Heizung & Sanitär -->
+          <div>
+            <h3 class="font-bold text-lg mb-4 pb-2 border-b-2 border-heizung">Heizung & Sanitär</h3>
+            <ul class="space-y-2">
+              <li><a href="/leistungen/heizung-sanitaer/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Wärmepumpe installieren München</a></li>
+              <li><a href="/leistungen/heizung-sanitaer/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Gasheizung austauschen</a></li>
+              <li><a href="/leistungen/heizung-sanitaer/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Pelletheizung einbauen</a></li>
+              <li><a href="/leistungen/heizung-sanitaer/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Solarthermie nachrüsten</a></li>
+              <li><a href="/leistungen/heizung-sanitaer/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Sanitärinstallation Neubau</a></li>
+              <li><a href="/leistungen/heizung-sanitaer/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Trinkwasserhygiene & Legionellen</a></li>
+              <li><a href="/leistungen/heizung-sanitaer/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Hydraulischer Abgleich München</a></li>
+              <li><a href="/leistungen/heizung-sanitaer/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Heizungsförderung BEG / KfW</a></li>
+            </ul>
+          </div>
+
+          <!-- Elektrotechnik -->
+          <div>
+            <h3 class="font-bold text-lg mb-4 pb-2 border-b-2 border-elektro">Elektrotechnik</h3>
+            <ul class="space-y-2">
+              <li><a href="/leistungen/elektrotechnik/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Elektroinstallation Neubau München</a></li>
+              <li><a href="/leistungen/elektrotechnik/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Altbau Elektrosanierung</a></li>
+              <li><a href="/leistungen/elektrotechnik/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Smart Home nachrüsten</a></li>
+              <li><a href="/leistungen/elektrotechnik/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Homematic IP Installation</a></li>
+              <li><a href="/leistungen/elektrotechnik/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">E-Ladestation Wallbox einbauen</a></li>
+              <li><a href="/leistungen/elektrotechnik/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Lichtkonzept Planung</a></li>
+              <li><a href="/leistungen/elektrotechnik/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Sprechanlage erneuern</a></li>
+            </ul>
+          </div>
+
+          <!-- Bäder -->
+          <div>
+            <h3 class="font-bold text-lg mb-4 pb-2 border-b-2 border-baeder">Bäder & Wellness</h3>
+            <ul class="space-y-2">
+              <li><a href="/leistungen/baeder-wellness/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Badsanierung München Kosten</a></li>
+              <li><a href="/leistungen/baeder-wellness/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Badumbau Festpreis</a></li>
+              <li><a href="/leistungen/baeder-wellness/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Barrierefreies Bad München</a></li>
+              <li><a href="/leistungen/baeder-wellness/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Kleine Bäder gestalten</a></li>
+              <li><a href="/leistungen/baeder-wellness/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Fliesenarbeiten & Naturstein</a></li>
+              <li><a href="/leistungen/baeder-wellness/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Wellness-Bad Komplettsanierung</a></li>
+              <li><a href="/leistungen/baeder-wellness/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Dusch-WC Installation</a></li>
+            </ul>
+          </div>
+
+          <!-- Kundendienst -->
+          <div>
+            <h3 class="font-bold text-lg mb-4 pb-2 border-b-2 border-sanitaer">Service & Notdienst</h3>
+            <ul class="space-y-2">
+              <li><a href="/leistungen/kundendienst/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Heizungswartung München</a></li>
+              <li><a href="/leistungen/kundendienst/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Klimaanlage warten lassen</a></li>
+              <li><a href="/leistungen/kundendienst/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Rohrreinigung & Entkalkung</a></li>
+              <li><a href="/leistungen/kundendienst/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Leckortung professionell</a></li>
+              <li><a href="/leistungen/kundendienst/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Wartungsvertrag Haustechnik</a></li>
+              <li><a href="/leistungen/notdienst/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Rohrbruch Notdienst 24h</a></li>
+              <li><a href="/leistungen/notdienst/" class="text-on-surface-variant hover:text-primary transition-colors text-sm">Heizungsnotdienst München</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</BaseLayout>
