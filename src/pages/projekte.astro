@@ -8,36 +8,42 @@ import { ArrowRight } from "lucide-astro";
 
 const projects = [
   {
+    slug: "buerokomplex-muenchen-city",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
     tags: ["Klima", "Gewerbe"],
     title: "Bürokomplex München-City",
     description: "Komplette Klimatisierung eines 4-stöckigen Bürogebäudes mit energieeffizienter VRF-Technologie und zentraler Gebäudeleittechnik.",
   },
   {
+    slug: "einfamilienhaus-bogenhausen",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
     tags: ["Wärmepumpe", "Neubau"],
     title: "Einfamilienhaus Bogenhausen",
     description: "Luft-Wasser-Wärmepumpe mit Fußbodenheizung und kontrollierter Wohnraumlüftung für ein KfW-55-Effizienzhaus.",
   },
   {
+    slug: "bad-sanierung-schwabing",
     image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop",
     tags: ["Wellness", "Bad"],
     title: "Exklusive Bad-Sanierung Schwabing",
     description: "Komplettsanierung eines 18 m² Badezimmers mit bodengleicher Dusche, Rainshower und freistehender Badewanne.",
   },
   {
+    slug: "smart-home-villa-gruenwald",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=600&fit=crop",
     tags: ["Elektro", "Smart Home"],
     title: "Smart Home Villa Grünwald",
     description: "KNX-basierte Gebäudeautomation mit Lichtsteuerung, Beschattung, Heizungsregelung und Wallbox-Integration.",
   },
   {
+    slug: "mehrfamilienhaus-feldmoching",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
     tags: ["Heizung", "Sanierung"],
     title: "Mehrfamilienhaus Feldmoching",
     description: "Austausch einer veralteten Ölheizung gegen eine Gasbrennwert-Kaskade mit Solarthermie für 12 Wohneinheiten.",
   },
   {
+    slug: "praxisraeume-maxvorstadt",
     image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=600&fit=crop",
     tags: ["Sanitär", "Gewerbe"],
     title: "Praxisräume Maxvorstadt",
@@ -116,7 +122,7 @@ const filterTags = ["Alle", "Heizung", "Sanitär", "Elektro", "Bad", "Klima"];
                 <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
                   {project.description}
                 </p>
-                <a href="#" class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                <a href={`/projekte/${project.slug}/`} class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
                   Details ansehen <ArrowRight class="w-4 h-4" />
                 </a>
               </div>

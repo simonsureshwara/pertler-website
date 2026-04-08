@@ -1,0 +1,197 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EmergencyBanner from "../../components/EmergencyBanner.astro";
+import Navbar from "../../components/Navbar.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import Footer from "../../components/Footer.astro";
+import { ArrowLeft, MapPin, Calendar, Ruler, Wrench } from "lucide-astro";
+
+const projects: Record<string, {
+  title: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  tags: string[];
+  location: string;
+  year: string;
+  area: string;
+  services: string[];
+}> = {
+  "buerokomplex-muenchen-city": {
+    title: "Bürokomplex München-City",
+    description: "Komplette Klimatisierung eines 4-stöckigen Bürogebäudes mit energieeffizienter VRF-Technologie.",
+    longDescription: "Für einen modernen Bürokomplex im Herzen Münchens realisierten wir die komplette Klimatisierung aller vier Stockwerke. Die Herausforderung: eine leistungsstarke Anlage, die im Sommer kühlt und im Winter unterstützend heizt — bei gleichzeitig niedrigem Energieverbrauch und minimalem Geräuschpegel in den Büroräumen. Die installierte VRF-Technologie (Variable Refrigerant Flow) ermöglicht eine zonenweise Temperaturregelung und wird über eine zentrale Gebäudeleittechnik gesteuert.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop",
+    tags: ["Klima", "Gewerbe"],
+    location: "München-Innenstadt",
+    year: "2024",
+    area: "1.200 m²",
+    services: ["Klimatechnik", "VRF-Anlage", "Gebäudeleittechnik", "Wartungsvertrag"],
+  },
+  "einfamilienhaus-bogenhausen": {
+    title: "Einfamilienhaus Bogenhausen",
+    description: "Nachhaltiges Energiekonzept mit Luft-Wasser-Wärmepumpe und Fußbodenheizung.",
+    longDescription: "In einem Neubau-Einfamilienhaus im Münchner Stadtteil Bogenhausen installierten wir ein ganzheitliches Energiekonzept. Herzstück ist eine Luft-Wasser-Wärmepumpe, die mit einer Fußbodenheizung auf allen Ebenen kombiniert wird. Ergänzt durch eine kontrollierte Wohnraumlüftung mit Wärmerückgewinnung erreicht das Haus den KfW-55-Standard. Die gesamte Anlage wird über ein Smart-Home-System gesteuert und überwacht.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop",
+    tags: ["Wärmepumpe", "Neubau"],
+    location: "München-Bogenhausen",
+    year: "2023",
+    area: "220 m²",
+    services: ["Wärmepumpe", "Fußbodenheizung", "Lüftungsanlage", "Smart Home"],
+  },
+  "bad-sanierung-schwabing": {
+    title: "Exklusive Bad-Sanierung Schwabing",
+    description: "Komplettsanierung eines 18 m² Badezimmers zur modernen Wellness-Oase.",
+    longDescription: "Ein in die Jahre gekommenes Badezimmer in einem Schwabinger Altbau wurde von unserem Bad-Team komplett neu gestaltet. Der Kunde wünschte sich ein modernes Wellness-Erlebnis auf 18 m². Wir realisierten eine bodengleiche Dusche mit Rainshower-System, eine freistehende Badewanne und einen doppelten Waschtisch. Die Fußbodenheizung sorgt für Wärme, die LED-Beleuchtung für Atmosphäre. Alle Fliesen wurden von unserem eigenen Fliesenleger-Team verlegt.",
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&h=800&fit=crop",
+    tags: ["Wellness", "Bad"],
+    location: "München-Schwabing",
+    year: "2024",
+    area: "18 m²",
+    services: ["Badsanierung", "Fliesen", "Sanitärinstallation", "Fußbodenheizung"],
+  },
+  "smart-home-villa-gruenwald": {
+    title: "Smart Home Villa Grünwald",
+    description: "KNX-basierte Gebäudeautomation mit umfassender Licht- und Heizungssteuerung.",
+    longDescription: "Für eine exklusive Villa in Grünwald bei München realisierten wir eine umfassende Smart-Home-Installation auf KNX-Basis. Die gesamte Gebäudetechnik — von der Beleuchtung über die Beschattung bis zur Heizungsregelung — wird zentral gesteuert. Zusätzlich integrierten wir eine Wallbox für das Elektrofahrzeug des Bauherrn und eine Gegensprechanlage mit Videofunktion. Die Programmierung und Inbetriebnahme erfolgte durch unsere zertifizierten KNX-Techniker.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&h=800&fit=crop",
+    tags: ["Elektro", "Smart Home"],
+    location: "Grünwald bei München",
+    year: "2023",
+    area: "380 m²",
+    services: ["KNX-Automation", "Lichtsteuerung", "Wallbox", "Sprechanlage"],
+  },
+  "mehrfamilienhaus-feldmoching": {
+    title: "Mehrfamilienhaus Feldmoching",
+    description: "Heizungssanierung mit Gasbrennwert-Kaskade und Solarthermie für 12 Wohneinheiten.",
+    longDescription: "In einem Mehrfamilienhaus mit 12 Wohneinheiten in unserem Heimatstadtteil Feldmoching tauschten wir die veraltete Ölheizung gegen eine moderne Gasbrennwert-Kaskade mit Solarthermie-Unterstützung. Die neue Anlage reduziert den Energieverbrauch um über 30%. Alle Arbeiten wurden im bewohnten Zustand durchgeführt — termingerecht und mit minimaler Beeinträchtigung für die Mieter. Der hydraulische Abgleich aller 12 Wohnungen sorgt für gleichmäßige Wärmeverteilung.",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&h=800&fit=crop",
+    tags: ["Heizung", "Sanierung"],
+    location: "München-Feldmoching",
+    year: "2024",
+    area: "12 Wohneinheiten",
+    services: ["Gasbrennwert", "Solarthermie", "Hydraulischer Abgleich", "Rohrleitungsbau"],
+  },
+  "praxisraeume-maxvorstadt": {
+    title: "Praxisräume Maxvorstadt",
+    description: "Sanitärinstallation und Trinkwasserhygiene nach VDI 6023 für eine Arztpraxis.",
+    longDescription: "Für eine neu eingerichtete Arztpraxis in der Maxvorstadt übernahmen wir die komplette Sanitärinstallation nach den strengen Anforderungen der VDI 6023 (Trinkwasserhygiene). Drei Behandlungsräume, ein Labor und ein Wartebereich wurden mit den notwendigen Wasseranschlüssen und Abflüssen versehen. Besonderes Augenmerk lag auf der Vermeidung von Stagnation im Leitungssystem und der regelmäßigen thermischen Desinfektion.",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&h=800&fit=crop",
+    tags: ["Sanitär", "Gewerbe"],
+    location: "München-Maxvorstadt",
+    year: "2023",
+    area: "180 m²",
+    services: ["Sanitärinstallation", "Trinkwasserhygiene", "VDI 6023", "Rohrleitungsbau"],
+  },
+};
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "buerokomplex-muenchen-city" } },
+    { params: { slug: "einfamilienhaus-bogenhausen" } },
+    { params: { slug: "bad-sanierung-schwabing" } },
+    { params: { slug: "smart-home-villa-gruenwald" } },
+    { params: { slug: "mehrfamilienhaus-feldmoching" } },
+    { params: { slug: "praxisraeume-maxvorstadt" } },
+  ];
+}
+
+const { slug } = Astro.params;
+const project = projects[slug!];
+if (!project) return Astro.redirect("/projekte/");
+
+const breadcrumbs = [
+  { label: "Startseite", href: "/" },
+  { label: "Projekte", href: "/projekte/" },
+  { label: project.title },
+];
+---
+
+<BaseLayout
+  title={`${project.title} | PERTLER Gebäudetechnik München`}
+  description={project.description}
+>
+  <EmergencyBanner />
+  <Navbar />
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="relative h-[50vh] min-h-[400px] flex items-end pt-20 overflow-hidden">
+      <img src={project.image} alt={project.title} class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+      <div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/30 to-transparent"></div>
+      <div class="relative z-10 max-w-screen-2xl mx-auto px-8 w-full pb-12">
+        <div class="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag) => (
+            <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase rounded-full">{tag}</span>
+          ))}
+        </div>
+        <h1 class="text-4xl md:text-5xl font-black text-white tracking-tighter">{project.title}</h1>
+      </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="max-w-screen-2xl mx-auto px-8 py-4">
+      <Breadcrumb items={breadcrumbs} />
+    </div>
+
+    <!-- Content -->
+    <section class="py-16 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="flex flex-col lg:flex-row gap-16">
+          <!-- Main text -->
+          <div class="flex-1">
+            <p class="text-xl text-on-surface-variant leading-relaxed mb-8">{project.longDescription}</p>
+
+            <h2 class="text-2xl font-black tracking-tighter mb-6">Leistungen in diesem Projekt</h2>
+            <div class="flex flex-wrap gap-3 mb-12">
+              {project.services.map((s) => (
+                <span class="px-4 py-2 bg-surface-container rounded-full text-sm font-semibold">{s}</span>
+              ))}
+            </div>
+
+            <a href="/projekte/" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+              <ArrowLeft class="w-4 h-4" /> Alle Projekte ansehen
+            </a>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:w-80 shrink-0">
+            <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow space-y-6 sticky top-28">
+              <div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 mb-4">Projektdaten</div>
+              <div class="flex items-center gap-3">
+                <MapPin class="w-5 h-5 text-secondary shrink-0" />
+                <div>
+                  <div class="text-xs text-on-surface-variant">Standort</div>
+                  <div class="font-bold">{project.location}</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 border-t border-outline-variant/15 pt-6">
+                <Calendar class="w-5 h-5 text-secondary shrink-0" />
+                <div>
+                  <div class="text-xs text-on-surface-variant">Jahr</div>
+                  <div class="font-bold">{project.year}</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 border-t border-outline-variant/15 pt-6">
+                <Ruler class="w-5 h-5 text-secondary shrink-0" />
+                <div>
+                  <div class="text-xs text-on-surface-variant">Fläche / Umfang</div>
+                  <div class="font-bold">{project.area}</div>
+                </div>
+              </div>
+              <div class="border-t border-outline-variant/15 pt-6">
+                <a href="/buchung/" class="block w-full text-center px-6 py-4 cta-gradient text-white rounded-md font-bold transition-all hover:opacity-90">
+                  Ähnliches Projekt anfragen
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</BaseLayout>

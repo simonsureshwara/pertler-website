@@ -15,10 +15,13 @@ function getPhotos(dept: string, count: number): string[] {
 }
 
 const departments = [
+  { id: "team-bauleitung", name: "Bau- & Projektleitung", description: "Koordination, Planung und Baustellenführung", borderColor: "border-primary", photos: getPhotos("bauleitung", 6) },
   { id: "team-heizung", name: "Heizung & Sanitär", description: "Planung, Installation und Modernisierung", borderColor: "border-heizung", photos: getPhotos("heizung", 39) },
   { id: "team-kundendienst", name: "Kundendienst & Wartung", description: "Reparatur, Wartung und 24h Notdienst", borderColor: "border-sanitaer", photos: getPhotos("kundendienst", 23) },
   { id: "team-baeder", name: "Bäder & Wellness", description: "Von der Planung bis zur letzten Fliese", borderColor: "border-baeder", photos: getPhotos("baeder", 16) },
   { id: "team-elektro", name: "Elektrotechnik", description: "Installation, Smart Home und E-Mobilität", borderColor: "border-elektro", photos: getPhotos("elektro", 6) },
+  { id: "team-kaelte", name: "Klima- & Kältetechnik", description: "Klimaanlagen, Kältesysteme und Temperaturregelung", borderColor: "border-kaelte", photos: getPhotos("kaelte", 1) },
+  { id: "team-azubis", name: "Auszubildende", description: "19 Azubis in allen Gewerken — Erasmus-Grasser-Preis für Ausbildungsexzellenz", borderColor: "border-secondary", photos: getPhotos("azubis", 19) },
 ];
 ---
 
@@ -158,9 +161,23 @@ const departments = [
           </p>
         </div>
 
-        {/* Geschäftsleitung + Verwaltung */}
+        {/* Gründer */}
+        <div class="bg-surface-container-lowest rounded-xl editorial-shadow border-t-8 border-secondary p-8 lg:p-10 mb-8">
+          <div class="flex flex-col sm:flex-row items-center gap-8">
+            <div class="flex gap-4 shrink-0">
+              <img src="/images/team/leitung/ernst-pertler.webp" alt="Ernst Pertler — Gründer" width="100" height="100" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover" loading="lazy" />
+              <img src="/images/team/leitung/ernst-pertler-frau.webp" alt="Frau Pertler" width="100" height="100" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover" loading="lazy" />
+            </div>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-secondary mb-1 block">Gründer · Seit 1984</span>
+              <h3 class="text-xl font-bold">Ernst Pertler &amp; Familie</h3>
+              <p class="text-on-surface-variant text-sm mt-1">Gründete den Betrieb 1984 in München-Feldmoching. Heute noch ehrenamtlich im Unternehmen aktiv.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Geschäftsführung */}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {/* Geschäftsleitung */}
           <div class="bg-surface-container-lowest rounded-xl editorial-shadow border-t-8 border-primary p-8 lg:p-10 flex items-center gap-8">
             <img
               src="/images/team/leitung/geschaeftsfuehrung.webp"
@@ -171,13 +188,31 @@ const departments = [
               loading="lazy"
             />
             <div>
-              <span class="text-xs font-bold uppercase tracking-widest text-secondary mb-1 block">Geschäftsführung</span>
+              <span class="text-xs font-bold uppercase tracking-widest text-secondary mb-1 block">Geschäftsführung · Ernst Pertler GmbH</span>
               <h3 class="text-xl font-bold">Stefan Pertler</h3>
-              <p class="text-on-surface-variant text-sm mt-1">Inhaber & Geschäftsführer der Ernst Pertler GmbH. Führt den Familienbetrieb in zweiter Generation.</p>
+              <p class="text-on-surface-variant text-sm mt-1">Inhaber & Geschäftsführer. Führt den Familienbetrieb in zweiter Generation.</p>
             </div>
           </div>
 
-          {/* Verwaltung */}
+          <div class="bg-surface-container-lowest rounded-xl editorial-shadow border-t-8 border-baeder p-8 lg:p-10 flex items-center gap-8">
+            <img
+              src="/images/team/leitung/gf-bad.webp"
+              alt="Geschäftsführer Pertler Bad GmbH"
+              width="120"
+              height="120"
+              class="w-24 h-24 md:w-30 md:h-30 rounded-full object-cover shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-baeder mb-1 block">Geschäftsführung · Pertler Bad GmbH</span>
+              <h3 class="text-xl font-bold">Geschäftsleitung Bad</h3>
+              <p class="text-on-surface-variant text-sm mt-1">Leitung der Pertler Bad GmbH. Badsanierung, Fliesen und Wellness aus einer Hand.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Verwaltung */}
+        <div class="mb-8">
           <div class="bg-surface-container-lowest rounded-xl editorial-shadow border-t-8 border-outline-variant p-8 lg:p-10">
             <div class="flex items-center justify-between mb-6">
               <div>

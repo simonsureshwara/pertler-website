@@ -1,0 +1,47 @@
+# Pertler Website — 301 Redirects (alte URLs → neue Struktur)
+# Format: /old-path /new-path status-code
+
+# Service-Seiten
+/heizung-sanitaer/                                          /leistungen/heizung-sanitaer/    301
+/kundendienst/                                               /leistungen/kundendienst/        301
+/elektro/                                                    /leistungen/elektrotechnik/      301
+/baeder-fliesen-wellness/                                    /leistungen/baeder-wellness/     301
+
+# Tools & Buchung
+/heizungsrechner/                                            /rechner/heizungsrechner/        301
+/badrechner/                                                 /rechner/badrechner/             301
+/buchungsstrecke/                                            /buchung/                        301
+/buchungsstrecke-elektrotechnik/                             /buchung/                        301
+
+# Über uns
+/wir-ueber-uns/                                              /ueber-uns/                      301
+/wir-ueber-uns/soziale-medien/                               /ueber-uns/                      301
+/firmenhistorie/                                             /ueber-uns/#historie             301
+
+# Jobs & Karriere
+/jobs/                                                       /karriere/                       301
+/azubis/                                                     /ueber-uns/#team-azubis          301
+
+# Presse & Awards (konsolidiert)
+/presse/                                                     /auszeichnungen/                 301
+/bayerns-best-50/                                            /auszeichnungen/                 301
+/top-100-summit-2019/                                        /auszeichnungen/                 301
+/erasmus-grasser-preis-2018/                                 /auszeichnungen/                 301
+/tag-des-handwerks-am-23-7-2017/                             /auszeichnungen/                 301
+/carrier-viessmann/                                          /auszeichnungen/                 301
+/viessmann-panel-talk-ish-2023-frankfurt/                     /auszeichnungen/                 301
+
+# Homepage-Duplikate
+/willkommen/                                                 /                                301
+/homepage-2/                                                 /                                301
+
+# Legal (konsolidiert)
+/cookie-richtlinie-eu/                                       /datenschutz/                    301
+/widerrufsrecht-ernst-pertler-gmbh/                          /widerrufsrecht/                 301
+/widerrufsrecht-ernst-pertler-service-gmbh/                  /widerrufsrecht/                 301
+/widerrufsrecht-pertler-bad-gmbh/                            /widerrufsrecht/                 301
+/widerrufsrecht-pertler-elektrotechnik-gmbh/                 /widerrufsrecht/                 301
+/widerrufsbelehrung-werk-und-dienstleistungen-der-ernst-pertler-gmbh/           /widerrufsrecht/ 301
+/widerrufsbelehrung-werk-und-dienstleistungen-der-ernst-pertler-service-gmbh/   /widerrufsrecht/ 301
+/widerrufsbelehrung-werk-und-dienstleistungen-der-pertler-bad-gmbh/             /widerrufsrecht/ 301
+/widerrufsbelehrung-werk-und-dienstleistungen-der-pertler-elektrotechnik-gmbh/  /widerrufsrecht/ 301

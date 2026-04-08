@@ -1,6 +1,7 @@
 ---
 const projects = [
   {
+    slug: "buerokomplex-muenchen-city",
     title: "Bürokomplex München-City",
     description: "Installation einer intelligenten Klimatechnik und vernetzten Gebäudeautomation für 1.200qm Bürofläche.",
     tags: ["Klima", "Gewerbe"],
@@ -8,6 +9,7 @@ const projects = [
     alt: "Moderner Bürokomplex in München",
   },
   {
+    slug: "einfamilienhaus-bogenhausen",
     title: "Einfamilienhaus am Stadtrand",
     description: "Nachhaltiges Energiekonzept mit Luft-Wasser-Wärmepumpe und Fußbodenheizung im gesamten Wohnbereich.",
     tags: ["Wärmepumpe", "Neubau"],
@@ -15,6 +17,7 @@ const projects = [
     alt: "Einfamilienhaus mit Wärmepumpe",
   },
   {
+    slug: "bad-sanierung-schwabing",
     title: "Exklusive Bad-Sanierung",
     description: "Komplette Umgestaltung eines Bestandsbades in eine moderne Wellness-Oase mit bodengleicher Dusche.",
     tags: ["Wellness", "Bad"],
@@ -37,7 +40,7 @@ const projects = [
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {projects.map((project) => (
-        <div class="group cursor-pointer">
+        <a href={`/projekte/${project.slug}/`} class="group block">
           <div class="relative overflow-hidden rounded-lg aspect-[4/3] mb-6">
             <img
               src={project.image}
@@ -51,9 +54,9 @@ const projects = [
               ))}
             </div>
           </div>
-          <h4 class="text-xl font-bold mb-2 group-hover:text-secondary transition-colors">{project.title}</h4>
+          <h3 class="text-xl font-bold mb-2 group-hover:text-secondary transition-colors">{project.title}</h3>
           <p class="text-on-surface-variant text-sm line-clamp-2">{project.description}</p>
-        </div>
+        </a>
       ))}
     </div>
   </div>
