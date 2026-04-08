@@ -10,11 +10,11 @@ interface Props {
 }
 
 const colorMap: Record<string, { hex: string; overlay: string; gradient: string }> = {
-  heizung:  { hex: "#8b1a1a", overlay: "bg-[#8b1a1a]/75", gradient: "from-[#8b1a1a]/90 via-[#8b1a1a]/50 to-transparent" },
-  elektro:  { hex: "#00834b", overlay: "bg-[#00834b]/75", gradient: "from-[#00834b]/90 via-[#00834b]/50 to-transparent" },
-  baeder:   { hex: "#e87d1e", overlay: "bg-[#e87d1e]/75", gradient: "from-[#e87d1e]/90 via-[#e87d1e]/50 to-transparent" },
-  sanitaer: { hex: "#2e3b8c", overlay: "bg-[#2e3b8c]/75", gradient: "from-[#2e3b8c]/90 via-[#2e3b8c]/50 to-transparent" },
-  error:    { hex: "#ba1a1a", overlay: "bg-[#ba1a1a]/75", gradient: "from-[#ba1a1a]/90 via-[#ba1a1a]/50 to-transparent" },
+  heizung:  { hex: "#8b1a1a", overlay: "bg-[#8b1a1a]/85", gradient: "from-[#8b1a1a]/90 via-[#8b1a1a]/50 to-transparent" },
+  elektro:  { hex: "#00834b", overlay: "bg-[#00834b]/85", gradient: "from-[#00834b]/90 via-[#00834b]/50 to-transparent" },
+  baeder:   { hex: "#e87d1e", overlay: "bg-[#e87d1e]/85", gradient: "from-[#e87d1e]/90 via-[#e87d1e]/50 to-transparent" },
+  sanitaer: { hex: "#2e3b8c", overlay: "bg-[#2e3b8c]/85", gradient: "from-[#2e3b8c]/90 via-[#2e3b8c]/50 to-transparent" },
+  error:    { hex: "#ba1a1a", overlay: "bg-[#ba1a1a]/85", gradient: "from-[#ba1a1a]/90 via-[#ba1a1a]/50 to-transparent" },
 };
 
 const { title, description, image, imageAlt, accent = "heizung" } = Astro.props;
