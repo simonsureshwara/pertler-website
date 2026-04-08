@@ -1,5 +1,10 @@
 ---
 import { Phone, Menu, X, ChevronDown, ArrowRight, Flame, Zap, Bath, Wrench, AlertTriangle, Calendar, MessageCircle } from "lucide-astro";
+
+const currentPath = Astro.url.pathname;
+function isActive(href: string) {
+  return currentPath === href || currentPath.startsWith(href.replace(/\/$/, '') + '/');
+}
 ---
 
 <nav class="sticky top-0 z-50 w-full glass-nav bg-surface/70 shadow-sm transition-all duration-300" id="main-nav">
@@ -201,7 +206,7 @@ import { Phone, Menu, X, ChevronDown, ArrowRight, Flame, Zap, Bath, Wrench, Aler
   </div>
 
   <!-- Mobile Menu (Fullscreen) -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-surface-container-lowest overflow-y-auto" style="position: fixed; left: 0; right: 0; top: 72px; bottom: 0; z-index: 40;">
+  <div id="mobile-menu" class="hidden lg:hidden bg-surface overflow-y-auto" style="position: fixed; left: 0; right: 0; top: 72px; bottom: 0; z-index: 40;">
     <div class="px-8 py-6">
       <!-- Leistungen Accordion -->
       <div class="border-b border-outline-variant/10">
@@ -210,19 +215,19 @@ import { Phone, Menu, X, ChevronDown, ArrowRight, Flame, Zap, Bath, Wrench, Aler
           <ChevronDown class="w-5 h-5 transition-transform" />
         </button>
         <div id="mobile-leistungen" class="hidden pb-4 pl-4 space-y-1">
-          <a href="/leistungen/heizung-sanitaer/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+          <a href="/leistungen/heizung-sanitaer/" class={`flex items-center gap-3 py-3 transition-colors ${isActive('/leistungen/heizung-sanitaer/') ? 'text-heizung font-bold' : 'text-on-surface-variant hover:text-primary'}`}>
             <Flame class="w-4 h-4 text-heizung" />
             Heizung & Sanitär
           </a>
-          <a href="/leistungen/elektrotechnik/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+          <a href="/leistungen/elektrotechnik/" class={`flex items-center gap-3 py-3 transition-colors ${isActive('/leistungen/elektrotechnik/') ? 'text-elektro font-bold' : 'text-on-surface-variant hover:text-primary'}`}>
             <Zap class="w-4 h-4 text-elektro" />
             Elektrotechnik
           </a>
-          <a href="/leistungen/baeder-wellness/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+          <a href="/leistungen/baeder-wellness/" class={`flex items-center gap-3 py-3 transition-colors ${isActive('/leistungen/baeder-wellness/') ? 'text-baeder font-bold' : 'text-on-surface-variant hover:text-primary'}`}>
             <Bath class="w-4 h-4 text-baeder" />
             Bäder & Wellness
           </a>
-          <a href="/leistungen/kundendienst/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+          <a href="/leistungen/kundendienst/" class={`flex items-center gap-3 py-3 transition-colors ${isActive('/leistungen/kundendienst/') ? 'text-sanitaer font-bold' : 'text-on-surface-variant hover:text-primary'}`}>
             <Wrench class="w-4 h-4 text-sanitaer" />
             Kundendienst & Wartung
           </a>
@@ -240,11 +245,11 @@ import { Phone, Menu, X, ChevronDown, ArrowRight, Flame, Zap, Bath, Wrench, Aler
           <ChevronDown class="w-5 h-5 transition-transform" />
         </button>
         <div id="mobile-rechner" class="hidden pb-4 pl-4 space-y-1">
-          <a href="/rechner/heizungsrechner/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+          <a href="/rechner/heizungsrechner/" class={`flex items-center gap-3 py-3 transition-colors ${isActive('/rechner/heizungsrechner/') ? 'text-secondary font-bold' : 'text-on-surface-variant hover:text-primary'}`}>
             <Flame class="w-4 h-4 text-secondary" />
             Heizungsrechner
           </a>
-          <a href="/rechner/badrechner/" class="flex items-center gap-3 py-3 text-on-surface-variant hover:text-primary transition-colors">
+          <a href="/rechner/badrechner/" class={`flex items-center gap-3 py-3 transition-colors ${isActive('/rechner/badrechner/') ? 'text-secondary font-bold' : 'text-on-surface-variant hover:text-primary'}`}>
             <Bath class="w-4 h-4 text-secondary" />
             Badrechner
           </a>
@@ -262,17 +267,17 @@ import { Phone, Menu, X, ChevronDown, ArrowRight, Flame, Zap, Bath, Wrench, Aler
           <ChevronDown class="w-5 h-5 transition-transform" />
         </button>
         <div id="mobile-ueber" class="hidden pb-4 pl-4 space-y-1">
-          <a href="/ueber-uns/" class="block py-3 text-on-surface-variant hover:text-primary transition-colors">Über uns & Team</a>
-          <a href="/firmenhistorie/" class="block py-3 text-on-surface-variant hover:text-primary transition-colors">Firmenhistorie</a>
-          <a href="/auszeichnungen/" class="block py-3 text-on-surface-variant hover:text-primary transition-colors">Auszeichnungen</a>
+          <a href="/ueber-uns/" class={`block py-3 transition-colors ${isActive('/ueber-uns/') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary'}`}>Über uns & Team</a>
+          <a href="/firmenhistorie/" class={`block py-3 transition-colors ${isActive('/firmenhistorie/') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary'}`}>Firmenhistorie</a>
+          <a href="/auszeichnungen/" class={`block py-3 transition-colors ${isActive('/auszeichnungen/') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary'}`}>Auszeichnungen</a>
         </div>
       </div>
 
       <!-- Flat Links -->
-      <a href="/karriere/" class="block py-4 text-on-surface font-bold uppercase tracking-tight text-lg border-b border-outline-variant/10">
+      <a href="/karriere/" class={`block py-4 font-bold uppercase tracking-tight text-lg border-b border-outline-variant/10 ${isActive('/karriere/') ? 'text-primary' : 'text-on-surface'}`}>
         Karriere
       </a>
-      <a href="/kontakt/" class="block py-4 text-on-surface font-bold uppercase tracking-tight text-lg border-b border-outline-variant/10">
+      <a href="/kontakt/" class={`block py-4 font-bold uppercase tracking-tight text-lg border-b border-outline-variant/10 ${isActive('/kontakt/') ? 'text-primary' : 'text-on-surface'}`}>
         Kontakt
       </a>
 
