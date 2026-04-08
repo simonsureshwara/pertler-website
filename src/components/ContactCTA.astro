@@ -4,13 +4,23 @@ import { Phone } from "lucide-astro";
 interface Props {
   title?: string;
   description?: string;
+  accent?: "heizung" | "elektro" | "baeder" | "sanitaer" | "error" | "primary";
 }
 
-const { title = "Bereit für Ihr Projekt?", description = "Heizung, Bad, Elektro oder Notfall — wir sind für Sie da. Kostenloses Erstgespräch in 24h garantiert." } = Astro.props;
+const colorMap: Record<string, { bg: string; bgGradient: string }> = {
+  primary:  { bg: "#6b1c23", bgGradient: "linear-gradient(to bottom right, #6b1c23, #4A1218)" },
+  heizung:  { bg: "#8b1a1a", bgGradient: "linear-gradient(to bottom right, #8b1a1a, #5a1010)" },
+  elektro:  { bg: "#00834b", bgGradient: "linear-gradient(to bottom right, #00834b, #005a33)" },
+  baeder:   { bg: "#e87d1e", bgGradient: "linear-gradient(to bottom right, #e87d1e, #b35f10)" },
+  sanitaer: { bg: "#2e3b8c", bgGradient: "linear-gradient(to bottom right, #2e3b8c, #1e2860)" },
+  error:    { bg: "#ba1a1a", bgGradient: "linear-gradient(to bottom right, #ba1a1a, #8a1010)" },
+};
+
+const { title = "Bereit für Ihr Projekt?", description = "Heizung, Bad, Elektro oder Notfall — wir sind für Sie da. Kostenloses Erstgespräch in 24h garantiert.", accent = "primary" } = Astro.props;
+const color = colorMap[accent];
 ---
 
-<section class="relative bg-primary-container overflow-hidden py-24 md:py-32">
-  <div class="absolute inset-0 bg-gradient-to-br from-primary-container to-[#4A1218]"></div>
+<section class="relative overflow-hidden py-24 md:py-32" style={`background: ${color.bgGradient};`}>
   <div class="relative z-10 max-w-screen-2xl mx-auto px-8 text-center">
     <h2 class="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">{title}</h2>
     <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12">

@@ -18,7 +18,12 @@
       "Bash(npm install:*)",
       "Bash(npx astro:*)",
       "Bash(npm run:*)",
-      "Bash(curl -s http://localhost:4321)"
+      "Bash(curl -s http://localhost:4321)",
+      "Bash(grep -o \"url\\([^\\)]*\\)\" dist/_astro/*.css)",
+      "Bash(grep -o \"\\\\.woff[^2]\" dist/_astro/*.css)",
+      "Bash(ls -lh dist/_astro/*.css)",
+      "Bash(grep -o \"url\\([^\\)]*woff\" dist/_astro/*.css)",
+      "Bash(ls -lh \"/c/Users/Simon/Documents/Projects/Github Projects/Pertler/dist/_astro/\"*.css)"
     ]
   }
 }

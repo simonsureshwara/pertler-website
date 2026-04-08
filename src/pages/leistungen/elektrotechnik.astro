@@ -94,19 +94,21 @@ const relatedServices = [
     description="Von der Elektroinstallation bis zum Smart Home — Ihr Elektromeisterbetrieb seit 1984. Neubau, Sanierung und intelligente Gebäudetechnik."
     image="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=80"
     imageAlt="Elektrotechnik und Smart Home Installation in München"
+    accent="elektro"
   />
 
-  <TrustStats stats={stats} />
+  <TrustStats stats={stats} accent="elektro" />
 
   <FeatureGrid
     title="Unsere Elektro-Leistungen"
     subtitle="Elektrotechnik & Smart Home"
     features={features}
+    accent="elektro"
   />
 
   <ProcessSteps steps={steps} />
 
-  <FAQSection faqs={faqs} />
+  <FAQSection faqs={faqs} accent="elektro" />
 
   <!-- Testimonial Section -->
   <section class="py-24 bg-surface-container-low">
@@ -132,7 +134,7 @@ const relatedServices = [
     </div>
   </section>
 
-  <ContactCTA />
+  <ContactCTA accent="elektro" />
 
   <RelatedServices services={relatedServices} />
 </ServiceLayout>

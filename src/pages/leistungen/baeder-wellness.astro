@@ -94,19 +94,21 @@ const relatedServices = [
     description="Vom Traumgespräch bis zur Übergabe — Ihr Meisterbetrieb für Komplettsanierungen seit 1984. Eigene Fliesenleger, koordinierte Gewerke, Festpreisgarantie."
     image="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&q=80"
     imageAlt="Modernes Badezimmer nach Komplettsanierung in München"
+    accent="baeder"
   />
 
-  <TrustStats stats={stats} />
+  <TrustStats stats={stats} accent="baeder" />
 
   <FeatureGrid
     title="Unsere Leistungen im Überblick"
     subtitle="Bäder & Wellness"
     features={features}
+    accent="baeder"
   />
 
   <ProcessSteps steps={steps} />
 
-  <FAQSection faqs={faqs} />
+  <FAQSection faqs={faqs} accent="baeder" />
 
   <!-- Testimonial Section -->
   <section class="py-24 bg-surface-container-low">
@@ -132,7 +134,7 @@ const relatedServices = [
     </div>
   </section>
 
-  <ContactCTA />
+  <ContactCTA accent="baeder" />
 
   <RelatedServices services={relatedServices} />
 </ServiceLayout>

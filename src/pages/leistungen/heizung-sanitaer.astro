@@ -94,19 +94,21 @@ const relatedServices = [
     description="Vom Heizungstausch bis zur kompletten Sanitärinstallation — Ihr Meisterbetrieb seit 1984. Wir planen, installieren und warten Ihre Anlagen."
     image="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1920&q=80"
     imageAlt="Heizung und Sanitär Installation in München"
+    accent="heizung"
   />
 
-  <TrustStats stats={stats} />
+  <TrustStats stats={stats} accent="heizung" />
 
   <FeatureGrid
     title="Unsere Leistungen im Überblick"
     subtitle="Heizung & Sanitär"
     features={features}
+    accent="heizung"
   />
 
   <ProcessSteps steps={steps} />
 
-  <FAQSection faqs={faqs} />
+  <FAQSection faqs={faqs} accent="heizung" />
 
   <!-- Testimonial Section -->
   <section class="py-24 bg-surface-container-low">
@@ -132,7 +134,7 @@ const relatedServices = [
     </div>
   </section>
 
-  <ContactCTA />
+  <ContactCTA accent="heizung" />
 
   <RelatedServices services={relatedServices} />
 </ServiceLayout>

@@ -9,20 +9,27 @@ interface Props {
   title: string;
   subtitle?: string;
   features: FeatureItem[];
+  accent?: string;
 }
 
-const { title, subtitle, features } = Astro.props;
+const colorMap: Record<string, string> = {
+  heizung: "#8b1a1a", elektro: "#00834b", baeder: "#e87d1e",
+  sanitaer: "#2e3b8c", error: "#ba1a1a", secondary: "#944a00",
+};
+
+const { title, subtitle, features, accent = "secondary" } = Astro.props;
+const accentHex = colorMap[accent] || colorMap.secondary;
 ---
 
 <section class="py-24 bg-surface">
   <div class="max-w-screen-2xl mx-auto px-8">
     <div class="mb-16">
-      {subtitle && <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">{subtitle}</span>}
+      {subtitle && <span class="font-bold tracking-widest uppercase text-sm mb-4 block" style={`color: ${accentHex};`}>{subtitle}</span>}
       <h2 class="text-3xl md:text-4xl font-black tracking-tighter">{title}</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {features.map((feature) => (
-        <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:shadow-lg transition-shadow">
+        <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:shadow-lg transition-shadow border-t-4" style={`border-color: ${accentHex}20;`}>
           <div class="text-3xl mb-4">{feature.icon}</div>
           <h3 class="text-lg font-bold mb-2">{feature.title}</h3>
           <p class="text-on-surface-variant text-sm leading-relaxed">{feature.description}</p>

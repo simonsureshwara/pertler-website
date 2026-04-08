@@ -6,11 +6,16 @@ interface StatItem {
 
 interface Props {
   stats: StatItem[];
+  accent?: string;
 }
 
-const { stats } = Astro.props;
+const colorMap: Record<string, string> = {
+  heizung: "#8b1a1a", elektro: "#00834b", baeder: "#e87d1e",
+  sanitaer: "#2e3b8c", error: "#ba1a1a", secondary: "#944a00",
+};
 
-const iconMap: Record<string, any> = {};
+const { stats, accent = "secondary" } = Astro.props;
+const accentHex = colorMap[accent] || colorMap.secondary;
 ---
 
 <section class="bg-surface-container-low border-y border-outline-variant/10">
@@ -18,7 +23,7 @@ const iconMap: Record<string, any> = {};
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 items-center justify-items-center">
       {stats.map((stat) => (
         <div class="flex items-center gap-3 text-center lg:text-left">
-          <span class="text-secondary text-2xl font-black">{stat.icon}</span>
+          <span class="text-2xl font-black" style={`color: ${accentHex};`}>{stat.icon}</span>
           <span class="text-sm font-semibold tracking-tight text-on-surface-variant">{stat.text}</span>
         </div>
       ))}

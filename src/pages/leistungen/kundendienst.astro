@@ -94,19 +94,21 @@ const relatedServices = [
     description="Zuverlässiger Service für Ihre gesamte Haustechnik. Wartung, Reparatur und Notdienst — alles aus einer Hand seit 1984."
     image="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80"
     imageAlt="Kundendienst und Wartung für Haustechnik in München"
+    accent="sanitaer"
   />
 
-  <TrustStats stats={stats} />
+  <TrustStats stats={stats} accent="sanitaer" />
 
   <FeatureGrid
     title="Unser Service-Portfolio"
     subtitle="Kundendienst & Wartung"
     features={features}
+    accent="sanitaer"
   />
 
   <ProcessSteps steps={steps} />
 
-  <FAQSection faqs={faqs} />
+  <FAQSection faqs={faqs} accent="sanitaer" />
 
   <!-- Testimonial Section -->
   <section class="py-24 bg-surface-container-low">
@@ -132,7 +134,7 @@ const relatedServices = [
     </div>
   </section>
 
-  <ContactCTA />
+  <ContactCTA accent="sanitaer" />
 
   <RelatedServices services={relatedServices} />
 </ServiceLayout>

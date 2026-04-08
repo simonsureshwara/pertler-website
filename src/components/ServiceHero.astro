@@ -6,10 +6,19 @@ interface Props {
   description: string;
   image: string;
   imageAlt: string;
-  overlayColor?: string;
+  accent?: "heizung" | "elektro" | "baeder" | "sanitaer" | "error";
 }
 
-const { title, description, image, imageAlt, overlayColor = "from-primary-container/90 via-primary-container/40 to-transparent" } = Astro.props;
+const colorMap: Record<string, { hex: string; gradientFrom: string }> = {
+  heizung:  { hex: "#8b1a1a", gradientFrom: "from-[#8b1a1a]/90 via-[#8b1a1a]/40 to-transparent" },
+  elektro:  { hex: "#00834b", gradientFrom: "from-[#00834b]/90 via-[#00834b]/40 to-transparent" },
+  baeder:   { hex: "#e87d1e", gradientFrom: "from-[#e87d1e]/90 via-[#e87d1e]/40 to-transparent" },
+  sanitaer: { hex: "#2e3b8c", gradientFrom: "from-[#2e3b8c]/90 via-[#2e3b8c]/40 to-transparent" },
+  error:    { hex: "#ba1a1a", gradientFrom: "from-[#ba1a1a]/90 via-[#ba1a1a]/40 to-transparent" },
+};
+
+const { title, description, image, imageAlt, accent = "heizung" } = Astro.props;
+const color = colorMap[accent];
 ---
 
 <section class="relative min-h-[500px] flex items-center py-24 md:py-32 overflow-hidden">
@@ -20,7 +29,7 @@ const { title, description, image, imageAlt, overlayColor = "from-primary-contai
       class="w-full h-full object-cover"
       loading="eager"
     />
-    <div class={`absolute inset-0 bg-gradient-to-r ${overlayColor}`}></div>
+    <div class={`absolute inset-0 bg-gradient-to-r ${color.gradientFrom}`}></div>
   </div>
 
   <div class="relative z-10 max-w-screen-2xl mx-auto px-8 w-full">
@@ -34,7 +43,8 @@ const { title, description, image, imageAlt, overlayColor = "from-primary-contai
       <div class="flex flex-wrap gap-4">
         <a
           href="/buchung/"
-          class="px-8 py-4 bg-secondary hover:bg-secondary-container text-white rounded-md font-bold transition-all text-base"
+          class="px-8 py-4 text-white rounded-md font-bold transition-all text-base hover:opacity-90"
+          style={`background-color: ${color.hex};`}
         >
           Kostenlose Beratung
         </a>
