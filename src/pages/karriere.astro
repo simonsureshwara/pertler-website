@@ -4,7 +4,7 @@ import EmergencyBanner from "../components/EmergencyBanner.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import ContactCTA from "../components/ContactCTA.astro";
-import { Users, GraduationCap, Award, Lightbulb, Heart, Briefcase, ArrowRight, Building2 } from "lucide-astro";
+import { Users, GraduationCap, Award, Lightbulb, Heart, Briefcase, ArrowRight, Building2, Mail } from "lucide-astro";
 
 const stats = [
   { value: "100", label: "Mitarbeiter" },
@@ -175,64 +175,87 @@ const jobs = [
 
     <!-- ===== AUSBILDUNG BEI PERTLER ===== -->
     <section class="pt-12 sm:pt-16 pb-24 md:pb-32 bg-surface -mt-8">
-      <div class="max-w-screen-2xl mx-auto px-8">
-        <div class="flex flex-col lg:flex-row gap-16 items-start">
+      <div class="max-w-screen-2xl mx-auto px-4 sm:px-8">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
           <!-- Text -->
           <div class="flex-1 space-y-8">
             <div>
               <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Nachwuchsförderung</span>
-              <h2 class="text-3xl md:text-5xl font-black tracking-tighter leading-tight">Ausbildung bei PERTLER</h2>
+              <h2 class="text-2xl sm:text-3xl md:text-5xl font-black tracking-tighter leading-tight">Wir schreiben Ausbildung GROSS!</h2>
             </div>
-            <p class="text-lg text-on-surface-variant leading-relaxed">
-              Mit 21 Auszubildenden gehören wir zu den engagiertesten Ausbildungsbetrieben im Münchner Handwerk. 2018 wurden wir dafür mit dem <strong class="text-on-surface">Erasmus-Grasser-Preis</strong> der Landeshauptstadt München ausgezeichnet — eine Anerkennung für vorbildliche Nachwuchsförderung.
+
+            <!-- Zitat Stefan Pertler -->
+            <div class="bg-surface-container-low p-6 sm:p-8 rounded-xl">
+              <p class="text-on-surface-variant leading-relaxed mb-4">
+                „Ich bin gemeinsam mit unseren beiden Ausbildern, Heike Brandl und Lucas Zacher, für die Ausbildung unseres Nachwuchses verantwortlich. Uns ist wichtig, dass unsere Lehrlinge <strong class="text-on-surface">alle Seiten des Berufes</strong> kennenlernen. Mit der Größe und der Vielseitigkeit in unserem Betrieb ist es möglich, dies zu bieten."
+              </p>
+              <div class="flex items-center gap-3">
+                <img src="/images/team/leitung/geschaeftsfuehrung.webp" alt="Stefan Pertler" width="48" height="48" class="w-12 h-12 rounded-full object-cover" loading="lazy" decoding="async" />
+                <div>
+                  <div class="font-bold text-sm">Stefan Pertler</div>
+                  <div class="text-xs text-on-surface-variant">Geschäftsführer & Ausbildungsverantwortlicher</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-on-surface-variant leading-relaxed">
+              In jedem Jahrgang bilden wir ca. <strong class="text-on-surface">10 Lehrlinge</strong> aus, die von uns intensiv betreut werden. 2018 wurden wir dafür mit dem <strong class="text-on-surface">Erasmus-Grasser-Preis</strong> der Landeshauptstadt München ausgezeichnet.
             </p>
-            <p class="text-lg text-on-surface-variant leading-relaxed">
-              Unsere Azubis lernen von Anfang an am realen Projekt, werden von erfahrenen Meistern betreut und erhalten eine fundierte Ausbildung in allen Bereichen der Gebäudetechnik — von Heizung und Sanitär über Elektro bis hin zur Badsanierung.
-            </p>
+
+            <!-- Azubi-Zitat -->
+            <div class="bg-secondary/5 p-6 rounded-xl border-l-4 border-secondary">
+              <p class="text-on-surface-variant italic leading-relaxed mb-2">„Toll finde ich, alle Bereiche unseres Berufes kennenzulernen und im Team zu sein. Wir dürfen mitmachen und anpacken, anstatt nur zuzuschauen!"</p>
+              <div class="text-xs font-bold text-secondary">— Auszubildender bei PERTLER</div>
+            </div>
+
+            <!-- CTA -->
+            <div class="pt-4">
+              <p class="text-on-surface font-bold mb-4">Lust auf eine Ausbildung als Anlagenmechaniker?</p>
+              <a href="mailto:bewerbung@pertler.de" class="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-white rounded-md font-bold transition-all hover:bg-secondary-container text-base">
+                <Mail class="w-5 h-5" />
+                bewerbung@pertler.de
+              </a>
+            </div>
           </div>
 
-          <!-- Was Azubis lernen -->
-          <div class="flex-1 w-full lg:max-w-md">
-            <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-8 ghost-border">
-              <h3 class="text-xl font-black mb-6">Was unsere Azubis lernen</h3>
-              <ul class="space-y-4">
-                <li class="flex items-start gap-3">
-                  <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Building2 class="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <div class="font-bold text-on-surface">Praxisnahe Ausbildung</div>
-                    <div class="text-sm text-on-surface-variant">Reale Projekte von Tag eins an</div>
-                  </div>
-                </li>
-                <li class="flex items-start gap-3">
-                  <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Users class="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <div class="font-bold text-on-surface">Meister als Mentoren</div>
-                    <div class="text-sm text-on-surface-variant">Persönliche Betreuung durch erfahrene Fachkräfte</div>
-                  </div>
-                </li>
-                <li class="flex items-start gap-3">
-                  <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Lightbulb class="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <div class="font-bold text-on-surface">Modernste Technik</div>
-                    <div class="text-sm text-on-surface-variant">Digitale Tools und zukunftssichere Technologien</div>
-                  </div>
-                </li>
-                <li class="flex items-start gap-3">
-                  <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Briefcase class="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <div class="font-bold text-on-surface">Übernahmechancen</div>
-                    <div class="text-sm text-on-surface-variant">Hohe Übernahmequote nach der Ausbildung</div>
-                  </div>
-                </li>
-              </ul>
+          <!-- Ausbildungsplan -->
+          <div class="flex-1 w-full lg:max-w-md space-y-6">
+            <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-6 sm:p-8 ghost-border">
+              <h3 class="text-xl font-black mb-2">Ausbildungsplan</h3>
+              <p class="text-sm text-on-surface-variant mb-6">Viermonatlicher Wechsel durch alle Bereiche:</p>
+              <ol class="space-y-3">
+                {[
+                  "Neubauinstallation Heizung/Sanitär",
+                  "Sanierung bestehender Gebäude",
+                  "Badumbau und Fertigbad",
+                  "Wohnungssanierung & Dachgeschossausbau",
+                  "Heizkessel und Heizungsanlagen",
+                  "Trinkwasserhygiene & Gefährdungsanalysen",
+                  "Kundendienst/Wartung Heizung",
+                  "Kundendienst Sanitär",
+                  "Leckortung & regenerative Techniken",
+                  "Elektrotechnik",
+                ].map((item, i) => (
+                  <li class="flex items-start gap-3">
+                    <span class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center shrink-0 text-xs font-black text-primary mt-0.5">{i + 1}</span>
+                    <span class="text-sm text-on-surface-variant">{item}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-6 sm:p-8 ghost-border">
+              <h3 class="text-lg font-black mb-4">Im 3. Lehrjahr: Spezialisierung</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Aus den Beurteilungen der Gesellen, den Wünschen des Azubis und den individuellen Begabungen wird gemeinsam ein Fachgebiet ausgewählt. Im letzten Ausbildungsjahr wird auf selbstständiges Arbeiten Wert gelegt — so dass der angehende Monteur mit breiter Brust die Prüfung antreten kann.
+              </p>
+            </div>
+
+            <div class="bg-surface-container-lowest rounded-lg editorial-shadow p-6 sm:p-8 ghost-border">
+              <h3 class="text-lg font-black mb-4">Gegenseitige Bewertung</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Nach jedem Quartal bewerten sich Azubi und Obermonteur gegenseitig. Diese Bögen bleiben vertraulich, dienen aber der Verbesserung und Motivation aller Beteiligten.
+              </p>
             </div>
           </div>
         </div>
