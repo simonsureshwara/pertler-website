@@ -46,7 +46,9 @@ const projects = [
               src={project.image}
               alt={project.alt}
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              width="600" height="450"
               loading="lazy"
+              decoding="async"
             />
             <div class="absolute top-4 left-4 flex gap-2">
               {project.tags.map((tag) => (

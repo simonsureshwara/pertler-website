@@ -37,7 +37,15 @@
       "WebFetch(domain:unsplash.com)",
       "Bash(node -e ':*)",
       "Bash(ls -lhS \"/c/Users/Simon/Documents/Projects/Github Projects/Pertler/dist/_astro/\"*.js)",
-      "Bash(ls -lhS \"/c/Users/Simon/Documents/Projects/Github Projects/Pertler/dist/_astro/\"*.css)"
+      "Bash(ls -lhS \"/c/Users/Simon/Documents/Projects/Github Projects/Pertler/dist/_astro/\"*.css)",
+      "Bash(npm ls:*)",
+      "Bash(npx --yes sharp-cli --version)",
+      "Bash(ffmpeg -version)",
+      "Bash(node scripts/download-team-photos.mjs)",
+      "Bash(curl -s http://localhost:4321/ueber-uns/)",
+      "Bash(mkdir -p public/images/team/kaelte)",
+      "Bash(find:*)",
+      "Bash(sed:*)"
     ]
   }
 }
