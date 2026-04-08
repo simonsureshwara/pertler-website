@@ -135,23 +135,21 @@ const filterTags = ["Alle", "Heizung", "Sanitär", "Elektro", "Bad", "Klima"];
     </section>
 
     <!-- ===== CTA ===== -->
-    <section class="py-24 md:py-32 bg-surface-container-low">
-      <div class="max-w-screen-2xl mx-auto px-8 text-center">
-        <h2 class="text-3xl md:text-5xl font-black tracking-tighter mb-6">Ihr Projekt könnte das nächste sein.</h2>
-        <p class="text-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+    <section class="relative overflow-hidden py-24 md:py-32">
+      <div class="absolute inset-0 maroon-gradient"></div>
+      <div class="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tighter mb-6">Ihr Projekt könnte das nächste sein.</h2>
+        <p class="text-base sm:text-lg text-white/80 max-w-2xl mx-auto mb-10">
           Ob Neubau, Sanierung oder Modernisierung — wir beraten Sie gerne und erstellen Ihnen ein unverbindliches Angebot.
         </p>
         <a
           href="/buchung/"
-          class="inline-block px-10 py-5 bg-secondary hover:bg-secondary-container text-white rounded-md font-bold transition-all text-lg editorial-shadow"
+          class="inline-block w-full sm:w-auto px-10 py-5 bg-white text-primary rounded-md font-bold transition-all text-lg editorial-shadow hover:scale-105"
         >
           Angebot anfordern
         </a>
       </div>
     </section>
-
-    <!-- ===== CONTACT CTA ===== -->
-    <ContactCTA />
 
   </main>
   <Footer />
