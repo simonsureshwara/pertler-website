@@ -79,11 +79,12 @@ const filterTags = ["Alle", "Heizung", "Sanitär", "Elektro", "Bad", "Klima"];
     <!-- ===== FILTER TAGS ===== -->
     <section class="bg-surface border-b border-outline-variant/15">
       <div class="max-w-screen-2xl mx-auto px-8 py-6">
-        <div class="flex flex-wrap gap-3 justify-center">
+        <div class="flex flex-wrap gap-3 justify-center" id="filter-buttons">
           {filterTags.map((tag, i) => (
             <button
+              data-filter={tag}
               class:list={[
-                "px-5 py-2 rounded-full text-sm font-bold transition-all",
+                "filter-btn px-5 py-2 rounded-full text-sm font-bold transition-all cursor-pointer",
                 i === 0
                   ? "bg-primary text-on-primary"
                   : "bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest",
@@ -101,7 +102,7 @@ const filterTags = ["Alle", "Heizung", "Sanitär", "Elektro", "Bad", "Klima"];
       <div class="max-w-screen-2xl mx-auto px-8">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div class="bg-surface-container-lowest rounded-lg editorial-shadow overflow-hidden group ghost-border">
+            <div class="project-card bg-surface-container-lowest rounded-lg editorial-shadow overflow-hidden group ghost-border" data-tags={project.tags.join(',')}>
               <div class="aspect-[4/3] overflow-hidden">
                 <img
                   src={project.image}
@@ -153,4 +154,33 @@ const filterTags = ["Alle", "Heizung", "Sanitär", "Elektro", "Bad", "Klima"];
 
   </main>
   <Footer />
+
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = (btn as HTMLElement).dataset.filter!;
+
+        // Update button styles
+        buttons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        });
+        btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+        btn.classList.add('bg-primary', 'text-on-primary');
+
+        // Filter cards
+        cards.forEach(card => {
+          const tags = (card as HTMLElement).dataset.tags || '';
+          if (filter === 'Alle' || tags.includes(filter)) {
+            (card as HTMLElement).style.display = '';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </BaseLayout>
