@@ -1,4 +1,6 @@
 ---
+import { Trophy, HardHat, Ruler, Car, Zap, House, Wrench } from "lucide-astro";
+
 interface StatItem {
   icon: string;
   text: string;
@@ -8,6 +10,16 @@ interface Props {
   stats: StatItem[];
   accent?: string;
 }
+
+const lucideIcons: Record<string, any> = {
+  trophy: Trophy,
+  "hard-hat": HardHat,
+  ruler: Ruler,
+  car: Car,
+  zap: Zap,
+  house: House,
+  wrench: Wrench,
+};
 
 const colorMap: Record<string, string> = {
   heizung: "#8b1a1a", elektro: "#00834b", baeder: "#e87d1e",
@@ -21,14 +33,21 @@ const accentHex = colorMap[accent] || colorMap.secondary;
 <section class="bg-surface-container-low border-y border-outline-variant/10">
   <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-8">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-      {stats.map((stat) => (
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg" style={`background: ${accentHex}15;`}>
-            <span class="text-lg font-black" style={`color: ${accentHex};`}>{stat.icon}</span>
+      {stats.map((stat) => {
+        const LucideIcon = lucideIcons[stat.icon];
+        return (
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg" style={`background: ${accentHex}15;`}>
+              {LucideIcon ? (
+                <LucideIcon size={20} color={accentHex} strokeWidth={2.5} />
+              ) : (
+                <span class="text-lg font-black" style={`color: ${accentHex};`}>{stat.icon}</span>
+              )}
+            </div>
+            <span class="text-xs sm:text-sm font-semibold tracking-tight text-on-surface-variant text-left">{stat.text}</span>
           </div>
-          <span class="text-xs sm:text-sm font-semibold tracking-tight text-on-surface-variant text-left">{stat.text}</span>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>
