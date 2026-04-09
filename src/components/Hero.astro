@@ -12,20 +12,21 @@
       decoding="async"
       fetchpriority="high"
     />
-    <!-- Full overlay for readability on mobile, gradient on desktop -->
-    <div class="absolute inset-0 bg-primary-container/85 md:bg-transparent"></div>
+    <!-- Desktop: gradient overlay (left dark, right shows image) -->
     <div class="absolute inset-0 hidden md:block bg-gradient-to-r from-primary-container/90 via-primary-container/50 to-transparent"></div>
+    <!-- Mobile: frosted glass effect -->
+    <div class="absolute inset-0 md:hidden" style="backdrop-filter: blur(8px) saturate(1.4); -webkit-backdrop-filter: blur(8px) saturate(1.4); background: rgba(107, 28, 35, 0.65);"></div>
   </div>
 
   <div class="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-8 w-full">
     <div class="max-w-3xl">
-      <span class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary text-xs font-bold tracking-widest uppercase rounded-sm mb-4 sm:mb-6">
+      <span class="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm text-white text-xs font-bold tracking-widest uppercase rounded-sm mb-4 sm:mb-6 border border-white/10">
         Meisterbetrieb München · Seit 1984
       </span>
-      <h1 class="font-black text-white leading-[1.1] mb-4 sm:mb-8 tracking-tighter" style="font-size: clamp(2rem, 6vw, 4.5rem);">
+      <h1 class="font-black text-white leading-[1.1] mb-4 sm:mb-8 tracking-tighter drop-shadow-sm" style="font-size: clamp(2rem, 6vw, 4.5rem);">
         Ihr Experte für Gebäudetechnik in München.
       </h1>
-      <p class="text-base sm:text-xl md:text-2xl text-white font-medium leading-relaxed mb-6 sm:mb-10 max-w-2xl">
+      <p class="text-base sm:text-xl md:text-2xl text-white font-medium leading-relaxed mb-6 sm:mb-10 max-w-2xl drop-shadow-sm">
         Heizung, Sanitär, Elektrotechnik, Bäder und Kältetechnik — alles aus einer Hand. Über 40 Jahre Erfahrung.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 sm:gap-5">
@@ -37,7 +38,7 @@
         </a>
         <a
           href="#leistungen"
-          class="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 border-2 border-white/40 text-white hover:bg-white hover:text-primary rounded-md font-bold transition-all text-base sm:text-lg text-center"
+          class="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 border-2 border-white/30 text-white backdrop-blur-sm bg-white/5 hover:bg-white hover:text-primary rounded-md font-bold transition-all text-base sm:text-lg text-center"
         >
           Unsere Leistungen
         </a>

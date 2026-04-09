@@ -32,9 +32,10 @@ const color = colorMap[accent];
       decoding="async"
       fetchpriority="high"
     />
-    <!-- Full overlay on mobile for readability, gradient on desktop -->
-    <div class={`absolute inset-0 ${color.overlay} md:hidden`}></div>
+    <!-- Desktop: gradient overlay -->
     <div class={`absolute inset-0 hidden md:block bg-gradient-to-r ${color.gradient}`}></div>
+    <!-- Mobile: frosted glass effect -->
+    <div class="absolute inset-0 md:hidden" style={`backdrop-filter: blur(8px) saturate(1.4); -webkit-backdrop-filter: blur(8px) saturate(1.4); background: ${color.hex}aa;`}></div>
   </div>
 
   <div class="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-8 w-full">
