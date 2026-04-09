@@ -6,7 +6,7 @@ Website-Rebuild für Ernst Pertler GmbH (pertler.de). Meisterbetrieb für Heizun
 
 - **Framework:** Astro 6 (Static Site Generator)
 - **Styling:** Tailwind CSS 4
-- **Fonts:** Manrope (Headings) + Inter (Body) — self-hosted, DSGVO-konform
+- **Fonts:** Inter (alle Gewichte 300–900) — self-hosted, DSGVO-konform
 - **Icons:** Lucide (tree-shakeable SVG)
 - **Deployment:** Vercel
 
@@ -23,7 +23,7 @@ npm run preview  # → Preview des Production Builds
 
 ```
 src/
-├── pages/          20 Seiten (Homepage, 5 Leistungen, Rechner, Kontakt, etc.)
+├── pages/          21 Seiten (Homepage, 5 Leistungen, 6 Projekte, Rechner, Kontakt, etc.)
 ├── components/     23+ Komponenten (Navbar, Hero, ServiceGrid, TeamDepartment, etc.)
 ├── layouts/        BaseLayout + ServiceLayout
 ├── styles/         global.css (Design System + Tailwind)

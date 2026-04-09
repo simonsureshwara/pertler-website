@@ -11,7 +11,7 @@
 |-----|------------|---------|
 | Framework | Astro | 6.x (Static Site Generator) |
 | Styling | Tailwind CSS | 4.x (@tailwindcss/vite Plugin) |
-| Fonts | Manrope (Headlines) + Inter (Body) | Self-hosted via @fontsource |
+| Fonts | Inter (alle Gewichte 300-900) | Self-hosted via @fontsource |
 | Icons | lucide-astro | Tree-shakeable SVG Icons |
 | Image Processing | sharp | 0.34.x (für Build-Time, Team-Foto-Download-Script) |
 | Sitemap | @astrojs/sitemap | Auto-generiert bei Build |
@@ -89,12 +89,12 @@ pertler-website/
 │   │   ├── team/                    # 100+ Mitarbeiter-Fotos (400x400 WebP, ~12KB/Stk)
 │   │   │   ├── heizung/             # 39 Fotos
 │   │   │   ├── kundendienst/        # 23 Fotos
-│   │   │   ├── azubis/              # 19 Fotos
+│   │   │   ├── azubis/              # 18 Fotos
 │   │   │   ├── baeder/              # 16 Fotos
 │   │   │   ├── bauleitung/          # 6 Fotos
 │   │   │   ├── elektro/             # 6 Fotos
 │   │   │   ├── kaelte/              # 1 Foto
-│   │   │   ├── leitung/             # 12 Fotos (GF, Verwaltung, Gründer)
+│   │   │   ├── leitung/             # 13 Fotos (GF, Verwaltung, Gründer, GF Bad)
 │   │   │   └── misc/                # 4 Fotos (Gruppenbild, Logos, Urkunde)
 │   │   ├── homepage-hero.webp       # Hero-Bild Homepage
 │   │   ├── heizung-hero.webp        # Hero-Bild Leistungsseiten
@@ -167,7 +167,7 @@ Alle Farben sind in `src/styles/global.css` unter `@theme` definiert. Niemals He
 ```
 
 ### Typografie
-- **Manrope 700/800** → Alle Headings (h1-h4), font-headline
+- **Inter 700/900** → Alle Headings (h1-h4), font-headline
 - **Inter 300-600** → Body, Labels, Buttons, font-body
 - Keine andere Font verwenden!
 
@@ -296,9 +296,9 @@ Alle von pertler.de heruntergeladen und als 400x400 WebP konvertiert.
 |-------------|-----------|--------|
 | team/heizung/ | Heizung & Sanitär | 39 |
 | team/kundendienst/ | Kundendienst & Wartung | 23 |
-| team/azubis/ | Auszubildende | 19 |
+| team/azubis/ | Auszubildende | 18 |
 | team/baeder/ | Bäder & Wellness | 16 |
-| team/leitung/ | Geschäftsführung + Verwaltung | 12 |
+| team/leitung/ | Geschäftsführung + Verwaltung + GF Bad | 13 |
 | team/bauleitung/ | Bau- & Projektleitung | 6 |
 | team/elektro/ | Elektrotechnik | 6 |
 | team/kaelte/ | Klima- & Kältetechnik | 1 |
