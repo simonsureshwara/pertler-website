@@ -7,7 +7,7 @@ function isActive(href: string) {
 }
 ---
 
-<nav class="sticky top-0 z-50 w-full glass-nav bg-surface/70 shadow-sm transition-all duration-300" id="main-nav" data-nav>
+<nav class="sticky top-0 z-50 w-full bg-surface lg:bg-surface/70 lg:glass-nav shadow-sm transition-all duration-300" id="main-nav" data-nav>
   <div class="max-w-screen-2xl mx-auto flex justify-between items-center px-8 py-4">
     <!-- Logo -->
     <div class="flex items-center gap-10">
@@ -323,24 +323,15 @@ function isActive(href: string) {
   const nav = document.querySelector('[data-nav]') as HTMLElement;
 
   toggle?.addEventListener('click', () => {
-    const isOpening = menu?.classList.contains('hidden');
     menu?.classList.toggle('hidden');
     openIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
     document.body.classList.toggle('overflow-hidden');
 
-    // Make navbar fully opaque when menu is open
-    if (isOpening) {
-      nav?.classList.remove('bg-surface/70');
-      nav?.classList.add('bg-surface');
-      // Position menu right below the navbar
-      if (menu) {
-        const navRect = nav.getBoundingClientRect();
-        menu.style.top = navRect.bottom + 'px';
-      }
-    } else {
-      nav?.classList.remove('bg-surface');
-      nav?.classList.add('bg-surface/70');
+    // Position menu right below the navbar
+    if (menu && menu.classList.contains('hidden') === false) {
+      var navRect = nav.getBoundingClientRect();
+      menu.style.top = navRect.bottom + 'px';
     }
   });
 
