@@ -9,12 +9,13 @@ interface Props {
   description?: string;
   serviceSchema?: Record<string, any>;
   activeCompany?: "pertler" | "service" | "elektro" | "bad";
+  preloadImage?: string;
 }
 
-const { title, description, serviceSchema, activeCompany } = Astro.props;
+const { title, description, serviceSchema, activeCompany, preloadImage } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} preloadImage={preloadImage}>
   <EmergencyBanner />
   <Navbar />
   <main>

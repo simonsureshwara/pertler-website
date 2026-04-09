@@ -328,10 +328,12 @@ function isActive(href: string) {
     closeIcon?.classList.toggle('hidden');
     document.body.classList.toggle('overflow-hidden');
 
-    // Position menu right below the navbar
+    // Position menu right below the navbar (rAF to avoid forced reflow)
     if (menu && menu.classList.contains('hidden') === false) {
-      var navRect = nav.getBoundingClientRect();
-      menu.style.top = navRect.bottom + 'px';
+      requestAnimationFrame(function() {
+        var navRect = nav.getBoundingClientRect();
+        menu.style.top = navRect.bottom + 'px';
+      });
     }
   });
 
