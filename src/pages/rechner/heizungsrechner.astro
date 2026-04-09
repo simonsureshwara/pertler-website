@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import EmergencyBanner from "../../components/EmergencyBanner.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+import { Home, Building2, Construction, Flame, Fuel, Thermometer, TreePine, Sun, Snowflake, Camera, Phone, ThumbsUp, HelpCircle, Zap, X, Mail } from "lucide-astro";
 ---
 
 <BaseLayout
@@ -51,15 +52,15 @@ import Footer from "../../components/Footer.astro";
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gebaeudetyp" data-value="Einfamilienhaus">
-              <span class="text-4xl">&#x1F3E0;</span>
+              <Home class="w-8 h-8 text-secondary" />
               <span class="font-semibold text-sm">Einfamilienhaus</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gebaeudetyp" data-value="Mehrfamilienhaus">
-              <span class="text-4xl">&#x1F3E2;</span>
+              <Building2 class="w-8 h-8 text-secondary" />
               <span class="font-semibold text-sm">Mehrfamilienhaus</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gebaeudetyp" data-value="Gewerbe/Industrie">
-              <span class="text-4xl">&#x1F3D7;</span>
+              <Construction class="w-8 h-8 text-secondary" />
               <span class="font-semibold text-sm">Gewerbe/Industrie</span>
             </button>
           </div>
@@ -182,35 +183,35 @@ import Footer from "../../components/Footer.astro";
               <label class="block text-sm font-semibold mb-4">Heizungstyp</label>
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Gas">
-                  <span class="text-2xl">&#x1F525;</span>
+                  <Flame class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Gas</span>
                 </button>
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Öl">
-                  <span class="text-2xl">&#x1F6E2;</span>
+                  <Fuel class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Öl</span>
                 </button>
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Fernwärme">
-                  <span class="text-2xl">&#x1F321;</span>
+                  <Thermometer class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Fernwärme</span>
                 </button>
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Wärmepumpe">
-                  <span class="text-2xl">&#x2668;</span>
+                  <Thermometer class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Wärmepumpe</span>
                 </button>
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Elektro">
-                  <span class="text-2xl">&#x26A1;</span>
+                  <Zap class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Elektro</span>
                 </button>
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Holz-Pellet">
-                  <span class="text-2xl">&#x1FAB5;</span>
+                  <TreePine class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Holz-Pellet</span>
                 </button>
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Keine">
-                  <span class="text-2xl">&#x274C;</span>
+                  <X class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Keine</span>
                 </button>
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="aktuelle_heizung" data-value="Weiß nicht">
-                  <span class="text-2xl">&#x2753;</span>
+                  <HelpCircle class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Weiß nicht</span>
                 </button>
               </div>
@@ -248,27 +249,27 @@ import Footer from "../../components/Footer.astro";
 
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Gasheizung">
-              <span class="text-4xl">&#x1F525;</span>
+              <Flame class="w-8 h-8 text-secondary" />
               <span class="font-semibold text-sm">Gasheizung</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Wärmepumpe">
-              <span class="text-4xl">&#x2668;</span>
+              <Thermometer class="w-8 h-8 text-secondary" />
               <span class="font-semibold text-sm">Wärmepumpe</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Fernwärme">
-              <span class="text-4xl">&#x1F321;</span>
+              <Thermometer class="w-8 h-8 text-secondary" />
               <span class="font-semibold text-sm">Fernwärme</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Pellet/Holz">
-              <span class="text-4xl">&#x1FAB5;</span>
+              <TreePine class="w-8 h-8 text-secondary" />
               <span class="font-semibold text-sm">Pellet/Holz</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Solar-Kombi">
-              <span class="text-4xl">&#x2600;</span>
+              <Sun class="w-8 h-8 text-secondary" />
               <span class="font-semibold text-sm">Solar-Kombi</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="gewuenschte_heizung" data-value="Beratung gewünscht">
-              <span class="text-4xl">&#x2753;</span>
+              <HelpCircle class="w-8 h-8 text-secondary" />
               <span class="font-semibold text-sm">Beratung gewünscht</span>
             </button>
           </div>
@@ -292,19 +293,19 @@ import Footer from "../../components/Footer.astro";
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Keller">
-              <span class="text-3xl">&#x1F3DA;</span>
+              <Home class="w-7 h-7 text-secondary" />
               <span class="font-semibold text-sm">Keller</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Dachboden">
-              <span class="text-3xl">&#x1F3E0;</span>
+              <Home class="w-7 h-7 text-secondary" />
               <span class="font-semibold text-sm">Dachboden</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Hauswirtschaftsraum">
-              <span class="text-3xl">&#x1F6AA;</span>
+              <Home class="w-7 h-7 text-secondary" />
               <span class="font-semibold text-xs sm:text-sm">Wohnraum</span>
             </button>
             <button type="button" class="quiz-card group flex flex-col items-center gap-3 p-6 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="standort" data-value="Außenaufstellung">
-              <span class="text-3xl">&#x1F333;</span>
+              <TreePine class="w-7 h-7 text-secondary" />
               <span class="font-semibold text-xs sm:text-sm">Außen</span>
             </button>
           </div>
@@ -335,7 +336,7 @@ import Footer from "../../components/Footer.astro";
             <div>
               <label class="block text-sm font-semibold mb-2">Fotos hochladen (optional)</label>
               <div class="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:border-secondary/40 transition-colors cursor-pointer">
-                <div class="text-4xl mb-3">&#x1F4F7;</div>
+                <div class="mb-3"><Camera class="w-8 h-8 text-on-surface-variant" /></div>
                 <p class="text-sm text-on-surface-variant font-medium">Fotos hier ablegen oder klicken</p>
                 <p class="text-xs text-on-surface-variant/60 mt-1">JPG, PNG bis 10 MB</p>
               </div>
@@ -384,15 +385,15 @@ import Footer from "../../components/Footer.astro";
               <label class="block text-sm font-semibold mb-4">Bevorzugte Kontaktart</label>
               <div class="grid grid-cols-3 gap-3">
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="kontaktart" data-value="E-Mail">
-                  <span class="text-2xl">&#x2709;</span>
+                  <Mail class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">E-Mail</span>
                 </button>
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="kontaktart" data-value="Telefon">
-                  <span class="text-2xl">&#x1F4DE;</span>
+                  <Phone class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Telefon</span>
                 </button>
                 <button type="button" class="quiz-card flex flex-col items-center gap-2 p-4 bg-surface-container-lowest rounded-xl editorial-shadow border-2 border-transparent hover:border-secondary/40 transition-all cursor-pointer text-center" data-field="kontaktart" data-value="Egal">
-                  <span class="text-2xl">&#x1F44D;</span>
+                  <ThumbsUp class="w-6 h-6 text-secondary" />
                   <span class="text-xs font-semibold">Egal</span>
                 </button>
               </div>

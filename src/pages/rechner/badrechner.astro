@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import EmergencyBanner from "../../components/EmergencyBanner.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+import { RefreshCw, Plus, Construction, Bath, ShowerHead, Monitor, Flame, Lightbulb, Mountain, Camera, Accessibility, CheckCircle2 } from "lucide-astro";
 
 const title = "Badrechner | PERTLER Gebäudetechnik München";
 const description = "Konfigurieren Sie Ihr Traumbad in 10 Schritten. Kostenlose Ersteinschätzung für Ihre Badsanierung in München.";
@@ -42,19 +43,19 @@ const description = "Konfigurieren Sie Ihr Traumbad in 10 Schritten. Kostenlose 
           <p class="text-on-surface-variant mb-6">Welche Art von Badprojekt planen Sie?</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-single="projektart">
             <button type="button" class="card-option" data-value="Badsanierung">
-              <span class="text-2xl mb-2 block">&#x1F504;</span>
+              <RefreshCw class="w-6 h-6 text-secondary mb-2" />
               <span class="font-semibold">Badsanierung</span>
             </button>
             <button type="button" class="card-option" data-value="Neues Bad">
-              <span class="text-2xl mb-2 block">&#x1F195;</span>
+              <Plus class="w-6 h-6 text-secondary mb-2" />
               <span class="font-semibold">Neues Bad</span>
             </button>
             <button type="button" class="card-option" data-value="Teilrenovierung">
-              <span class="text-2xl mb-2 block">&#x1F3D7;</span>
+              <Construction class="w-6 h-6 text-secondary mb-2" />
               <span class="font-semibold">Teilrenovierung</span>
             </button>
             <button type="button" class="card-option" data-value="Barrierefreier Umbau">
-              <span class="text-2xl mb-2 block">&#x267F;</span>
+              <Accessibility class="w-6 h-6 text-secondary mb-2" />
               <span class="font-semibold">Barrierefreier Umbau</span>
             </button>
           </div>
@@ -95,31 +96,31 @@ const description = "Konfigurieren Sie Ihr Traumbad in 10 Schritten. Kostenlose 
           <p class="text-on-surface-variant mb-6">Was ist aktuell vorhanden? <span class="text-xs">(Mehrfachauswahl)</span></p>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" data-multi="aktuell">
             <button type="button" class="card-option-multi" data-value="Badewanne">
-              <span class="text-2xl mb-1 block">&#x1F6C1;</span>
+              <Bath class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Badewanne</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Dusche">
-              <span class="text-2xl mb-1 block">&#x1F6BF;</span>
+              <ShowerHead class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Dusche</span>
             </button>
             <button type="button" class="card-option-multi" data-value="WC">
-              <span class="text-2xl mb-1 block">&#x1F6BD;</span>
+              <Bath class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">WC</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Waschtisch">
-              <span class="text-2xl mb-1 block">&#x1FA9E;</span>
+              <Monitor class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Waschtisch</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Fußbodenheizung">
-              <span class="text-2xl mb-1 block">&#x1F525;</span>
+              <Flame class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Fu&szlig;bodenheizung</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Fenster">
-              <span class="text-2xl mb-1 block">&#x1FA9F;</span>
+              <Lightbulb class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Fenster</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Barrierefreie Elemente">
-              <span class="text-2xl mb-1 block">&#x267F;</span>
+              <Accessibility class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Barrierefreie Elemente</span>
             </button>
           </div>
@@ -131,43 +132,43 @@ const description = "Konfigurieren Sie Ihr Traumbad in 10 Schritten. Kostenlose 
           <p class="text-on-surface-variant mb-6">Was m&ouml;chten Sie? <span class="text-xs">(Mehrfachauswahl)</span></p>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" data-multi="gewuenscht">
             <button type="button" class="card-option-multi" data-value="Badewanne">
-              <span class="text-2xl mb-1 block">&#x1F6C1;</span>
+              <Bath class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Badewanne</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Ebenerdige Dusche">
-              <span class="text-2xl mb-1 block">&#x1F6BF;</span>
+              <ShowerHead class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Ebenerdige Dusche</span>
             </button>
             <button type="button" class="card-option-multi" data-value="WC">
-              <span class="text-2xl mb-1 block">&#x1F6BD;</span>
+              <Bath class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">WC</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Dusch-WC">
-              <span class="text-2xl mb-1 block">&#x1F6BD;</span>
+              <Bath class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Dusch-WC</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Einzelwaschtisch">
-              <span class="text-2xl mb-1 block">&#x1FA9E;</span>
+              <Monitor class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Einzelwaschtisch</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Doppelwaschtisch">
-              <span class="text-2xl mb-1 block">&#x1FA9E;</span>
+              <Monitor class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Doppelwaschtisch</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Fußbodenheizung">
-              <span class="text-2xl mb-1 block">&#x1F525;</span>
+              <Flame class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Fu&szlig;bodenheizung</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Beleuchtungskonzept">
-              <span class="text-2xl mb-1 block">&#x1F4A1;</span>
+              <Lightbulb class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Beleuchtungskonzept</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Naturstein/Fliesen">
-              <span class="text-2xl mb-1 block">&#x1FAA8;</span>
+              <Mountain class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Naturstein/Fliesen</span>
             </button>
             <button type="button" class="card-option-multi" data-value="Barrierefreie Elemente">
-              <span class="text-2xl mb-1 block">&#x267F;</span>
+              <Accessibility class="w-6 h-6 text-secondary mb-1" />
               <span class="font-semibold text-sm">Barrierefreie Elemente</span>
             </button>
           </div>
@@ -248,7 +249,7 @@ const description = "Konfigurieren Sie Ihr Traumbad in 10 Schritten. Kostenlose 
 
           <!-- Upload zone placeholder -->
           <div class="border-2 border-dashed border-outline-variant/40 rounded-xl p-8 text-center mb-6 bg-surface-container-lowest">
-            <div class="text-4xl mb-2">&#x1F4F7;</div>
+            <div class="mb-2"><Camera class="w-8 h-8 text-on-surface-variant" /></div>
             <p class="font-semibold text-sm mb-1">Fotos vom aktuellen Bad</p>
             <p class="text-xs text-on-surface-variant">Drag &amp; Drop oder klicken (Platzhalter &mdash; Upload nicht aktiv)</p>
           </div>
@@ -338,7 +339,7 @@ const description = "Konfigurieren Sie Ihr Traumbad in 10 Schritten. Kostenlose 
         <!-- ============ SUCCESS SCREEN ============ -->
         <div class="quiz-step hidden" data-step="success">
           <div class="text-center py-12">
-            <div class="text-6xl mb-6">&#x2705;</div>
+            <div class="mb-6"><CheckCircle2 class="w-16 h-16 text-secondary mx-auto" /></div>
             <h2 class="text-2xl font-black mb-3">Vielen Dank!</h2>
             <p class="text-on-surface-variant text-lg leading-relaxed mb-6 max-w-md mx-auto">
               Unser Bad-Team meldet sich innerhalb von <strong>48 Stunden</strong> bei Ihnen.
