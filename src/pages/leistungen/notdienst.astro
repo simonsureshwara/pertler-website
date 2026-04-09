@@ -3,7 +3,9 @@ import ServiceLayout from "../../layouts/ServiceLayout.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import ContactCTA from "../../components/ContactCTA.astro";
-import { Phone } from "lucide-astro";
+import { Phone, Wrench, Flame, Zap, Wind, Droplets } from "lucide-astro";
+
+const iconMap: Record<string, any> = { wrench: Wrench, flame: Flame, zap: Zap, wind: Wind, droplets: Droplets };
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -19,10 +21,10 @@ const serviceSchema = {
 };
 
 const emergencyTypes = [
-  { icon: "🔧", title: "Rohrbruch", description: "Wasseraustritt, undichte Leitungen, überflutete Räume — sofortige Hilfe bei Wasserschäden." },
-  { icon: "🔥", title: "Heizungsausfall", description: "Keine Wärme, Heizung defekt, Störungsmeldung — wir bringen Ihre Heizung wieder zum Laufen." },
-  { icon: "⚡", title: "Stromausfall", description: "Kurzschluss, Sicherung fällt ständig, Brandgeruch — schnelle Fehlersuche und Reparatur." },
-  { icon: "💨", title: "Gasgeruch", description: "Sofort Fenster öffnen, Haus verlassen und uns anrufen — wir kommen umgehend." },
+  { icon: "wrench", title: "Rohrbruch", description: "Wasseraustritt, undichte Leitungen, überflutete Räume — sofortige Hilfe bei Wasserschäden." },
+  { icon: "flame", title: "Heizungsausfall", description: "Keine Wärme, Heizung defekt, Störungsmeldung — wir bringen Ihre Heizung wieder zum Laufen." },
+  { icon: "zap", title: "Stromausfall", description: "Kurzschluss, Sicherung fällt ständig, Brandgeruch — schnelle Fehlersuche und Reparatur." },
+  { icon: "wind", title: "Gasgeruch", description: "Sofort Fenster öffnen, Haus verlassen und uns anrufen — wir kommen umgehend." },
 ];
 
 const processSteps = [
@@ -33,10 +35,10 @@ const processSteps = [
 ];
 
 const firstAid = [
-  { icon: "💧", title: "Rohrbruch", description: "Hauptwasserhahn sofort zudrehen. Strom in betroffenen Räumen abschalten." },
-  { icon: "🔥", title: "Heizungsausfall", description: "Thermostat prüfen, Sicherung prüfen. Notbetrieb am Gerät aktivieren, falls vorhanden." },
-  { icon: "⚡", title: "Stromausfall", description: "FI-Schalter und Sicherungen im Verteilerkasten prüfen. Keine defekten Geräte erneut einstecken." },
-  { icon: "💨", title: "Gasgeruch", description: "Fenster öffnen, kein Licht und keine Schalter betätigen, Haus sofort verlassen." },
+  { icon: "droplets", title: "Rohrbruch", description: "Hauptwasserhahn sofort zudrehen. Strom in betroffenen Räumen abschalten." },
+  { icon: "flame", title: "Heizungsausfall", description: "Thermostat prüfen, Sicherung prüfen. Notbetrieb am Gerät aktivieren, falls vorhanden." },
+  { icon: "zap", title: "Stromausfall", description: "FI-Schalter und Sicherungen im Verteilerkasten prüfen. Keine defekten Geräte erneut einstecken." },
+  { icon: "wind", title: "Gasgeruch", description: "Fenster öffnen, kein Licht und keine Schalter betätigen, Haus sofort verlassen." },
 ];
 
 const faqs = [
@@ -114,13 +116,18 @@ const serviceAreas = [
         <h2 class="text-3xl md:text-4xl font-black tracking-tighter">Wann Notdienst rufen?</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {emergencyTypes.map((item) => (
+        {emergencyTypes.map((item) => {
+          const Icon = iconMap[item.icon];
+          return (
           <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow border-t-4 border-error">
-            <div class="text-4xl mb-4">{item.icon}</div>
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-error/10">
+              {Icon && <Icon class="w-6 h-6 text-error" />}
+            </div>
             <h3 class="text-xl font-bold text-on-surface mb-3">{item.title}</h3>
             <p class="text-on-surface-variant leading-relaxed">{item.description}</p>
           </div>
-        ))}
+        );
+        })}
       </div>
     </div>
   </section>
@@ -152,15 +159,20 @@ const serviceAreas = [
         <h2 class="text-3xl md:text-4xl font-black tracking-tighter">Sofort-Maßnahmen bis wir da sind</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {firstAid.map((item) => (
+        {firstAid.map((item) => {
+          const Icon = iconMap[item.icon];
+          return (
           <div class="flex gap-4 bg-surface-container-lowest p-6 rounded-xl editorial-shadow">
-            <div class="text-3xl shrink-0">{item.icon}</div>
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-primary/10">
+              {Icon && <Icon class="w-5 h-5 text-primary" />}
+            </div>
             <div>
               <h3 class="font-bold text-on-surface mb-2">{item.title}</h3>
               <p class="text-on-surface-variant leading-relaxed text-sm">{item.description}</p>
             </div>
           </div>
-        ))}
+        );
+        })}
       </div>
     </div>
   </section>

@@ -46,7 +46,9 @@
       "Bash(mkdir -p public/images/team/kaelte)",
       "Bash(find:*)",
       "Bash(sed:*)",
-      "Bash(curl -s http://localhost:4321/)"
+      "Bash(curl -s http://localhost:4321/)",
+      "Bash(rm public/images/azubi-gruppe.webp)",
+      "Bash(mv public/images/azubi-gruppe-cropped.webp public/images/azubi-gruppe.webp)"
     ]
   }
 }

@@ -1,4 +1,6 @@
 ---
+import { Flame, Wrench, TreePine, Sun, ShowerHead, Droplets, Scale, ClipboardCheck, Home, RefreshCw, Lightbulb, Bell, Plug, Zap, Car, Trophy, HardHat, Pencil, Bath, Monitor, Mountain, Accessibility, Blocks, Ruler, PersonStanding, Construction, ThermometerSun, Fan, Search, Brush, FileText, Clock, ShieldCheck, Snowflake, Wind } from "lucide-astro";
+
 interface FeatureItem {
   icon: string;
   title: string;
@@ -17,24 +19,40 @@ const colorMap: Record<string, string> = {
   sanitaer: "#2e3b8c", error: "#ba1a1a", secondary: "#944a00",
 };
 
+const iconMap: Record<string, any> = {
+  flame: Flame, wrench: Wrench, tree: TreePine, sun: Sun, shower: ShowerHead,
+  droplets: Droplets, scale: Scale, clipboard: ClipboardCheck, home: Home,
+  refresh: RefreshCw, lightbulb: Lightbulb, bell: Bell, plug: Plug, zap: Zap,
+  car: Car, trophy: Trophy, hardhat: HardHat, penruler: Pencil, bath: Bath,
+  monitor: Monitor, mountain: Mountain, accessibility: Accessibility,
+  blocks: Blocks, ruler: Ruler, person: PersonStanding, construction: Construction,
+  thermometer: ThermometerSun, fan: Fan, search: Search, brush: Brush,
+  file: FileText, clock: Clock, shield: ShieldCheck, snowflake: Snowflake, wind: Wind,
+};
+
 const { title, subtitle, features, accent = "secondary" } = Astro.props;
 const accentHex = colorMap[accent] || colorMap.secondary;
 ---
 
 <section class="py-24 bg-surface">
-  <div class="max-w-screen-2xl mx-auto px-8">
+  <div class="max-w-screen-2xl mx-auto px-4 sm:px-8">
     <div class="mb-16">
       {subtitle && <span class="font-bold tracking-widest uppercase text-sm mb-4 block" style={`color: ${accentHex};`}>{subtitle}</span>}
-      <h2 class="text-3xl md:text-4xl font-black tracking-tighter">{title}</h2>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tighter">{title}</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {features.map((feature) => (
-        <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:shadow-lg transition-shadow border-t-4" style={`border-color: ${accentHex}20;`}>
-          <div class="text-3xl mb-4">{feature.icon}</div>
-          <h3 class="text-lg font-bold mb-2">{feature.title}</h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed">{feature.description}</p>
-        </div>
-      ))}
+      {features.map((feature) => {
+        const IconComponent = iconMap[feature.icon];
+        return (
+          <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:shadow-lg transition-shadow border-t-4" style={`border-color: ${accentHex}20;`}>
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={`background: ${accentHex}10;`}>
+              {IconComponent ? <IconComponent class="w-6 h-6" style={`color: ${accentHex};`} /> : <span class="text-2xl">{feature.icon}</span>}
+            </div>
+            <h3 class="text-lg font-bold mb-2">{feature.title}</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">{feature.description}</p>
+          </div>
+        );
+      })}
     </div>
   </div>
 </section>
